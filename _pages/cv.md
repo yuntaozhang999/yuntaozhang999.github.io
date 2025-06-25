@@ -11,27 +11,31 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* Ph.D. in Bioanalytical and Physical Chemistry
+  * University of the Pacific, Stockton, CA, USA
+  * Aug. 2016 – May 2021
+* M.S. in Environmental Engineering
+  * University of the Pacific, Stockton, CA, USA
+  * Sep. 2012 – May 2014
+* B.S. in Ecology
+  * University of Science and Technology Beijing, Beijing, China
+  * Sep. 2008 – Jun. 2012
 
-Work experience
+Work Experience
 ======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* Scientist – Senior Scientist
+  * Bristol Myers Squibb, CA, USA | Oct. 2021 – Present
+  * Lead implementation of carbene footprinting for high-resolution epitope mapping.
+  * Developed and optimized novel LC-MS methods across multiple platforms to solve complex analytical challenges.
+  * Improved carbene footprinting workflow throughput threefold, accelerating key program advancement.
+  * Characterized antibody biologics for bispecific, ADC, and CAR-T programs, directly informing strategic decisions.
+  * Trained 20+ scientists in advanced MS techniques; managed fleet services and operations as department champion.
+* Research Assistant
+  * University of the Pacific, CA, USA | Aug. 2016 – Aug. 2021
+  * Investigated structural and energetic properties of peptoids/peptides using advanced MS and computational modeling.
+  * Developed computational workflows for peptide/peptoid characterization; contributed to 3 peer-reviewed publications.
+  * Mentored 25+ students in peptide synthesis, MS, and molecular modeling; several mentees pursued advanced degrees.
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
 Skills
 ======
 * Skill 1
