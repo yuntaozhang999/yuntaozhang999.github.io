@@ -1,61 +1,84 @@
 {
   "basics": {
-    "name": "Your Sidebar Name",
-    "email": "none@example.org",
+    "name": "Yuntao Zhang",
+    "email": "y_zhang15@u.pacific.edu",
     "phone": "",
-    "website": "https://academicpages.github.io",
-    "summary": "Currently employed at Red Brick University. Short biography for the left-hand sidebar",
+    "website": "https://yuntaozhang999.github.io",
+    "summary": "Senior scientist at Bristol Myers Squibb.",
     "location": {
       "address": "",
       "postalCode": "",
-      "city": "Earth",
+      "city": "",
       "countryCode": "US",
-      "region": ""
+      "region": "San Francisco Bay Area"
     },
     "profiles": [
       {
         "network": "Google Scholar",
         "username": "",
-        "url": "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
+        "url": "https://scholar.google.com/citations?user=yFmxAroAAAAJ"
       },
       {
         "network": "ORCID",
         "username": "",
-        "url": "http://orcid.org/yourorcidurl"
+        "url": "https://orcid.org/0000-0001-8815-3105"
       },
       {
         "network": "GitHub",
-        "username": "academicpages",
-        "url": "https://github.com/academicpages"
+        "username": "",
+        "url": "https://github.com/yuntaozhang999"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "",
+        "url": "https://www.linkedin.com/in/yuntao4drugdiscovery/"
+      },
+      {
+        "network": "YouTube",
+        "username": "",
+        "url": "https://www.youtube.com/@yuntaozhang666"
+      },
+      {
+        "network": "X",
+        "username": "",
+        "url": "https://x.com/zhan70218"
       }
     ]
   },
   "work": [],
   "education": [
     {
-      "institution": "GitHub University",
-      "area": "Ph.D in Version Control Theory",
-      "studyType": "",
-      "startDate": "",
-      "endDate": "2018",
+      "institution": "University of the Pacific",
+      "area": "Bioanalytical and Physical Chemistry",
+      "studyType": "Ph.D.",
+      "startDate": "2016-08",
+      "endDate": "2021-05",
+      "city": "Stockton",
+      "region": "CA",
+      "country": "USA",
       "gpa": null,
       "courses": []
     },
     {
-      "institution": "GitHub University",
-      "area": "M.S. in Jekyll",
-      "studyType": "",
-      "startDate": "",
-      "endDate": "2014",
+      "institution": "University of the Pacific",
+      "area": "Environmental Engineering",
+      "studyType": "M.S.",
+      "startDate": "2012-09",
+      "endDate": "2014-05",
+      "city": "Stockton",
+      "region": "CA",
+      "country": "USA",
       "gpa": null,
       "courses": []
     },
     {
-      "institution": "GitHub University",
-      "area": "B.S. in GitHub",
-      "studyType": "",
-      "startDate": "",
-      "endDate": "2012",
+      "institution": "University of Science and Technology Beijing",
+      "area": "Ecology",
+      "studyType": "B.S.",
+      "startDate": "2008-09",
+      "endDate": "2012-06",
+      "city": "Beijing",
+      "country": "China",
       "gpa": null,
       "courses": []
     }
@@ -66,62 +89,97 @@
   "references": [],
   "publications": [
     {
-      "name": "Paper Title Number 1",
-      "publisher": "Journal 1",
-      "releaseDate": "2009-10-01",
-      "website": "http://academicpages.github.io/files/paper1.pdf",
-      "summary": "This paper is about the number 1. The number 2 is left for future work."
+      "name": "Chirality Effects on the Intrinsic Acidity of Isomeric Tripeptides Containing a D/L-Cysteine on the N-terminus: CAA and dCAA",
+      "publisher": "International Journal of Mass Spectrometry",
+      "releaseDate": "2025-01-01",
+      "website": "",
+      "summary": "Wang, S., Buen, Z., Harvey, K. R., Zhang, Y., & Ren, J. (2025). International Journal of Mass Spectrometry, 514, 117472."
     },
     {
-      "name": "Paper Title Number 2",
-      "publisher": "Journal 1",
-      "releaseDate": "2010-10-01",
-      "website": "http://academicpages.github.io/files/paper2.pdf",
-      "summary": "This paper is about the number 2. The number 3 is left for future work."
+      "name": "Subtle chirality effects of a D/L-Cysteine on the intrinsic acidity and conformation of isomeric tripeptides ACA and AdCA",
+      "publisher": "International Journal of Mass Spectrometry",
+      "releaseDate": "2021-01-01",
+      "website": "",
+      "summary": "Zhang, Y., Buen, Z., Browne, M. D., Mann, Y. S., & Ren, J. (2021). International Journal of Mass Spectrometry, 469, 116685."
     },
     {
-      "name": "Paper Title Number 3",
-      "publisher": "Journal 1",
-      "releaseDate": "2015-10-01",
-      "website": "http://academicpages.github.io/files/paper3.pdf",
-      "summary": "This paper is about the number 3. The number 4 is left for future work."
+      "name": "Mass spectrometry studies of the fragmentation patterns and mechanisms of protonated peptoids",
+      "publisher": "Biopolymers",
+      "releaseDate": "2020-01-01",
+      "website": "",
+      "summary": "Ren, J., Tian, Y., Hossain, E., Ho, J. S., Mann, Y. S., Zhang, Y., ... & Zuckermann, R. N. (2020). Biopolymers, 111(7), e23358."
     },
     {
-      "name": "Paper Title Number 4",
-      "publisher": "GitHub Journal of Bugs",
-      "releaseDate": "2024-02-17",
-      "website": "http://academicpages.github.io/files/paper3.pdf",
-      "summary": "This paper is about fixing template issue #693."
+      "name": "Characterization of protonated AcAlaDab and AcDabAla by IRMPD spectroscopy and molecular modeling",
+      "publisher": "International Journal of Mass Spectrometry",
+      "releaseDate": "2019-01-01",
+      "website": "",
+      "summary": "Batoon, P., Zhang, Y., Berden, G., Oomens, J., & Ren, J. (2019). International Journal of Mass Spectrometry, 444, 116178."
+    },
+    {
+      "name": "Synthesis and mass spectrometry analysis of oligo-peptoids",
+      "publisher": "JoVE (Journal of Visualized Experiments)",
+      "releaseDate": "2018-01-01",
+      "website": "",
+      "summary": "Ren, J., Mann, Y. S., Zhang, Y., & Browne, M. D. (2018). JoVE (Journal of Visualized Experiments), (132), e56652."
     }
   ],
   "presentations": [
     {
-      "name": "Talk 1 on Relevant Topic in Your Field",
-      "event": "UC San Francisco, Department of Testing",
-      "date": "2012-03-01",
-      "location": "San Francisco, CA, USA",
-      "description": ""
-    },
-    {
-      "name": "Tutorial 1 on Relevant Topic in Your Field",
-      "event": "UC-Berkeley Institute for Testing Science",
-      "date": "2013-03-01",
-      "location": "Berkeley, CA, USA",
-      "description": ""
-    },
-    {
-      "name": "Talk 2 on Relevant Topic in Your Field",
-      "event": "London School of Testing",
-      "date": "2014-02-01",
-      "location": "London, UK",
-      "description": ""
-    },
-    {
-      "name": "Conference Proceeding talk 3 on Relevant Topic in Your Field",
-      "event": "Testing Institute of America 2014 Annual Conference",
-      "date": "2014-03-01",
+      "name": "Chirality Induced Conformational and Thermochemical Changes in Cysteine Polyalanine Peptides",
+      "event": "Conference on Ion Chemistry and Mass Spectrometry, UCLA",
+      "date": "2020-01-01",
       "location": "Los Angeles, CA, USA",
-      "description": ""
+      "description": "Oral Presentation. Authors: Yuntao Zhang, Joshua S. Ho, Jianhua Ren."
+    },
+    {
+      "name": "How Can D-Amino Acids Influence the Conformations and the Acidities of Oligopeptides?",
+      "event": "Conference on Ion Chemistry and Mass Spectrometry, UCLA",
+      "date": "2019-01-01",
+      "location": "Los Angeles, CA, USA",
+      "description": "Oral Presentation. Authors: Yuntao Zhang, Joshua Ho, Jianhua Ren."
+    },
+    {
+      "name": "Revealing the Remarkable Basicity and the Fine Structures of Lysine-Alanine Dipeptides by IRMPD and Computational Studies",
+      "event": "69th ASMS, Philadelphia",
+      "date": "2021-10-01",
+      "location": "Philadelphia, PA, USA",
+      "description": "Poster Presentation. Authors: Yuntao Zhang, Patrick Batoon, Shiyuan Wang, Giel Berden, Jos Oomens, Jianhua Ren."
+    },
+    {
+      "name": "Systematic Alteration of Gas-Phase Acidities and Conformations with Insertion of a D-Amino Acid in Oligopeptides",
+      "event": "67th ASMS, Atlanta",
+      "date": "2019-06-01",
+      "location": "Atlanta, GA, USA",
+      "description": "Poster Presentation. Authors: Yuntao Zhang, Joshua S. Ho, Jianhua Ren."
+    },
+    {
+      "name": "Conformations and Energetics of B- and Y-Ions in Peptoid Fragmentation",
+      "event": "67th ASMS, Atlanta",
+      "date": "2019-06-01",
+      "location": "Atlanta, GA, USA",
+      "description": "Poster Presentation. Authors: Joshua S. Ho, Yuntao Zhang, Jianhua Ren."
+    },
+    {
+      "name": "Understanding the Perplexing and Interesting Pathways of Peptoid Fragmentation",
+      "event": "67th ASMS, Atlanta",
+      "date": "2019-06-01",
+      "location": "Atlanta, GA, USA",
+      "description": "Poster Presentation. Authors: Yadwinder S. Mann, Yuntao Zhang, Jianhua Ren."
+    },
+    {
+      "name": "Chirality Induced Gas-Phase Acidity and Conformational Changes in Cysteine-Polyalanine Peptides",
+      "event": "66th ASMS, San Diego",
+      "date": "2018-06-01",
+      "location": "San Diego, CA, USA",
+      "description": "Poster Presentation. Authors: Yuntao Zhang, Jianhua Ren."
+    },
+    {
+      "name": "Gas-Phase Acidities and Conformations of Oligopeptide Epimers with D- and L-Cysteine",
+      "event": "65th ASMS, Indianapolis",
+      "date": "2017-06-01",
+      "location": "Indianapolis, IN, USA",
+      "description": "Poster Presentation. Authors: Yuntao Zhang, Zachary Buen, Jianhua Ren."
     }
   ],
   "teaching": [
