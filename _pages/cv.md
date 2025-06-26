@@ -38,12 +38,18 @@ Work Experience
 
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Analytical Techniques
+  * Carbene foootprinting for epitope/paratope mapping, Peptide Mapping, Glycan Profiling, Native MS, Intact/Subunit Mass Analysis
+* Instrumentation
+  * Orbitrap Fusion Lumos, Exactive Plus EMR, ZenoTOF 7600, TripleQuad 7500, timsTOF Pro2, 6530B QTOF, 6230B TOF
+  * Acquity M Class, 1260/1290 Infinity II, Ultimate 3000, NanoElute2
+  * Maurice System
+* Computational & Data Analysis
+ * Byos, Skyline, Xcalibur, Sciex OS, Compass
+ * Gaussian, Orca, GaussView, VMD, Maestro, PyMOL
+ * Python, Bash
+ * Molecular Modeling, Deep Learning
+
 
 Publications
 ======
