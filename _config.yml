@@ -24,11 +24,11 @@ author:
   # Biographic information
   avatar           : "profile.png"
   name             : "Yuntao Zhang" # Your name, used in the title and as the author name
-  pronouns         : # example: "she/her"  
+  pronouns         : "he/him"  
   bio              : "Scientist @BMS | AI-Driven Innovator"
   location         : "San Francisco Bay Area, CA, USA" # Location, used in the author profile
   employer         : "Bristol Myers Squibb" # Employer, used in the author profile
-  uri              : # URL
+  uri              : "https://yuntaozhang999.github.io"
   email            : "" 
 
   # Academic websites
@@ -38,7 +38,7 @@ author:
   impactstory      : # URL
   orcid            : "https://orcid.org/0000-0001-8815-3105"
   semantic         : # URL
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
+  pubmed           : # "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
   researchgate     : # URL
   scopus           : # URL
 
@@ -51,7 +51,7 @@ author:
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
   # Social media
-  bluesky          : "bsky.app" # Replace this with you Bluesky username
+  bluesky          : # "bsky.app" # Replace this with you Bluesky username
   facebook         : # Username
   flickr           : # Username
   foursquare       : # Username
@@ -74,7 +74,7 @@ author:
   wikipedia        : # Username
   xing             : # Username
   youtube          : # Username
-  zhihu            : "yuntaozhang666" # Username
+  zhihu            : # Username
 
 # Publication Category - The following the list of publication categories and their headings
 publication_category:
@@ -137,21 +137,21 @@ facebook:
   username               :
   app_id                 :
   publisher              :
-og_image                 :  # Social media default site image
-og_description           :  # Social media default site image description
+og_image                 : "/images/profile.png"
+og_description           : "Senior Scientist | AI-Enhanced Mass Spectrometry Specialist"
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
-  type                   : # Person or Organization (defaults to Person)
+  type                   : Person # Person or Organization (defaults to Person)
   name                   : # If the user or organization name differs from the site's name
   links: # An array of links to social media profiles
 
 
 # Analytics
 analytics:
-  provider               :  "false" # false (default), "google", "google-universal", "google-analytics-4", "custom"
+  provider               : "false" # false (default), "google", "google-universal", "google-analytics-4", "custom"
   google:
-    tracking_id          :
+    tracking_id          : "G-M2W60KHV04"
 
 
 # Reading Files

@@ -184,18 +184,25 @@
   ],
   "teaching": [
     {
-      "course": "Teaching experience 1",
-      "institution": "University 1, Department",
-      "date": "2014-01-01",
+      "course": "General Chemistry (CHEM23) Lab",
+      "institution": "University of the Pacific, Chemistry Department",
+      "date": "",
       "role": "Undergraduate course",
-      "description": ""
+      "description": "This course is designed for general interest in physical science and for preparation for further study in chemistry. "
     },
     {
-      "course": "Teaching experience 2",
-      "institution": "University 1, Department",
-      "date": "2015-01-01",
-      "role": "Workshop",
-      "description": ""
+      "course": "General Chemistry (CHEM25) Lab",
+      "institution": "University of the Pacific, Chemistry Department",
+      "date": "",
+      "role": "Undergraduate course",
+      "description": "The important general principles, theories and concepts of chemistry are studied, including fundamentals of chemistry and equilibrium."
+    },
+    {
+      "course": "General Chemistry (CHEM27) Lab",
+      "institution": "University of the Pacific, Chemistry Department",
+      "date": "",
+      "role": "Undergraduate course",
+      "description": "More important general principles, theories, and concepts of chemistry are studied including modern applications of quantum mechanics, bonding, chemical kinetics, liquids, solids,  properties of solutions, coordination compounds, organic chemistry and biochemistry. "
     }
   ],
   "portfolio": [
@@ -205,6 +212,22 @@
       "date": "",
       "url": "",
       "description": "Short description of portfolio item number 1<br/><img src='/images/500x300.png'>"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Automated Sequence Generation and Data Prep Toolkit for LC-MS Intact Mass Analysis of Antibody Biologics",
+      "category": "Software/Workflow Automation",
+      "date": "2025-05",
+      "url": "",
+      "description": "Developed a toolkit to automate sequence generation and data preparation for high-throughput LC-MS intact mass analysis at Bristol Myers Squibb. Features include: Automated CSV generation for ThermoFisher Xcalibur and Byos workflows, User-friendly GUI (Tkinter), Customizable settings and auto package installation. Impact: Reduced manual setup time from ~15 min to ~15 sec, minimized errors, and improved user experience.Technologies: Python, Tkinter, CSV"
+    },
+    {
+      "name": "AI-Enhanced Intact Mass Data Communication: Expert-Level Comment and Automated Visualization",
+      "category": "AI/Scientific Data Analysis",
+      "date": "2025-05",
+      "url": "",
+      "description": "Developed an automated tool for expert-level comment generation and interactive visualization of LC-MS data at Bristol Myers Squibb. Features: AI-driven comment generation via Azure OpenAI API (GPT-4.1), HTML-based 96-well plate heatmap visualization, Automated report generation and trend identification. Impact: Automated specialized tasks, improved clarity and consistency, and enabled rapid decision-making. Technologies: Python, Azure OpenAI API, HTML"
     }
   ]
 }
