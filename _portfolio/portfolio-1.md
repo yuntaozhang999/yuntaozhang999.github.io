@@ -1,7 +1,8 @@
 ---
 title: "Automated Sequence Generation and Data Prep Toolkit for LC-MS Intact Mass Analysis of Antibody Biologics"
-excerpt: "Toolkit to automate LC-MS sequence generation and data prep for antibody biologics. <br/><img src='/images/platemap_multi_converter.png'>"
+excerpt: "Toolkit to automate LC-MS sequence generation and data prep for antibody biologics. <br/><img src='/images/AI_enhanced_Data_communication.png'>"
 collection: portfolio
+date: 2025-05
 ---
 
 **Organization:** Bristol Myers Squibb  
