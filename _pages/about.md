@@ -7,8 +7,6 @@ redirect_from:
   - /about.html
 ---
 
-# Yuntao Zhang
-
 Welcome! I am a senior scientist based in the San Francisco Bay Area, specializing in bioanalytical and physical chemistry, mass spectrometry, and AI-driven scientific data analysis. My work focuses on developing innovative analytical workflows and computational tools to accelerate biologics characterization and drug discovery.
 
 ## About Me
