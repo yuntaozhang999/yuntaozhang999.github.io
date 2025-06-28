@@ -35,10 +35,10 @@ BS: It was visceral, yeah.
 ES: This was two years ago. Since then, the gains in what is called reinforcement learning, which is what AlphaGo helped invent and so forth, allow us to do planning. And a good example is look at OpenAI o3 or DeepSeek R1, and you can see how it goes forward and back, forward and back, forward and back. It's extraordinary. In my case, I bought a rocket company because it was like, interesting.
 
 02:36
-BS: (Laughs) As one does.
+BS: (Laughs) Everyone does.
 
 02:38
-ES: As one does. And it’s an area that I’m not an expert in, and I want to be an expert. So I'm using deep research. And these systems are spending 15 minutes writing these deep papers. That's true for most of them. Do you have any idea how much computation 15 minutes of these supercomputers is? It's extraordinary. So you’re seeing the arrival, the shift from language to language. Tthen you had language to sequence, which is how biology is done. Now you're doing essentially planning and strategy. The eventual state of this is the computers running all business processes, right? So you have an agent to do this, an agent to do this, an agent to do this. And you concatenate them together, and they speak language among each other. They typically speak English language.
+ES: Everyone does. And it’s an area that I’m not an expert in, and I want to be an expert. So I'm using deep research. And these systems are spending 15 minutes writing these deep papers. That's true for most of them. Do you have any idea how much computation 15 minutes of these supercomputers is? It's extraordinary. So you’re seeing the arrival, the shift from language to language. Tthen you had language to sequence, which is how biology is done. Now you're doing essentially planning and strategy. The eventual state of this is the computers running all business processes, right? So you have an agent to do this, an agent to do this, an agent to do this. And you concatenate them together, and they speak language among each other. They typically speak English language.
 
 03:26
 BS: I mean, speaking of just the sheer compute requirements of these systems, let's talk about scale briefly. You know, I kind of think of these AI systems as Hungry Hungry Hippos. They seemingly soak up all the data and compute that we throw at them. They've already digested all the tokens on the public internet, and it seems we can't build data centers fast enough. What do you think the real limits are, and how do we get ahead of them before they start throttling AI progress?
