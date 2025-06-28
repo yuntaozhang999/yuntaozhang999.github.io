@@ -1,6 +1,6 @@
 ---
 title: "AI-Enhanced Intact Mass Data Communication: Expert-Level Comment and Automated Visualization"
-excerpt: "Automated tool for LC-MS data: AI-driven expert comments and interactive 96-well plate heatmap visualization. <br/><img src='/images/ai_mass_plate_heatmap.png'>"
+excerpt: "Automated tool for LC-MS data: AI-driven expert comments and interactive 96-well plate heatmap visualization. <br/><img src='/images/AI_enhanced_Data_communication.png'>"
 collection: portfolio
 date: 2025-05-01
 ---
