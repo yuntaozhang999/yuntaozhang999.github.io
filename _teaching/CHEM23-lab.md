@@ -4,7 +4,6 @@ collection: teaching
 type: "Undergraduate course"
 permalink: /teaching/CHEM23-lab
 venue: "University of the Pacific, Chemistry Department"
-date: 2016-2021
 location: "Stockton, CA, USA"
 ---
 
