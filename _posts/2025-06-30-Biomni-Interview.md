@@ -1,11 +1,13 @@
 ---
-title: 'Future Blog Post'
-date: 2199-01-01
-permalink: /posts/2012/08/blog-post-4/
+title: "Reflection on Kexin Huang's Interview on  AI Scientist Biomni"
+date: 2025-06-30
+permalink: /posts/2025/06/Biomni/
 tags:
-  - cool posts
-  - category1
-  - category2
+  - AI Scientist
+  - Biomni
+  - Reflection
+  - Kexin Huang
+  - Chinese
 ---
 
 对谈斯坦福 Biomni 作者黄柯鑫：AI Scientist 领域将出现 Cursor 级别的机会

@@ -6,6 +6,7 @@ tags:
   - AI
   - Reflection
   - Eric Schmidt
+  - English
 ---
 
 ## My Personal Views and Reflections
