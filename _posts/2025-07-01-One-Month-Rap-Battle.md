@@ -1,6 +1,6 @@
 ---
 title: 'One-Month Rap Battle Improvement Plan'
-date: 2025-07-01
+date: 2125-07-01
 permalink: /posts/2025/07/one-month-rap-battle-improvement-plan/
 tags:
   - Clara
