@@ -10,6 +10,6 @@ author_profile: true
 {{ site.certificates | size }} certificates found.
 
 {% for certificate in site.certificates %}
-  {% include archive-single-certificate.html post=certificate%}
+  {% include archive-single.html%}
 {% endfor %}
 
