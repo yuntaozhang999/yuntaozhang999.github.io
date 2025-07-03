@@ -8,6 +8,6 @@ author_profile: true
 {% include base_path %}
 
 {% for certificate in site.certificates %}
-  {% include archive-single-certificate.html %}
+  {% include archive-single-certificate.html post=certificate%}
 {% endfor %}
 
