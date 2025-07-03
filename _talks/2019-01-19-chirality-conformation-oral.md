@@ -2,7 +2,6 @@
 title: "How Can D-Amino Acids Influence the Conformations and the Acidities of Oligopeptides?"
 collection: talks
 type: "Talk"
-permalink: /talks/2019-01-19-chirality-conformation-oral
 date: 2019-01-19
 venue: 'Conference on Ion Chemistry and Mass Spectrometry, UCLA, Jan. 2019'
 location: "Lake Arrowhead, CA, USA"

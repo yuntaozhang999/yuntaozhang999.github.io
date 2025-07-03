@@ -2,7 +2,6 @@
 title: "General Chemistry (CHEM23) Lab"
 collection: teaching
 type: "Undergraduate course"
-permalink: /teaching/CHEM23-lab
 venue: "University of the Pacific, Chemistry Department"
 location: "Stockton, CA, USA"
 ---
