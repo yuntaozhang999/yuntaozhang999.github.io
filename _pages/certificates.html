@@ -1,0 +1,13 @@
+---
+layout: archive
+title: "Certificates"
+permalink: /certificates/
+author_profile: true
+---
+
+{% include base_path %}
+
+{% for certificate in site.certificates %}
+  {% include archive-single-certificate.html %}
+{% endfor %}
+

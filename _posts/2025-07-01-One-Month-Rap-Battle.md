@@ -9,16 +9,7 @@ tags:
   - Plan
 ---
 
-Here is a **practical 1-month rap battle improvement plan** for a **10-year-old girl**:
-
----
-
-Here is your **fully revised, child-centered, one-month rap battle plan** for your **10-year-old and 8-year-old daughters**, integrating:
-
-✅ My previous suggestions
-✅ Your new inclusivity, creativity, musicality, performance, reflection, kindness, and extension suggestions
-
-while preserving **clarity, fun, and confidence-building**.
+Here is your **fully revised, child-centered, one-month rap battle plan** for your **10-year-old and 8-year-old daughters**.
 
 ---
 
@@ -34,24 +25,42 @@ while preserving **clarity, fun, and confidence-building**.
 ✅ Personal choice of topics to boost ownership.
 ✅ Fun, movement, and kindness integrated.
 
-. Make Progress Visible
+1. Make Progress Visible
+
 Sticker Chart or Progress Tracker: Let them add a sticker or color in a box each day they practice. Celebrate when they reach milestones.
+
 Weekly Progress Videos: Record short clips of their rapping each week. Watch together to see how much they’ve improved.
+
 2. Celebrate Achievements
+
 Mini Celebrations: After each milestone, have a small celebration—like a dance party, special snack, or a “Rap Star” certificate.
+
 Showcase Performances: Host a mini family rap show at the end of each week or month. Invite relatives via video call for extra excitement.
+
 3. Encourage Choice and Creativity
+
 Let Them Pick Topics: Give them ownership by letting them choose rap topics, props, or costumes.
+
 Creative Challenges: Add silly challenges (funny voices, dance moves, or sound effects) to keep things fresh.
+
 4. Foster Teamwork and Support
+
 Pair Up: Sometimes let them work as a team—writing or performing together.
+
 Positive Feedback: After each performance, everyone shares one thing they liked about the other’s rap.
+
 5. Reflection and Journaling
+
 Feelings Journal: Encourage them to draw or write about how they felt after each session. This helps them see their growth and express emotions.
+
 6. Keep It Playful
+
 Games and Movement: Use rap games, call-and-response, and movement to keep energy high and sessions fun.
+
 Mix Up Activities: Rotate between writing, performing, drawing, and moving so it never feels repetitive.
+
 Tip:
+
 Ask for their ideas—“What would make this even more fun for you?” Involving them in planning boosts engagement and ownership!
 
 ---
@@ -64,14 +73,29 @@ Ask for their ideas—“What would make this even more fun for you?” Involvin
 
 ### **Activities:**
 
-* **Day 1:** Make rhyme lists together (“cat, bat, hat”). 8yo can list 5 words, 10yo can list 10.
-Rhyme Race: Set a timer for 1 minute and see how many rhyming words they can come up with for a starter word. Make it a friendly competition or team up to beat their own record.
-Rhyme Hunt: Walk around the house and find objects to rhyme with (e.g., “chair”—bear, hair, pair).
-Silly Rhyme Challenge: Encourage them to invent funny or nonsense words that rhyme (e.g., “splair” with “chair”).
-Draw & Rhyme: Draw a picture of the starter word, then write or say rhymes around it.
-Rhyme Story: After making a list, use the rhyming words to create a silly sentence or short story together.
-Rhyme Toss: Toss a soft ball back and forth—each time someone catches it, they have to say a new rhyming word.
+* **Day 1:** Make rhyme lists together (“cat, bat, hat”). 
+
+✅ 8yo can list 5 words, 10yo can list 10.
+
+✅ Rhyme Race: Set a timer for 1 minute and see how many rhyming words they can come up with for a starter word. 
+
+✅ Make it a friendly competition or team up to beat their own record.
+
+~~Rhyme Hunt: Walk around the house and find objects to rhyme with (e.g., “chair”—bear, hair, pair).~~
+
+~~Silly Rhyme Challenge: Encourage them to invent funny or nonsense words that rhyme (e.g., “splair” with “chair”).~~
+
+~~Draw & Rhyme: Draw a picture of the starter word, then write or say rhymes around it.~~
+
+✅ Rhyme Story: After making a list, use the rhyming words to create a silly sentence or short story together.
+
+~~Rhyme Toss: Toss a soft ball back and forth—each time someone catches it, they have to say a new rhyming word.~~
+
 * **Day 2:** Clap or tap beats while saying rhymes.
+
+Clara independently though of this rhyme competition: they take turns to say a word and the other person have to say a new rhyming word. This is the same idea as the one for Day 1.
+
+
 Step-by-step guide:
 
 Pick a simple steady beat:
