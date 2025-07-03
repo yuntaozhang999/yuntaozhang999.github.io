@@ -2,7 +2,6 @@
 title: "Subtle chirality effects of a D/l-Cysteine on the intrinsic acidity and conformation of isomeric tripeptides ACA and AdCA"
 collection: publications
 category: manuscripts
-permalink: /publication/2021-11-01-chirality-effects-aca-adca
 excerpt: 'This paper investigates the subtle chirality effects of a D/l-Cysteine on the intrinsic acidity and conformation of isomeric tripeptides ACA and AdCA.'
 date: 2021-11-01
 venue: 'International Journal of Mass Spectrometry, Volume 469, November 2021, 116685'

@@ -1,7 +1,6 @@
 ---
 title: "Reflection on Eric Schmidt's TED Interview"
 date: 2025-06-27
-permalink: /posts/2025/06/eric-schmidt-ted-reflection/
 tags:
   - AI
   - Reflection

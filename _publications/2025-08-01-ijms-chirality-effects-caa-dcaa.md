@@ -2,7 +2,6 @@
 title: "Chirality Effects on the Intrinsic Acidity of Isomeric Tripeptides Containing a D/L-Cysteine on the N-terminus: CAA and dCAA"
 collection: publications
 category: manuscripts
-permalink: /publication/2025-08-01-chirality-effects
 excerpt: 'This paper investigates the chirality effects on the intrinsic acidity of isomeric tripeptides containing a D/L-Cysteine on the N-terminus.'
 date: 2025-08-01
 venue: 'International Journal of Mass Spectrometry, Volume 514, August 2025, 117472'

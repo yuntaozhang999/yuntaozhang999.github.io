@@ -2,7 +2,6 @@
 title: "Synthesis and Mass Spectrometry Analysis of Oligo-peptoids"
 collection: publications
 category: manuscripts
-permalink: /publication/2018-02-21-oligo-peptoids-ms
 excerpt: 'This article presents a method for manual synthesis of oligo-peptoids and sequence analysis using tandem mass spectrometry (MS/MS) techniques.'
 date: 2018-02-21
 venue: 'Journal of Visualized Experiments, (132):56652, 2018'

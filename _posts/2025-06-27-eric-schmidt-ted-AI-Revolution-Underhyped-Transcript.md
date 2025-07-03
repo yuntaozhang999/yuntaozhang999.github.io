@@ -1,7 +1,6 @@
 ---
 title: "Transcript of Eric Schmidt's TED interview: The AI Revolution Is Underhyped"
 date: 2025-06-27
-permalink: /posts/2025/06/The AI Revolution Is Underhyped/
 tags:
   - AI
   - interview

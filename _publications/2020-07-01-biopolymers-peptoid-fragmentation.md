@@ -2,7 +2,6 @@
 title: "Mass spectrometry studies of the fragmentation patterns and mechanisms of protonated peptoids"
 collection: publications
 category: manuscripts
-permalink: /publication/2020-07-01-peptoid-fragmentation
 excerpt: 'This study uses tandem mass spectrometry to characterize the fragmentation patterns and mechanisms of singly and doubly protonated peptoids with basic residues at different positions.'
 date: 2020-07-01
 venue: 'Biopolymers, 111(7):e23358, 2020'

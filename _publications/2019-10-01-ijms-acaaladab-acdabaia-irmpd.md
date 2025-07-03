@@ -2,7 +2,6 @@
 title: "Characterization of protonated AcAlaDab and AcDabAla by IRMPD spectroscopy and molecular modeling"
 collection: publications
 category: manuscripts
-permalink: /publication/2019-10-01-acaaladab-acdabaia-irmpd
 excerpt: 'This paper characterizes protonated AcAlaDab and AcDabAla using IRMPD spectroscopy and molecular modeling, revealing structural insights into these isomeric dipeptides.'
 date: 2019-10-01
 venue: 'International Journal of Mass Spectrometry, Volume 444, October 2019, 116178'

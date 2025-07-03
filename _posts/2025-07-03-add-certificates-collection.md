@@ -1,7 +1,6 @@
 ---
 title: 'How to Add a New Collection to a Jekyll Academic Pages Website'
 date: 2025-07-03
-permalink: /posts/2025/07/add-certificates-collection-in-my-jekyll-ssg-personal-page/
 tags:
   - SSG
   - Personal
