@@ -2,7 +2,6 @@
 title: "General Chemistry (CHEM27) Lab"
 collection: teaching
 type: "Undergraduate course"
-permalink: /teaching/CHEM27-lab
 venue: "University of the Pacific, Chemistry Department"
 location: "Stockton, CA, USA"
 ---

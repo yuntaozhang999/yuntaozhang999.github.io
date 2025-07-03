@@ -2,7 +2,6 @@
 title: "Chirality Induced Conformational and Thermochemical Changes in Cysteine Polyalanine Peptides"
 collection: talks
 type: "Talk"
-permalink: /talks/2020-01-18-chirality-conformation-oral
 date: 2020-01-18
 venue: 'Conference on Ion Chemistry and Mass Spectrometry, UCLA, Jan. 2020'
 location: "Lake Arrowhead, CA, USA"
