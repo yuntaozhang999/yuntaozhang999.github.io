@@ -68,7 +68,7 @@ author:
   steam            : # Username
   telegram         : # URL
   tumblr           : # Username
-  twitter          : "zhan70218" # Username for X / Twitter
+  twitter          : "yuntaozhang999" # Username for X / Twitter
   vine             : # Username
   weibo            : # Username
   wikipedia        : # Username
@@ -215,6 +215,9 @@ kramdown:
 
 # These settings control the types of collections used by the template
 collections:
+  certificates:
+    output: true
+    permalink: /certificates/:path/
   teaching:
     output: true
     permalink: /:collection/:path/
