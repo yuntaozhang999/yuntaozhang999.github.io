@@ -61,7 +61,7 @@
     {% elsif post.citation and post.paperurl %}
       <p>Recommended citation: {{ post.citation }}<br /><a href="{{ post.paperurl }}">Download Paper</a></p>
     {% elsif post.citation and post.slidesurl and post.bibtexurl %}
-      <p>Recommended citation: {{ post.citation }}<br /><a href="{{ post.slidesurl }}">Download Slides</a> | <a href="{{ post.bibtexurl}}">Download Bibtex</a></p>
+      <p>Recommended citation: {{ post.citation }}<br /><a href="{{ post.slidesurl }}">Download Slides</a> | <a href="{{ post.bibtexurl }}">Download Bibtex</a></p>
     {% elsif post.citation and post.slidesurl %}
       <p>Recommended citation: {{ post.citation }}<br /><a href="{{ post.slidesurl }}">Download Slides</a></p>
     {% elsif post.citation and post.bibtexurl %}
@@ -81,4 +81,16 @@
     {% endif %}
 
   </article>
+</div>
+
+<div class="certificate-entry" style="margin-bottom:2em;">
+  <a href="{{ post.url | relative_url }}">
+    <h3>{{ post.title }}</h3>
+  </a>
+  {% if post.excerpt %}
+    <div>{{ post.excerpt | markdownify }}</div>
+  {% endif %}
+  {% if post.date %}
+    <p><small>{{ post.date | date: "%B %d, %Y" }}</small></p>
+  {% endif %}
 </div>
