@@ -7,8 +7,6 @@ author_profile: true
 
 {% include base_path %}
 
-{{ site.certificates | size }} certificates found.
-
 {% for post in site.certificates reversed %}
   {% include archive-single.html %}
 {% endfor %}
