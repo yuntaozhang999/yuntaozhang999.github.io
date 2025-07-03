@@ -2,6 +2,7 @@
 title: "Associate Python Developer"
 excerpt: "DataCamp Associate Python Developer Certificate.<br/><a href='/files/AssociatePythonDeveloper_DataCamp_2024.pdf' target='_blank'><img src='/images/AssociatePythonDeveloper_DataCamp_2024.png' width='300' alt='Associate Python Developer Certificate'></a>"
 collection: certificates
+permalink: /certificates/AssociatePythonDeveloper_DataCamp_2024/
 date: 2024-10-21
 ---
 
