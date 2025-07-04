@@ -1,6 +1,7 @@
 ---
 title: 'Tutorial: Building a multi-modal researcher with Gemini 2.5'
 date: 2025-07-01
+excerpt: ""
 tags:
   - Tutorial
   - langchain

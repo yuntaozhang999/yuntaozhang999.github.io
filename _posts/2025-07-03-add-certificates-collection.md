@@ -1,6 +1,7 @@
 ---
 title: 'How to Add a New Collection to a Jekyll Academic Pages Website'
 date: 2025-07-03
+excerpt: ""
 tags:
   - SSG
   - Personal

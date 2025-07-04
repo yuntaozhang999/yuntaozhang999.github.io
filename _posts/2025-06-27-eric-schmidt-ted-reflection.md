@@ -1,6 +1,7 @@
 ---
 title: "Reflection on Eric Schmidt's TED Interview"
 date: 2025-06-27
+excerpt: ""
 tags:
   - AI
   - Reflection
