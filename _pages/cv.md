@@ -23,15 +23,13 @@ Education
 
 Work Experience
 ======
-* Scientist – Senior Scientist
-  * Bristol Myers Squibb, CA, USA | Oct. 2021 – Present
+* **Scientist – Senior Scientist**, Bristol Myers Squibb, CA, USA, Oct. 2021 – Present
   * Lead implementation of carbene footprinting for high-resolution epitope mapping.
   * Developed and optimized novel LC-MS methods across multiple platforms to solve complex analytical challenges.
   * Improved carbene footprinting workflow throughput threefold, accelerating key program advancement.
   * Characterized antibody biologics for bispecific, ADC, and CAR-T programs, directly informing strategic decisions.
   * Trained 20+ scientists in advanced MS techniques; managed fleet services and operations as department champion.
-* Research Assistant
-  * University of the Pacific, CA, USA | Aug. 2016 – Aug. 2021
+* **Research Assistant**, University of the Pacific, CA, USA, Aug. 2016 – Aug. 2021
   * Investigated structural and energetic properties of peptoids/peptides using advanced MS and computational modeling.
   * Developed computational workflows for peptide/peptoid characterization; contributed to 3 peer-reviewed publications.
   * Mentored 25+ students in peptide synthesis, MS, and molecular modeling; several mentees pursued advanced degrees.
