@@ -1,6 +1,6 @@
 ---
 title: "Reflection on Kexin Huang's Interview on  AI Scientist Biomni"
-date: 2025-06-30
+date: 2125-06-30
 tags:
   - AI Scientist
   - Biomni
