@@ -16,6 +16,7 @@ Even though I'm not a Jekyll expert, my intuition told me the problem was likely
 
 To test this theory, I first looked at `_pages/publications.html`, the file that controls the layout of my publications page. I wanted to see how it decided which publications to show. Inside, I found this key piece of Liquid code:
 
+{% raw %}
 ```html
 {% if site.publication_category %}
   {% for category in site.publication_category  %}
@@ -26,6 +27,7 @@ To test this theory, I first looked at `_pages/publications.html`, the file that
       {% endif %}
     ...
 ```
+{% endraw %}
 
 This was the smoking gun! The code loops through a list called `site.publication_category` and only displays posts whose category matches an item in that list. This confirmed my suspicion: the list of allowed categories was defined somewhere in the site's main configuration.
 
