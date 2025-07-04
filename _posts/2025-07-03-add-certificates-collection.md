@@ -6,7 +6,6 @@ tags:
   - SSG
   - Personal
   - Jekyll
-  - Certificates
   - Yuntao Zhang
 ---
 

@@ -69,6 +69,11 @@ Teaching
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
   
-Service and leadership
+Service and Leadership
 ======
-* Currently signed in to 43 different slack teams
+* Peer Reviewer for:
+  * ACS Biomaterials Science & Engineering
+  * ACS Omega
+  * Inorganica Chimica Acta
+  * RSC Advances
+* Active member of the American Society for Mass Spectrometry (ASMS) since 2017
