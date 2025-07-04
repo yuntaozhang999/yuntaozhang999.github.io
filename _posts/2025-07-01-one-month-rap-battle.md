@@ -92,8 +92,9 @@ Ask for their ideas—“What would make this even more fun for you?” Involvin
 
 * **Day 2:** Clap or tap beats while saying rhymes.
 
-Clara independently though of this rhyme competition: they take turns to say a word and the other person have to say a new rhyming word. This is the same idea as the one for Day 1.
+✅ Clara independently though of this rhyme competition: they take turns to say a word and the other person have to say a new rhyming word. This is the same idea as the one for Day 1.
 
+Clara vs Yuntao = 6:2
 
 Step-by-step guide:
 
@@ -117,6 +118,7 @@ Let each child lead the beat for a round.
 Add movement:
 
 March or step in place while clapping and saying rhymes for extra fun.
+
 * **Day 3:** Play **tempo games** (rap slow, then fast) on simple rhymes.
 How to do it:
 

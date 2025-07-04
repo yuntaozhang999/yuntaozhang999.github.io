@@ -10,14 +10,26 @@ tags:
   - Yuntao Zhang
 ---
 
-
-A quick story about debugging why my new patents weren't showing up on my Jekyll-based academic website, and how a little bit of intuition led to a simple fix.
-
 I recently decided to add my two pending U.S. patent applications to my personal website. I created the markdown files in the `_publications` folder, filled in the details, and pushed the changes. But when I checked the live site, they were nowhere to be found. My peer-reviewed journal articles were all there, but the patents were missing.
 
 Even though I'm not a Jekyll expert, my intuition told me the problem was likely related to how the site categorizes publications. I noticed my journal articles had `category: manuscripts` in their front matter, while my new patent files had `category: patents`. It seemed logical that the website was probably configured to only recognize and display a specific list of categories.
 
-So, I started digging. The most obvious place to look for site-wide settings is the `_config.yml` file. I opened it up and scrolled through, and sure enough, I found this little block of code:
+To test this theory, I first looked at `_pages/publications.html`, the file that controls the layout of my publications page. I wanted to see how it decided which publications to show. Inside, I found this key piece of Liquid code:
+
+```html
+{% if site.publication_category %}
+  {% for category in site.publication_category  %}
+    ...
+    {% for post in site.publications reversed %}
+      {% if post.category != category[0] %}
+        {% continue %}
+      {% endif %}
+    ...
+```
+
+This was the smoking gun! The code loops through a list called `site.publication_category` and only displays posts whose category matches an item in that list. This confirmed my suspicion: the list of allowed categories was defined somewhere in the site's main configuration.
+
+The next logical step was to find that list. I opened up the main configuration file, `_config.yml`, and scrolled through. Sure enough, I found this block:
 
 ```yaml
 # Publication Category - The following the list of publication categories and their headings
