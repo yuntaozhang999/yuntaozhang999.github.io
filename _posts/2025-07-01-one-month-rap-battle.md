@@ -1,6 +1,6 @@
 ---
 title: 'One-Month Rap Battle Improvement Plan'
-date: 2125-07-01
+date: 2025-07-01
 tags:
   - Clara
   - Cramer
