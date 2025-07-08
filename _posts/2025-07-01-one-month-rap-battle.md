@@ -8,10 +8,6 @@ tags:
   - Plan
 ---
 
-Here is your **fully revised, child-centered, one-month rap battle plan** for your **10-year-old and 8-year-old daughters**.
-
----
-
 ## ⭐️ **Overview**
 
 **Goal:** Build comfort with **rhyming, freestyling, writing playful battle lines, and performing with confidence**, while having fun together.
@@ -19,9 +15,13 @@ Here is your **fully revised, child-centered, one-month rap battle plan** for yo
 **Time:** \~15 min/day, 4–5 days/week.
 
 **Approach:**
+
 ✅ Easy Mode for 8-year-old (shorter lines, more time).
+
 ✅ Pairing: Sisters can work together on some activities.
+
 ✅ Personal choice of topics to boost ownership.
+
 ✅ Fun, movement, and kindness integrated.
 
 1. Make Progress Visible
@@ -94,13 +94,13 @@ Ask for their ideas—“What would make this even more fun for you?” Involvin
 
 ✅ Clara independently though of this rhyme competition: they take turns to say a word and the other person have to say a new rhyming word. This is the same idea as the one for Day 1.
 
-Clara vs Yuntao = 6:2
+✅ Clara vs Yuntao = 6:2
 
 Step-by-step guide:
 
 Pick a simple steady beat:
 
-Start with a slow, even clap (e.g., clap every second: 1, 2, 3, 4).
+✅ Start with a slow, even clap (e.g., clap every second: 1, 2, 3, 4).
 You can also tap on a table or use a drum if you have one.
 Say a rhyme on each beat:
 
@@ -109,7 +109,7 @@ For example, clap and say:
 Go through the whole rhyme list, one word per clap.
 Try phrases:
 
-Once comfortable, say short phrases or lines, one word per beat:
+✅ Once comfortable, say short phrases or lines, one word per beat:
 “The cat” (clap), “sat flat” (clap), “on a mat” (clap).
 Switch up the rhythm:
 
@@ -123,11 +123,17 @@ March or step in place while clapping and saying rhymes for extra fun.
 How to do it:
 
 Pick a rhyme set: Use words like “cat, bat, hat” or short lines you already have.
+
 Rap slowly: Clap or tap a slow beat and say the rhymes slowly together.
+
 Rap quickly: Speed up the beat and try rapping the same rhymes faster.
+
 Switch it up: Take turns being the “tempo leader”—one person sets the speed, and everyone follows.
+
 Make it fun: See who can keep up with the fastest tempo, or who can do the silliest slow rap.
+
 Tip:
+
 You can use any rhymes—written or made up on the spot. The goal is to feel the difference between slow and fast rapping, not to write new material (unless they want to).
 
 Example:
