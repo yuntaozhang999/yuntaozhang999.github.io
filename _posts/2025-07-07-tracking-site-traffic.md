@@ -39,7 +39,7 @@ When I first looked at my `_config.yml`, I found this section:
 analytics:
   provider               : "false" # false (default), "google", "google-universal", "google-analytics-4", "custom"
   google:
-    tracking_id          : "G-M2W60KHV04"
+    tracking_id          : "G-XXXXXXXXXX"
 ```
 
 I had correctly added my `tracking_id`, but I had missed a crucial step: the `provider` was set to `"false"`. This setting explicitly tells the site *not* to use any analytics service.
@@ -49,7 +49,7 @@ I had correctly added my `tracking_id`, but I had missed a crucial step: the `pr
 The key was to choose the correct provider. The comment in the config file lists a few options: `"google"`, `"google-universal"`, and `"google-analytics-4"`.
 
 The choice depends on the format of your tracking ID:
-*   **`google-analytics-4`**: This is for the current version of Google Analytics (GA4). All new tracking IDs start with `G-`, like mine (`G-M2W60KHV04`). This is the correct option for any new setup.
+*   **`google-analytics-4`**: This is for the current version of Google Analytics (GA4). All new tracking IDs start with `G-`, like mine (`G-XXXXXXXXXX`). This is the correct option for any new setup.
 *   **`google-universal`**: This was for the older, now-deprecated Universal Analytics. Its tracking IDs started with `UA-`.
 
 Since my ID starts with `G-`, the fix was simple. I just had to change the provider.
@@ -59,7 +59,7 @@ Here is the final, correct configuration:
 analytics:
   provider               : "google-analytics-4"
   google:
-    tracking_id          : "G-M2W60KHV04"
+    tracking_id          : "G-XXXXXXXXXX"
 ```
 
 After making this change and pushing it to my GitHub repository, Google Analytics was successfully enabled. It's worth noting that it can take 24-48 hours for new data to start appearing in your Google Analytics dashboard.
