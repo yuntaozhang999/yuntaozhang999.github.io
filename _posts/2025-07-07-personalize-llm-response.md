@@ -1,6 +1,7 @@
 ---
 title: 'How to Craft a Powerful Persona for Your LLM Assistant'
 date: 2025-07-07
+excerpt: ""
 tags:
   - LLM
   - AI
