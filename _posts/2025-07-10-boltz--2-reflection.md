@@ -1,5 +1,5 @@
 ---
-title: 'Technical Q&A on the Boltz-2 Paper'
+title: 'Reflection on the Boltz-2 Paper'
 date: 2025-07-10
 tags:
   - Structural Biology
@@ -7,10 +7,19 @@ tags:
   - Binding Affinity
   - Drug Discovery
   - Boltz-2
-  - Q&A
+  - Reflection
 ---
-
-This post summarizes key technical aspects of the Boltz-2 paper in a question-and-answer format.
+ 
+ At a glance, it seemed like an incremental update: just take the successful Boltz-1 architecture and add an affinity prediction head. This impression was reinforced by benchmark charts where, for common tasks like protein-ligand prediction, the performance looked nearly identical to its predecessor. If the core structure prediction wasn't significantly better, I reasoned, the model's true value would be limited.
+ 
+ The paper highlights several key breakthroughs:
+ 
+*   **Pioneering Affinity Prediction:** Boltz-2 is the first model of its kind to predict binding affinity with an accuracy comparable to gold-standard physics-based methods like FEP+, while being over 1,000 times faster. This combination of speed and precision represents a paradigm shift for virtual screening.
+*   **Advanced Architectural Controllability:** The model's core 'Trunk' has been significantly upgraded with new controllability features, allowing researchers to inject prior knowledge or steer predictions without costly retraining.
+*   **Enhanced Physical Plausibility:** Through a novel 'physical steering' technique, Boltz-2 generates structures that are more physically realistic during inference, addressing a common shortcoming of previous AI models.
+ 
+ 
+Below is a summary of my reflections on the paper in a question-and-answer format.
 
 ### 1. Core Architecture
 
