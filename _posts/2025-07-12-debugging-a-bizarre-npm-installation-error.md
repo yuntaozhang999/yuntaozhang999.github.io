@@ -10,7 +10,7 @@ tags:
   - Gemini CLI
 ---
 
-I recently ran into one of the most baffling and frustrating bugs I’ve encountered in a long time. It all started with a simple command that should have just worked:
+I recently ran into a frustrating bug. It started with a simple command that should have just worked:
 
 ```powershell
 npm install -g @google/generative-ai/cli
