@@ -1,6 +1,7 @@
 ---
 title: 'Reflection on the Boltz-2 Paper'
 date: 2025-07-10
+excerpt: ""
 tags:
   - Structural Biology
   - Machine Learning
