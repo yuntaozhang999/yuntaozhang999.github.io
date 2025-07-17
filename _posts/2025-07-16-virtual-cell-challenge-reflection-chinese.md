@@ -1,5 +1,5 @@
 ---
-title: 'Virtual Cell Challenge 2025, Lesson 1'
+title: 'Virtual Cell Challenge 2025, Lesson 1 - 中文'
 date: 2025-07-16
 excerpt: ""
 tags:
