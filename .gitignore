@@ -17,4 +17,4 @@ vendor/
 .bundle/
 
 # ignore one post that is not ready yet
-_2199-01-01-vcc-team-notes.md
+_posts/2199-01-01-vcc-team-notes.md
