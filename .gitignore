@@ -15,3 +15,6 @@ package-lock.json
 # Ignore the vendor file and bundle for alternative installation
 vendor/
 .bundle/
+
+# ignore one post that is not ready yet
+_2199-01-01-vcc-team-notes.md
