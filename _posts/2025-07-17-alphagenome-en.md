@@ -1,7 +1,7 @@
 ---
 title: 'AlphaGenome Quick Start Colab Notebook Lesson 1'
 date: 2025-07-17
-excerpt: "A summary of issues and solutions encountered while running the AlphaGenome quick_start.ipynb notebook."
+excerpt: ""
 tags:
   - AlphaGenome
   - Quick Start
