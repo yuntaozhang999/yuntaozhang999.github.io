@@ -10,7 +10,7 @@ date: 2024-06-23
 **Completed on:** June 23, 2024
 
 **Specialization Overview:**  
-This foundational program, created by AI pioneer Andrew Ng, provides a comprehensive pathway into the world of deep learning. It is designed to equip learners with the knowledge and skills to understand the capabilities, challenges, and consequences of deep learning and to participate in the development of leading-edge AI technology.
+This program, created by AI pioneer Andrew Ng, provides a comprehensive pathway into the world of deep learning. It is designed to equip learners with the knowledge and skills to understand the capabilities, challenges, and consequences of deep learning and to participate in the development of leading-edge AI technology.
 
 The specialization covers the core concepts of deep learning, from foundational neural networks to advanced architectures. I gained hands-on experience building and training various neural network models, including Convolutional Neural Networks (CNNs), Recurrent Neural Networks (RNNs), LSTMs, and Transformers. The curriculum also emphasizes practical industry techniques for improving model performance, such as Dropout, BatchNorm, and Xavier/He initialization, all implemented using Python and TensorFlow. Through a series of real-world case studies, I applied these concepts to tasks like speech recognition, music synthesis, chatbots, machine translation, and natural language processing.
 

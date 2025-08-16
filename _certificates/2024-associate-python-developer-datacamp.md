@@ -6,7 +6,7 @@ date: 2024-10-21
 ---
 
 **Issued by:** DataCamp  
-**Length:** 30 hours  
+**Instructors:** Hugo Bowne-Anderson, Jason Myers, Filip Schouwenaars, Maria Eugenia Inzaugarat, George Boorman  
 **Completed on:** October 21, 2024
 
 **Course Overview:**  

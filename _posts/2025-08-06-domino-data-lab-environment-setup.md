@@ -7,11 +7,6 @@ tags:
   - Docker Container
 
 ---
-
-# Domino Data Lab Environment Setup & Docker Container Lessons
-
-**Date:** August 6, 2025 
-
 **Topic:** Setting up Python 3.11 + CUDA environment in Domino Data Lab 
 
 ## Table of Contents

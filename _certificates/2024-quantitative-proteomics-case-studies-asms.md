@@ -7,7 +7,7 @@ date: 2024-06-02
 
 **Issued by:** American Society for Mass Spectrometry (ASMS)  
 **Instructors:** Brendan MacLean (University of Washington), Devon Kohler (Northeastern University), Deanne Plubell (University of Washington), Olga Vitek (Northeastern University)  
-**Completed on:** 2024
+**Completed on:** June 2nd, 2024
 
 **Course Overview:**  
 This case-study-driven course provides hands-on training in the analysis of quantitative proteomics data. It is designed for researchers who want to gain practical experience with state-of-the-art workflows for both Selected Reaction Monitoring (SRM) and Data-Independent Acquisition (DIA) mass spectrometry. The curriculum moves from experimental design and data acquisition considerations to in-depth statistical analysis and interpretation, using real-world datasets from clinical and pre-clinical studies.

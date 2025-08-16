@@ -93,7 +93,6 @@ my-project/
 source .venv/bin/activate
 
 # Then run your code
-python -m myproject
 python script.py
 pytest
 
