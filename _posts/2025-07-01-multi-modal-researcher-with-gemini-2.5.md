@@ -16,7 +16,6 @@ tags:
 
 Tutorial summary:
 
--
 Lance from Langchain demonstrates a simple multi-modal researcher built with Gemini 2.5 models. This tool uses Gemini’s native search, YouTube video understanding, and text-to-speech capabilities to research a topic and a related video, combine the findings into a report, and generate a podcast summarizing the results. The workflow is orchestrated in Langraph Studio, allowing users to input a topic and YouTube URL, then view each step’s inputs and outputs. The Gemini 2.5 models are highlighted for their strong performance, multimodal abilities, and ease of integration. The code is modular, with nodes for search, video analysis, report generation, and podcast creation. Users can easily configure model parameters in the Studio interface. The project is open source and customizable, encouraging experimentation with Gemini’s advanced features.
 
 

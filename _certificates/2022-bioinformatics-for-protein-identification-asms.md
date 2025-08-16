@@ -7,7 +7,7 @@ date: 2022-06-05
 
 **Issued by:** American Society for Mass Spectrometry (ASMS)  
 **Instructors:** Nuno Bandeira (University of California, San Diego), David Tabb (Stellenbosch University)  
-**Completed on:** 2022
+**Completed on:** June 5th, 2022
 
 **Course Overview:**  
 This course provides a deep dive into the bioinformatics tools and algorithms that are essential for identifying proteins from shotgun LC-MS/MS datasets. It is designed for proteomics researchers to move beyond using software as a "black box" and gain a solid understanding of its inner workings. The curriculum focuses on the key steps in protein identification, from peptide-spectrum matching and error rate estimation to protein assembly, and also explores advanced techniques like spectral library searching and de novo sequencing.

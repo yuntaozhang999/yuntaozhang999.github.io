@@ -6,7 +6,7 @@ date: 2021-04-28
 ---
 
 **Issued by:** Schrödinger  
-**Completed on:** 2021-04-28
+**Completed on:** April 28th, 2021
 
 **Course Overview:**  
 This course provides a foundational understanding of computational molecular modeling tools and their application in drug discovery. It is designed for scientists who wish to learn industry-standard methods for small molecule design. The curriculum offers hands-on experience with Schrödinger’s Maestro and LiveDesign platforms, covering key workflows from protein preparation and ligand docking to collaborative design in a real-world case study.

@@ -5,7 +5,8 @@ collection: certificates
 date: 2025-05-17
 ---
 
-**Issued by:** Hugging Face
+**Issued by:** Hugging Face  
+**Instructors** Ben Burtenshaw, Sergio Paniego  
 **Completed on:** May 17, 2025
 
 **Course Overview:**

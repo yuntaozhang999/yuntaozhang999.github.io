@@ -7,7 +7,7 @@ date: 2023-06-04
 
 **Issued by:** American Society for Mass Spectrometry (ASMS)  
 **Instructors:** Susan Abbatiello (Waters Corporation), William Thompson (908 Devices)  
-**Completed on:** 2023
+**Completed on:** June 4th, 2023
 
 **Course Overview:**  
 With the expanding use of LC-MS in laboratories not specifically focused on analytical chemistry, the skills needed to maintain high instrument performance and data quality are more critical than ever. This course addresses this gap by providing a foundational skill set for the practical maintenance and troubleshooting of LC-MS systems. It is designed for operators in pharmaceutical, biochemical, biological, and environmental labs who rely on these robust technologies. The curriculum focuses on vendor-neutral principles to empower practitioners to limit instrument downtime, reduce costs, and ensure high-quality data.
