@@ -24,10 +24,10 @@ Education
 Work Experience
 ======
 * **Scientist – Senior Scientist**, Bristol Myers Squibb, CA, USA, Oct. 2021 – Present
-  * Lead implementation of carbene footprinting for high-resolution epitope mapping.
+  * Lead implementation of carbene footprinting for high-resolution epitope/paratope mapping.
+  * Improved carbene footprinting workflow throughput by threefold, accelerating key program advancement.
+  * Characterized antibody biologics for multispecific, ADC, and CAR-T programs, directly informing strategic decisions.
   * Developed and optimized novel LC-MS methods across multiple platforms to solve complex analytical challenges.
-  * Improved carbene footprinting workflow throughput threefold, accelerating key program advancement.
-  * Characterized antibody biologics for bispecific, ADC, and CAR-T programs, directly informing strategic decisions.
   * Trained 20+ scientists in advanced MS techniques; managed fleet services and operations as department champion.
 * **Research Assistant**, University of the Pacific, CA, USA, Aug. 2016 – Aug. 2021
   * Investigated structural and energetic properties of peptoids/peptides using advanced MS and computational modeling.
