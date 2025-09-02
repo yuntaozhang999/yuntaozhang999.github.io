@@ -6,10 +6,10 @@ tags:
   - Fine-Tuning
   - State
   - STATE Transition
-  - Single Cell
-  - Embedding
-  - Virtual Cell
   - ST-Tahoe
+  - Single Cell
+  - Virtual Cell
+
 
 ---
 
