@@ -1,5 +1,5 @@
 ---
-title: 'Fine-Tuning the ST-Tahoe STATE Model’
+title: 'Fine-Tuning the ST-Tahoe STATE Model'
 date: 2025-09-01
 excerpt: ""
 tags:
