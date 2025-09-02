@@ -13,8 +13,6 @@ tags:
 
 ---
 
-# 
-
 ## Introduction: A Learning Log from Confusion to Clarity
 
 ## My Goal
