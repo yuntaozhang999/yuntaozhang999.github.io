@@ -1,6 +1,6 @@
 ---
 title: "Bioinformatics for Protein Identification"
-excerpt: "ASMS course on the fundamentals of protein identification from LC-MS/MS data, covering database searching, error rate estimation, and protein assembly.<br/><a href='/files/bioinformatics-for-protein-identification-asms-2022.pdf' target='_blank'><img src='/images/bioinformatics-for-protein-identification-asms-2022.png' width='300' alt='Bioinformatics for Protein Identification Certificate'></a>"
+excerpt: "ASMS course on the fundamentals of protein identification from LC-MS/MS data, covering database searching, error rate estimation, and protein assembly.<br/><a href='/files/2022-asms-bioinformatics-for-protein-identification.pdf' target='_blank'><img src='/images/2022-asms-bioinformatics-for-protein-identification.png' width='300' alt='Bioinformatics for Protein Identification Certificate'></a>"
 collection: certificates
 date: 2022-06-05
 ---
@@ -28,5 +28,5 @@ The course was structured over two days:
 
 This course provided a robust theoretical and practical foundation in the bioinformatics of protein identification, enabling more reliable and informed analysis of proteomics data.
 
-You can view the certificate <a href='/files/bioinformatics-for-protein-identification-asms-2022.pdf' target='_blank'>here</a>.
+You can view the certificate <a href='/files/2022-asms-bioinformatics-for-protein-identification.pdf' target='_blank'>here</a>.
 

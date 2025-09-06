@@ -7,7 +7,6 @@ tags:
   - interview
   - transcript
   - Eric Schmidt
-  - English
 ---
 
 [Watch the full interview on YouTube](https://www.youtube.com/watch?v=id4YRO7G0wE)

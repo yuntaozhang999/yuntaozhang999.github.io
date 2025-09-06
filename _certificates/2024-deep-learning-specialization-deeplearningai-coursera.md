@@ -1,6 +1,6 @@
 ---
 title: "Deep Learning Specialization"
-excerpt: "Deep Learning Specialization Certificate.<br/><a href='/files/deep-learning-specialization-deeplearningai-coursera-2024.pdf' target='_blank'><img src='/images/deep-learning-specialization-deeplearningai-coursera-2024.png' width='300' alt='Deep Learning Specialization Certificate'></a>"
+excerpt: "Deep Learning Specialization Certificate.<br/><a href='/files/2024-deeplearningai-coursera-deep-learning-specialization.pdf' target='_blank'><img src='/images/2024-deeplearningai-coursera-deep-learning-specialization.png' width='300' alt='Deep Learning Specialization Certificate'></a>"
 collection: certificates
 date: 2024-06-23
 ---
@@ -31,4 +31,4 @@ The specialization is composed of five in-depth courses:
 
 This specialization has provided me with a strong theoretical and practical foundation in deep learning, preparing me to tackle complex AI challenges and contribute to innovative solutions in the field.
 
-You can view the certificate <a href='/files/deep-learning-specialization-deeplearningai-coursera-2024.pdf' target='_blank'>here</a>.
+You can view the certificate <a href='/files/2024-deeplearningai-coursera-deep-learning-specialization.pdf' target='_blank'>here</a>.

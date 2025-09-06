@@ -4,7 +4,6 @@ date: 2025-07-03
 excerpt: ""
 tags:
   - SSG
-  - Personal
   - Jekyll
   - Yuntao Zhang
 ---
@@ -26,7 +25,7 @@ First, you need to tell Jekyll about your new collection. This involves two edit
       # ... other collections
     ```
 
-2.  **Set default values:** In the `defaults` section, specify the default front matter for your new collection type. This is a huge time-saver, as you won't have to repeat this information in every single certificate file. Here, we're setting the layout, enabling the author profile, and allowing sharing and comments.
+2.  **Set default values:** In the `defaults` section, specify the default front matter for your new collection type. This is a huge time-saver, as you won't have to repeat this information in every single certificate file. Here, we're setting the layout, enabling the author profile, and allowing sharing.
 
     ```yaml
     # In _config.yml
@@ -61,21 +60,20 @@ Jekyll collections are stored in folders that start with an underscore.
 
 1.  Create a new folder in your site's root directory named `_certificates`.
 
-2.  Inside this folder, create a Markdown file for each item in your collection. For example, I created `_certificates/associatepythondeveloper_datacamp_2024.md`.
+2.  Inside this folder, create a Markdown file for each item in your collection. For example, I created `_certificates/2024-associate-python-developer-datacamp.md`.
 
 The content of this file includes front matter (the settings between the `---` lines) and the main content in Markdown.
 
 ```markdown
 ---
 title: "Associate Python Developer"
-excerpt: "DataCamp Associate Python Developer Certificate.<br/><a href='/files/AssociatePythonDeveloper_DataCamp_2024.pdf' target='_blank'><img src='/images/AssociatePythonDeveloper_DataCamp_2024.png' width='300' alt='Associate Python Developer Certificate'></a>"
+excerpt: "DataCamp Associate Python Developer Certificate.<br/><a href='/files/2024-associate-python-developer-datacamp.pdf' target='_blank'><img src='/images/2024-associate-python-developer-datacamp.png' width='300' alt='Associate Python Developer Certificate'></a>"
 collection: certificates
-permalink: /certificates/AssociatePythonDeveloper_DataCamp_2024/
 date: 2024-10-21
 ---
 
 **Issued by:** DataCamp  
-**Length:** 30 hours  
+**Instructors:** Hugo Bowne-Anderson, Jason Myers, Filip Schouwenaars, Maria Eugenia Inzaugarat, George Boorman  
 **Completed on:** October 21, 2024
 
 This is the main content for the certificate page...
@@ -114,6 +112,14 @@ This is the summary page that lists all the items in your collection (e.g., `you
 The `_includes/archive-single.html` file controls how each item is displayed on the archive page. You can add custom logic to it for your new collection. For example, I wanted to show "Completed on:" instead of the default "Published:".
 
 You can do this by adding an `elsif` block for your collection, checking for `post.collection == 'certificates'`.
+
+```html
+{% if post.collection == 'teaching' %}
+...existing code...
+{% elsif post.collection == 'certificates' %}
+  <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Completed on:</strong> <time datetime="{{ post.date | default: '1900-01-01' | date_to_xmlschema }}">{{ post.date | default: '1900-01-01' | date: '%B %d, %Y' }}</time></p>
+...existing code...
+```
 
 ### Step 6: Add Supporting Files
 

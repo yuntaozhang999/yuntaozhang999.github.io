@@ -1,6 +1,6 @@
 ---
 title: "Introduction to Molecular Modeling in Drug Discovery"
-excerpt: "Schrödinger course on the fundamentals of small molecule drug discovery with Maestro and LiveDesign, covering protein preparation, ligand docking, and collaborative design.<br/><a href='/files/introduction-to-molecular-modeling-in-drug-discovery-schrodinger-2021.pdf' target='_blank'><img src='/images/introduction-to-molecular-modeling-in-drug-discovery-schrodinger-2021.png' width='300' alt='Introduction to Molecular Modeling in Drug Discovery Certificate'></a>"
+excerpt: "Schrödinger course on the fundamentals of small molecule drug discovery with Maestro and LiveDesign, covering protein preparation, ligand docking, and collaborative design.<br/><a href='/files/2021-schrodinger-introduction-to-molecular-modeling-in-drug-discovery.pdf' target='_blank'><img src='/images/2021-schrodinger-introduction-to-molecular-modeling-in-drug-discovery.png' width='300' alt='Introduction to Molecular Modeling in Drug Discovery Certificate'></a>"
 collection: certificates
 date: 2021-04-28
 ---
@@ -30,4 +30,4 @@ The course was structured into seven modules, covering:
 
 This course provided practical, hands-on training in the essential workflows for modern computational drug discovery.
 
-You can view the certificate <a href='/files/introduction-to-molecular-modeling-in-drug-discovery-schrodinger-2021.pdf' target='_blank'>here</a>.
+You can view the certificate <a href='/files/2021-schrodinger-introduction-to-molecular-modeling-in-drug-discovery.pdf' target='_blank'>here</a>.

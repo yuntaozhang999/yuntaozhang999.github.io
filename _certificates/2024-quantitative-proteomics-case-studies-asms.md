@@ -1,6 +1,6 @@
 ---
 title: "Quantitative Proteomics: Case Studies"
-excerpt: "ASMS course on quantitative proteomics using case studies, focusing on SRM and DIA data analysis with Skyline and MSstats.<br/><a href='/files/quantitative-proteomics-case-studies-asms-2024.pdf' target='_blank'><img src='/images/quantitative-proteomics-case-studies-asms-2024.png' width='300' alt='Quantitative Proteomics: Case Studies Certificate'></a>"
+excerpt: "ASMS course on quantitative proteomics using case studies, focusing on SRM and DIA data analysis with Skyline and MSstats.<br/><a href='/files/2024-asms-quantitative-proteomics-case-studies.pdf' target='_blank'><img src='/images/2024-asms-quantitative-proteomics-case-studies.png' width='300' alt='Quantitative Proteomics: Case Studies Certificate'></a>"
 collection: certificates
 date: 2024-06-02
 ---
@@ -26,5 +26,5 @@ The course was structured around two in-depth case studies over two days:
 
 This course provided practical, case-driven training in designing, executing, and interpreting quantitative proteomics experiments using state-of-the-art software tools.
 
-You can view the certificate <a href='/files/quantitative-proteomics-case-studies-asms-2024.pdf' target='_blank'>here</a>.
+You can view the certificate <a href='/files/2024-asms-quantitative-proteomics-case-studies.pdf' target='_blank'>here</a>.
 
