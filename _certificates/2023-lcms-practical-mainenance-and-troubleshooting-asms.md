@@ -1,6 +1,6 @@
 ---
 title: "LC-MS Practical Maintenance and Troubleshooting"
-excerpt: "ASMS course on the essential skills for maintaining LC-MS instrument performance, covering best practices, system suitability, tuning, calibration, and troubleshooting across various platforms.<br/><a href='/files/lcms-practical-mainenance-and-troubleshooting-asms-2023.pdf' target='_blank'><img src='/images/lcms-practical-mainenance-and-troubleshooting-asms-2023.png' width='300' alt='LC-MS Practical Maintenance and Troubleshooting Certificate'></a>"
+excerpt: "ASMS course on the essential skills for maintaining LC-MS instrument performance, covering best practices, system suitability, tuning, calibration, and troubleshooting across various platforms.<br/><a href='/files/2023-asms-lcms-practical-mainenance-and-troubleshooting.pdf' target='_blank'><img src='/images/2023-asms-lcms-practical-mainenance-and-troubleshooting.png' width='300' alt='LC-MS Practical Maintenance and Troubleshooting Certificate'></a>"
 collection: certificates
 date: 2023-06-04
 ---
@@ -21,5 +21,5 @@ With the expanding use of LC-MS in laboratories not specifically focused on anal
 
 This course provided the essential knowledge to confidently manage and maintain LC-MS instrumentation, moving beyond "black box" operation to achieve more reliable and robust analytical results.
 
-You can view the certificate <a href='/files/lcms-practical-mainenance-and-troubleshooting-asms-2023.pdf' target='_blank'>here</a>.
+You can view the certificate <a href='/files/2023-asms-lcms-practical-mainenance-and-troubleshooting.pdf' target='_blank'>here</a>.
 

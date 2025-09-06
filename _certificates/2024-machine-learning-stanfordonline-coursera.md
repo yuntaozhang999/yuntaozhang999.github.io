@@ -1,6 +1,6 @@
 ---
 title: "Machine Learning"
-excerpt: "Machine Learning Certificate.<br/><a href='/files/machine-learning-stanfordonline-coursera-2024.pdf' target='_blank'><img src='/images/machine-learning-stanfordonline-coursera-2024.png' width='300' alt='Machine Learning Certificate'></a>"
+excerpt: "Machine Learning Certificate.<br/><a href='/files/2024-stanfordonline-coursera-machine-learning.pdf' target='_blank'><img src='/images/2024-stanfordonline-coursera-machine-learning.png' width='300' alt='Machine Learning Certificate'></a>"
 collection: certificates
 date: 2024-06-15
 ---
@@ -24,4 +24,4 @@ I completed all coursework and assignments in 2021, gaining hands-on experience 
 
 Completing this course provided me with a strong theoretical and practical foundation in machine learning, including the mathematical principles behind key algorithms and the experience of implementing them from the ground up. This knowledge has been instrumental in my ongoing work and understanding of AI systems.
 
-You can view the certificate <a href='/files/machine-learning-stanfordonline-coursera-2024.pdf' target='_blank'>here</a>.
+You can view the certificate <a href='/files/2024-stanfordonline-coursera-machine-learning.pdf' target='_blank'>here</a>.

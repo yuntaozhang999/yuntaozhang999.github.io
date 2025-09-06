@@ -1,6 +1,6 @@
 ---
 title: "AI Agents Course"
-excerpt: "Hugging Face AI Agents Course Certificate.<br/><a href='/files/agents-course-huggingface-2025.pdf' target='_blank'><img src='/images/agents-course-huggingface-2025.png' width='300' alt='AI Agents Course Certificate'></a>"
+excerpt: "Hugging Face AI Agents Course Certificate.<br/><a href='/files/2025-huggingface-agents-course.pdf' target='_blank'><img src='/images/2025-huggingface-agents-course.png' width='300' alt='AI Agents Course Certificate'></a>"
 collection: certificates
 date: 2025-05-17
 ---
@@ -32,4 +32,4 @@ The course is structured into several core units and specialized bonus modules:
 
 This course has equipped me with the theoretical knowledge and practical skills to build and deploy intelligent, autonomous AI agents capable of solving complex tasks.
 
-You can view the certificate <a href='/files/agents-course-huggingface-2025.pdf' target='_blank'>here</a>.
+You can view the certificate <a href='/files/2025-huggingface-agents-course.pdf' target='_blank'>here</a>.

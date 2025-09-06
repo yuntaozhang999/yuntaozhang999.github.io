@@ -5,7 +5,6 @@ excerpt: ""
 tags:
   - SSG
   - Jekyll
-  - Blog
   - Tips
   - Yuntao Zhang
 ---

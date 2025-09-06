@@ -7,6 +7,7 @@ tags:
   - langchain
   - Gemini
   - Multi-Modal  
+  - AI agent
 ---
 [Full tutorial on YouTube](https://www.youtube.com/watch?v=6Ww5uyS0tXw)
 
@@ -17,7 +18,6 @@ tags:
 Tutorial summary:
 
 Lance from Langchain demonstrates a simple multi-modal researcher built with Gemini 2.5 models. This tool uses Gemini’s native search, YouTube video understanding, and text-to-speech capabilities to research a topic and a related video, combine the findings into a report, and generate a podcast summarizing the results. The workflow is orchestrated in Langraph Studio, allowing users to input a topic and YouTube URL, then view each step’s inputs and outputs. The Gemini 2.5 models are highlighted for their strong performance, multimodal abilities, and ease of integration. The code is modular, with nodes for search, video analysis, report generation, and podcast creation. Users can easily configure model parameters in the Studio interface. The project is open source and customizable, encouraging experimentation with Gemini’s advanced features.
-
 
 ## Tips & Tricks for Running This App on Windows with PowerShell
 
@@ -110,18 +110,6 @@ Lance from Langchain demonstrates a simple multi-modal researcher built with Gem
 | API key set but still not detected             | Log out and log back in, or restart your computer                                         |
 | Web UI warns about missing `LANGSMITH_API_KEY` | This is just a prompt; only needed for LangSmith cloud features, not for local operation  |
 | `.env` changes not taking effect               | Restart the app after editing `.env`                                                      |
-
----
-
-### 7. Additional Tips
-
-- Always restart PowerShell after changing environment variables or installing new CLI tools.
-- Use the `.env` file for local development to avoid issues with session-based environment variables.
-- If you need to debug environment variables, run:
-  ```powershell
-  Get-ChildItem Env:
-  ```
-- For persistent system-wide variables, use Windows Environment Variables settings and restart your session.
 
 ---
 
