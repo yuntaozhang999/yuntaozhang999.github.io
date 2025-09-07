@@ -111,13 +111,19 @@ This is the summary page that lists all the items in your collection (e.g., `you
 
 The `_includes/archive-single.html` file controls how each item is displayed on the archive page. You can add custom logic to it for your new collection. For example, I wanted to show "Completed on:" instead of the default "Published:".
 
-You can do this by adding an `elsif` block for your collection, checking for `post.collection == 'certificates'`.
+You can do this by adding an `elseif` block for your collection, checking for `post.collection == 'certificates'`.
 
-```html
+```liquid
+{% raw %}
 ...existing code...
-{% elseif post.collection == 'certificates' %}
-  <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Completed on:</strong> <time datetime="{{ post.date | default: '1900-01-01' | date_to_xmlschema }}">{{ post.date | default: '1900-01-01' | date: '%B %d, %Y' }}</time></p>
+{% elsif post.collection == 'certificates' %}
+  <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Completed on:</strong>
+    <time datetime="{{ post.date | default: '1900-01-01' | date_to_xmlschema }}">
+      {{ post.date | default: '1900-01-01' | date: '%B %d, %Y' }}
+    </time>
+  </p>
 ...existing code...
+{% endraw %}
 ```
 
 ### Step 6: Add Supporting Files
