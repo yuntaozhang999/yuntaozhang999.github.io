@@ -153,7 +153,7 @@ social:
 analytics:
   provider               : "google-analytics-4" # false (default), "google", "google-universal", "google-analytics-4", "custom"
   google:
-    tracking_id          : "G-M2W60KHV04"
+    tracking_id          : "G-H35031XW5M"
 
 
 # Reading Files
