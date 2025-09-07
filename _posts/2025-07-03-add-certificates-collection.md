@@ -114,7 +114,6 @@ The `_includes/archive-single.html` file controls how each item is displayed on 
 You can do this by adding an `elsif` block for your collection, checking for `post.collection == 'certificates'`.
 
 ```html
-{% if post.collection == 'teaching' %}
 ...existing code...
 {% elsif post.collection == 'certificates' %}
   <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Completed on:</strong> <time datetime="{{ post.date | default: '1900-01-01' | date_to_xmlschema }}">{{ post.date | default: '1900-01-01' | date: '%B %d, %Y' }}</time></p>
