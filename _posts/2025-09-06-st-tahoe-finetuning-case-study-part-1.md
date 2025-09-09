@@ -1,7 +1,7 @@
 ---
 title: 'ST-Tahoe Fine-Tuning Case Study, Part 1: Initial Experiments and Setup'
 date: 2025-09-06
-excerpt: "A learning log documenting the journey of fine-tuning the ST-Tahoe model, from initial confusion to clarity on progressive unfreezing, loss functions, and hyperparameter tuning."
+excerpt: ""
 tags:
   - Fine-Tuning
   - State
