@@ -1,7 +1,7 @@
 ---
 title: 'ST-Tahoe Fine-Tuning Case Study, Part 2: Representation, Strategy, and Results'
 date: 2025-09-08
-excerpt: "A detailed case study on fine-tuning the ST-Tahoe model, revealing the critical importance of aligning data representation between training and evaluation. Learn how a strategic shift in input data and a 'freeze-then-unfreeze' approach boosted the evaluation score from 0.2 to 8.5."
+excerpt: ""
 tags:
   - Fine-Tuning
   - State
@@ -83,8 +83,6 @@ This post documents a series of fine‑tuning attempts on **ST‑Tahoe**, the St
 ### Reproducibility
 - All runs can be reconstructed from the corresponding `***_config.yaml` files.
 - Validation minima and training horizons are taken from `***_metrics.csv` files.
-- If any field names differ, I can add a normalization map and regenerate the ledger.
-- If something seems off, I can cross‑reference your **`state_main.zip`** source tree and update this post.
 
 ### Downloads
 - [cell-eval-score.csv](/files/tahoe-fine-tune/cell-eval-score.csv)
