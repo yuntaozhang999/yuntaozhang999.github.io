@@ -1,0 +1,108 @@
+data:
+  name: PerturbationDataModule
+  kwargs:
+    toml_config_path: /home/ustbz/prepare_instance/starter.toml
+    embed_key: null
+    output_space: all
+    pert_rep: features
+    basal_rep: sample
+    num_workers: 6
+    pin_memory: true
+    n_basal_samples: 1
+    basal_mapping_strategy: random
+    should_yield_control_cells: true
+    batch_col: batch_var
+    pert_col: target_gene
+    cell_type_key: cell_type
+    control_pert: non-targeting
+    map_controls: true
+    perturbation_features_file: /home/ustbz/competition_support_set/ESM2_pert_features.pt
+    store_raw_basal: false
+    int_counts: false
+    barcode: true
+    persistent_workers: true
+    prefetch_factor: 4
+  output_dir: null
+  debug: true
+model:
+  name: PertSets
+  checkpoint: null
+  device: cuda
+  kwargs:
+    cell_set_len: 512
+    blur: 0.05
+    hidden_dim: 1488
+    loss: energy
+    confidence_head: false
+    n_encoder_layers: 4
+    n_decoder_layers: 4
+    predict_residual: true
+    softplus: true
+    freeze_pert: false
+    transformer_decoder: false
+    finetune_vci_decoder: false
+    residual_decoder: false
+    batch_encoder: true
+    nb_decoder: false
+    gene_decoder_bool: false
+    mask_attn: false
+    use_effect_gating_token: false
+    use_basal_projection: true
+    distributional_loss: energy
+    init_from: /home/ustbz/tahoe-finetune-yuntao0906/checkpoints/last.ckpt
+    transformer_backbone_key: llama
+    transformer_backbone_kwargs:
+      max_position_embeddings: 512
+      hidden_size: 1488
+      intermediate_size: 5952
+      num_hidden_layers: 6
+      num_attention_heads: 12
+      num_key_value_heads: 12
+      head_dim: 124
+      use_cache: false
+      attention_dropout: 0.0
+      hidden_dropout: 0.0
+      layer_norm_eps: 1.0e-06
+      pad_token_id: 0
+      bos_token_id: 1
+      eos_token_id: 2
+      tie_word_embeddings: false
+      rotary_dim: 0
+      use_rotary_embeddings: false
+    freeze_pert_backbone: false
+training:
+  wandb_track: true
+  weight_decay: 0.001
+  batch_size: 6
+  lr: 1.0e-05
+  max_steps: 10000
+  train_seed: 42
+  val_freq: 400
+  ckpt_every_n_steps: 1000
+  gradient_clip_val: 1.0
+  loss_fn: mse
+  devices: 1
+  strategy: auto
+  use_mfu: true
+  mfu_kwargs:
+    available_flops: 60000000000000.0
+    use_backward: true
+    logging_interval: 10
+    window_size: 2
+  lr_scheduler: cosine
+  min_lr_ratio: 0.2
+  precision: bf16-mixed
+  accumulate_grad_batches: 8
+wandb:
+  entity: yuntaozhang999-personal
+  project: lightning_logs
+  local_wandb_dir: ./wandb_logs
+  tags:
+  - tahoe-finetune-yuntao0907
+name: tahoe-finetune-yuntao0907
+output_dir: /home/ustbz
+use_wandb: true
+overwrite: false
+return_adatas: false
+pred_adata_path: null
+true_adata_path: null

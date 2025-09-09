@@ -300,34 +300,6 @@ This document records the main problems encountered and their solutions while ru
 18. **Computational Biology Mindset:** Translate biological problems into computational ones.
 19. **Source Code Reading:** Understand algorithm implementation by reading the source code.
 
-## Suggestions for Future Improvement
-
-### Documentation Improvements
-*   Clearly state environment setup requirements at the beginning of the tutorial.
-*   Provide a more detailed guide for API key configuration.
-*   Add a troubleshooting section for common errors.
-*   Add detailed explanations of genome versions and annotation systems.
-
-### Code Improvements
-*   Add more error checking and user-friendly error messages.
-*   Provide a helper function for sequence length validation.
-*   Add more examples and comments.
-*   Add Chinese explanations and concept clarifications in the notebook.
-*   Add a detailed tutorial and example code for ISM analysis.
-*   Provide a guide for choosing variant prediction strategies.
-*   Add examples of using the AnnData data structure.
-*   Add a visual tutorial for interpreting sequence logos.
-
-### Learning Path
-*   Suggest understanding the basic concepts before running the code.
-*   Provide supplementary materials for biological background knowledge.
-*   Add interactive code demonstrations.
-*   Add teaching content on basic genomics concepts.
-*   Systematically learn the theoretical basis and practical application of ISM analysis.
-*   Master the applicable scenarios for different variant prediction strategies.
-*   Become familiar with the use of standard data formats such as AnnData.
-*   Understand the data processing and analysis workflow in computational biology.
-
 ## Gene Structure Analysis Case Study
 
 ### In-depth Analysis of the CYP2B6 Gene
