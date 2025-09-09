@@ -8,7 +8,6 @@ tags:
   - Single Cell
   - Embedding
   - Virtual Cell
-
 ---
 
 # STATE Embedding Model: Data Dimension Flow for a Single Cell Embedding

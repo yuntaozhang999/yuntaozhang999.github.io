@@ -16,10 +16,8 @@ tags:
 3.  Environment Creation Process 
 4.  Technical Issues & Solutions 
 5.  Docker & Container Concepts 
-6.  VS Code Integration 
-7.  Successful Solution 
-8.  Key Lessons Learned 
-9.  Next Steps 
+6.  Successful Solution 
+7.  Key Lessons Learned 
 
 -----
 
@@ -199,43 +197,6 @@ RUN conda config --set ssl_verify false && conda install -c conda-forge python=3
 * ✓ Pre-installed ML Libraries (NumPy, Pandas, PyTorch) 
 * ✓ Domino-specific integrations 
 * ✓ Workspace management tools 
-
------
-
-## VS Code Integration
-
-### Installed Extensions Analysis 
-**Core Extensions (Essential):** 
-* ✔ **Docker** (Microsoft) - Main Docker management tool 
-* ✔ **Dev Containers** (Microsoft) - Remote development in containers 
-
-**Optional Extensions:** 
-* **Container Tools** (Microsoft) - Azure integration (can uninstall if not using Azure) 
-* **Docker DX** (Docker) - Official Docker UI enhancements 
-
-### Development Workflow Options 
-**Method 1: SSH Connection (Recommended)** 
-* Local VS Code <-> SSH <-> Domino Instance (GPU) 
-    * **Local**: editing, personal settings, extensions 
-    * **Remote**: execution, GPU computation, large memory 
-
-**Method 2: Web-based VS Code** 
-* Runs entirely in browser 
-* No local VS Code benefits 
-* Good for quick edits 
-
-**Method 3: Dev Containers (Local)** 
-* Runs containers locally 
-* No access to Domino's GPU resources 
-* Good for development/testing 
-
-### Ideal Development Setup 
-1.  **Environment Creation**: Domino platform (Python 3.11 + CUDA) 
-2.  **Code Editing**: Local VS Code with personal configuration 
-3.  **Code Execution**: Remote Domino instance with GPU 
-4.  **File Synchronization**: Automatic via SSH 
-5.  **Result Analysis**: Local tools with remote data 
-
 -----
 
 ## SUCCESSFUL SOLUTION: Official Domino Method
@@ -382,25 +343,10 @@ USER ubuntu
 ### Practical Lessons 
 
 1.  **Platform Understanding**: Realize that Domino environments are sophisticated Docker containers and that custom environment creation is a powerful and necessary feature. 
-2.  **Development Workflow**: Using local tools for development while connecting to remote resources for execution provides the best experience. SSH is the key to this professional setup. 
-3.  **Problem-Solving Approach**: Start with existing solutions and modify them. Understand the root cause before applying a fix, especially in corporate environments. 
+2.  **Problem-Solving Approach**: Start with existing solutions and modify them. Understand the root cause before applying a fix, especially in corporate environments. 
 
 ### The Ultimate Lesson:
 
 When facing complex technical challenges, **always check if the platform vendor has official guidance** before attempting custom solutions. The official Domino method took ~3 minutes versus over an hour of failed attempts with conda. 
 
 -----
-
-## Next Steps
-
-### Immediate Actions 
-
-1.  **Test Environment**: Run verification scripts for Python version and PyTorch/CUDA availability. 
-2.  **Set Up SSH Connection**: Install the Remote-SSH extension in VS Code and configure the connection using credentials from the Domino workspace. 
-3.  **Validate GPU Access**: Run code to confirm the GPU device name and memory. 
-
-### Future Learning Opportunities 
-
-  * **Advanced Docker**: Explore multi-stage builds, Docker Compose, and container optimization. 
-  * **ML Infrastructure**: Learn about model deployment, MLOps pipelines, and scalable training architectures. 
-  * **Development Tools**: Investigate remote debugging, container-based CI/CD, and environment versioning. 

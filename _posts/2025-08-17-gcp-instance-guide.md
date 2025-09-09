@@ -1,6 +1,6 @@
 ---
 title: 'A Guide to Training State Models on Google Cloud Platform'
-date: 2025-08-25
+date: 2025-08-17
 excerpt: ""
 tags:
   - Google Cloud Platform
@@ -16,7 +16,7 @@ This guide walks through the process of setting up a Google Cloud Platform (GCP)
 
 ## 1. GCP Instance Configuration
 
-To handle the computational demands of training our models, we need a GCP instance with specific hardware. Here's a summary of a recommended configuration:
+To handle the computational demands of training our models, we need a GCP instance with capable hardware. Here's a summary of a recommended configuration:
 
 *   **Machine Type:** `g2-standard-8` (8 vCPUs, 32 GB Memory)
 *   **GPU:** 1 x NVIDIA L4
