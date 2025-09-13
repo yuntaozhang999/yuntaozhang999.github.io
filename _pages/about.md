@@ -7,12 +7,15 @@ redirect_from:
   - /about.html
 ---
 
-Welcome! I am a senior scientist based in the San Francisco Bay Area with expertise in bioanalytical and physical chemistry, mass spectrometry, molecular modeling, scientific programming, and AI-driven innovation. I am passionate about using these skills to accelerate drug discovery and improve our understanding of human health and aging. My goal is to bridge analytical chemistry with artificial intelligence to drive impactful discoveries in health and medicine.
+Welcome! I am a research scientist based in the San Francisco Bay Area, specializing in the application of AI to accelerate drug discovery. My work combines deep expertise in bioanalytical chemistry, mass spectrometry, and molecular modeling with a passion for AI-driven innovation. My goal is to bridge these fields to improve our understanding of human health and aging and to drive impactful discoveries in health and medicine.
 
 ## About Me
 
 - **Current Role:** Senior Scientist at Bristol Myers Squibb (BMS)
-- **Expertise:** peptide mapping, carbene footprinting for epitope/paratope mapping, biologics characterization, molecular modeling, workflow automation, deep learning and AI agents for scientific discovery
+- **Expertise:**
+  - **Biologics Mass Spectrometry:** Characterizing biologics with peptide mapping, carbene footprinting (epitope/paratope mapping), and bottom-up proteomics.
+  - **Computational & AI:** Applying molecular modeling, deep learning, and AI agents to solve complex scientific problems.
+  - **Workflow Automation:** Developing automated systems to enhance research efficiency and reproducibility.
 - **Education:**
   - Ph.D. in Bioanalytical and Physical Chemistry, University of the Pacific
   - M.S. in Environmental Engineering, University of the Pacific
@@ -20,10 +23,11 @@ Welcome! I am a senior scientist based in the San Francisco Bay Area with expert
 
 ## Unique Skillset
 
-With a strong foundation in analytical chemistry and a deep interest in computer science and AI, I have developed a unique interdisciplinary profile. My work combines hands-on expertise in mass spectrometry and biologics with advanced computational approaches—including Python, machine learning, deep learning, and AI agent frameworks. This enables me to design innovative solutions for complex scientific challenges, from high-throughput data processing and expert-level data interpretation to generating deep biological insights.
+  With a strong foundation in analytical chemistry and a deep interest in computer science and AI, I have developed a unique interdisciplinary profile. My work combines hands-on expertise in mass spectrometry and biologics with advanced computational approaches. I specialize in **fine-tuning and applying state-of-the-art foundation models**—such as **ST-Tahoe for single-cell perturbation prediction** and **Boltz-2 for structural biology**—to solve complex scientific challenges. My skills span the full MLOps lifecycle, from setting up and managing GPU-powered training environments on **GCP and Domino Data Lab** to employing modern development tools like **Docker and UV** for reproducibility. This enables me to bridge the gap between cutting-edge AI and practical scientific discovery, from high-throughput data processing to generating deep biological insights.
 
 ## Impact & Achievements
 
+- **Advanced Model Fine-Tuning:** Systematically fine-tuned the ST-Tahoe foundation model for gene perturbation analysis, diagnosing and resolving complex issues like representation mismatch and optimizer state conflicts to significantly improve performance. This work involves deep analysis of model architecture, loss functions, and training dynamics on enterprise-level platforms.
 - **Biologics Characterization at BMS:** Led the implementation of carbene footprinting for high-resolution epitope/paratope mapping, and developed novel LC-MS methods to support bispecific, ADC, and CAR-T programs.
 - **Workflow Automation:** Created automated toolkits for LC-MS sequence generation and AI-powered data communication, reducing manual setup time from minutes to seconds and minimizing errors.
 - **AI for Analytical Chemistry:** Built tools that leverage large language models (LLMs) for expert comment generation and interactive data visualization, improving clarity and decision-making.

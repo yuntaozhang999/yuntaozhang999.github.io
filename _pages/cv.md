@@ -43,10 +43,11 @@ Skills
   * Acquity M Class, 1260/1290 Infinity II, Ultimate 3000, NanoElute2
   * Maurice System
 * Computational & Data Analysis
- * Byos, Skyline, Xcalibur, Sciex OS, Compass
- * Gaussian, Orca, GaussView, VMD, Maestro, PyMOL
- * Python, Bash
- * Molecular Modeling, Deep Learning
+  * **Analytical Software:** Byos, Skyline, Xcalibur, Sciex OS, Compass
+  * **Molecular Modeling:** Gaussian, Orca, GaussView, VMD, Maestro, PyMOL
+  * **Programming & Data Science:** Python, Bash, PyTorch, PyTorch Lightning, Pandas, Scikit-learn
+  * **ML Models & Techniques:** Deep Learning, Foundation Models (ST-Tahoe, Boltz-2, AlphaGenome), Fine-Tuning, Representation Learning
+  * **Platforms & MLOps:** Google Cloud Platform (GCP), AWS Bedrock, Domino Data Lab, Docker, `uv`, `pip`, Git, Weights & Biases (W&B)
 
 
 Publications
