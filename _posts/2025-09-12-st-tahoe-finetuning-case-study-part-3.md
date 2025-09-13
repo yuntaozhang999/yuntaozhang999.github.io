@@ -69,6 +69,9 @@ To clarify the file paths mentioned in this post, here’s a simplified view of 
 *   I launch the training from within the `state` project directory via a wrapper script, streaming logs to a file (e.g., `nohup ../prepare_instance/run_tx_training.sh > ../prepare_instance/train.log 2>&1 &`). This is important because `uv` needs to find the `pyproject.toml` to use the correct environment and dependencies. Here is a representative snippet from a successful run (after my fixes): it **only loads weights**, then calls `trainer.fit(..., ckpt_path=None)` and starts training. 
 
     ```log
+    Model created. Estimated params size: 1.58 GB
+    Building trainer with kwargs: {'accelerator': 'gpu', 'devices': 1, 'max_steps': 40000, 'check_val_every_n_epoch': None, 'val_check_interval': 500, 'logger': [<state.tx.utils.RobustCSVLogger object at 0x7fee705ce550>, <lightning.pytorch.loggers.wandb.WandbLogger object at 0x7fee707864d0>], 'plugins': [], 'callbacks': [<lightning.pytorch.callbacks.model_checkpoint.ModelCheckpoint object at 0x7fee712a0d10>, <lightning.pytorch.callbacks.model_checkpoint.ModelCheckpoint object at 0x7fee64849350>, <state.tx.callbacks.batch_speed_monitor.BatchSpeedMonitorCallback object at 0x7fee705cd610>, <lightning.pytorch.callbacks.lr_monitor.LearningRateMonitor object at 0x7fee707ccb90>, <state._cli._tx._train.run_tx_train.<locals>._LrPerGroupLogger object at 0x7fee70296410>, <state._cli._tx._train.run_tx_train.<locals>._OptParamsOnceLogger object at 0x7fee64849850>], 'gradient_clip_val': 1.0}
+    Trainer built successfully
     Loading manual checkpoint from /home/ustbz/19500.ckpt
     [weights-only] loaded 85 tensors; skipped 0 mismatched; 0 missing remain randomly initialized.
     About to call trainer.fit() with checkpoint_path=None
@@ -76,11 +79,11 @@ To clarify the file paths mentioned in this post, here’s a simplified view of 
 
 ---
 
-## Problem #1 — “Why do my new optimizer settings not take effect?”
+## Problem #1 — “Why do my new optimizer settings not taking effect?”
 
 ### Symptom
 
-Even though I passed a new `training.lr` and disabled resume, the training still behaved like it was using the **old optimizer state** (same LR, same momentum buffers). The log told the story:
+Even though I passed a new `training.lr` and disabled resume, the training still behaved like it was using the **old optimizer state**. The log told the story:
 
 > `Loading manual checkpoint from /home/ustbz/18000.ckpt`
 > `About to call trainer.fit() with checkpoint_path=/home/ustbz/18000.ckpt`
@@ -91,21 +94,24 @@ That means Lightning was **resuming** from the checkpoint (optimizer included), 
 
 The training entrypoint treated my `init_from` path as a **`ckpt_path`** for `trainer.fit(...)`. Lightning then restored the optimizer & scheduler states from the checkpoint—**overriding any new LR** I set through Hydra overrides.
 
-### Fix: “weights-only” resume, never pass `ckpt_path` to `trainer.fit`
+### Fix: “weights-only” resume
 
-I changed the training script to:
+I updated the training script to enable a "weights-only" resume, which loads weights from a checkpoint but resets the training state (like the optimizer). This is ideal for fine-tuning.
 
-1.  Load checkpoint **weights** into the model (matching keys & shapes).
-2.  **Do *not*** pass `ckpt_path` to `trainer.fit`. Call `trainer.fit(model, datamodule, ckpt_path=None)` instead.
+The implementation, located in the `run_tx_train(...)` function within [`_train_20250912.py`](https://github.com/yuntaozhang999/yuntaozhang999.github.io/blob/master/files/tahoe-fine-tune/_train_20250912.py), follows this logic:
 
-In my case, the changes were done inside the project’s training entry (`run_tx_train(...)`). After the edit, the log shows:
+1.  **Manual Checkpoint Loading**: If no automatic resumption checkpoint (i.e., `last.ckpt`) is found but a `manual_init` path is provided in the config, the script loads it using `torch.load(..., weights_only=True)`.
 
-> `[weights-only] loaded ...`
+2.  **Robust Weight Matching**: It then intelligently filters the checkpoint's `state_dict`, keeping only the weights where the key and shape match the current model. This prevents errors if the model architecture has changed.
+
+3.  **Explicit `fit()` call**: Crucially, it calls the trainer with `ckpt_path=None`. This prevents PyTorch Lightning from automatically resuming the optimizer state, learning rate schedulers, and other training parameters.
+
+The log output confirms this behavior perfectly:
+
+> `[weights-only] loaded ... tensors; skipped ... mismatched; ... missing remain randomly initialized.`
 > `About to call trainer.fit() with checkpoint_path=None`
 
-which confirms we are **not** resuming optimizer, only using the weights. (Current run) 
-
-I also committed the change to explicitly print the weights-only message and force `ckpt_path=None`; the full edited function containing that logic lives in my `_train.py`. 
+This confirms the script is only using the checkpoint for its weights, not for a full training state resume. The logic for this, including the explicit log message, is in the [`_train_20250912.py`](https://github.com/yuntaozhang999/yuntaozhang999.github.io/blob/master/files/tahoe-fine-tune/_train_20250912.py) file. 
 
 ---
 
@@ -124,15 +130,15 @@ Lightning won’t log LR for you unless either:
 
 ### Fix: Add LR monitor + lightweight custom callbacks
 
-I made it simple and robust:
+I made it simple and robust by adding three logging callbacks:
 
-1.  Attach **`LearningRateMonitor(logging_interval="step")`** so scheduler LR lands in the logs each step.
-2.  Add a tiny callback `_LrPerGroupLogger` to log **actual optimizer LR per param group** every step (works even without a scheduler).
-3.  Add `_OptParamsOnceLogger` to log static optimizer hyper-params like `weight_decay`, `betas`, `eps` at train start.
+1.  **`LearningRateMonitor`**: A standard PyTorch Lightning callback that logs the learning rate from the scheduler at each step. This is essential for plotting the LR curve in W&B.
+2.  **`_LrPerGroupLogger`**: A lightweight custom callback that logs the actual learning rate for each parameter group directly from the optimizer. While I'm not using different learning rates for different layers, this provides a direct confirmation of the LR being used at every step.
+3.  **`_OptParamsOnceLogger`**: Another custom callback that logs static optimizer hyperparameters (like `weight_decay`, `betas`, and `eps`) just once at the beginning of the run. This is a clean way to record the exact optimizer configuration.
 
-These were grafted into the same `_train.py` where I build callbacks; they show up in the “Building trainer with kwargs” list as expected (look for `LearningRateMonitor` etc.).  
+These were grafted into the same [`_train_20250912.py`](https://github.com/yuntaozhang999/yuntaozhang999.github.io/blob/master/files/tahoe-fine-tune/_train_20250912.py) where I build callbacks; they show up in the “Building trainer with kwargs” list as expected (look for `LearningRateMonitor` etc.).  
 
-Now both W&B and **`metrics.csv`** include columns like `lr/group_0`, `opt/weight_decay`, etc.
+Now both W&B and [**`metrics.csv`**](https://github.com/yuntaozhang999/yuntaozhang999.github.io/blob/master/files/tahoe-fine-tune/tahoe-finetune-yuntao0911_version_0_metrics.csv) include columns like `lr-AdamW`,`lr/group_0`, `opt/weight_decay`, etc.
 
 ---
 
@@ -148,13 +154,26 @@ The model’s default `configure_optimizers(...)` returned only an optimizer (no
 
 ### Fix: Implement a scheduler in `configure_optimizers`
 
-I replaced `configure_optimizers` with an **AdamW + warmup → cosine** implementation that:
+The fix was to replace the simple `configure_optimizers` method in the model's base class (`PerturbationModel` in [`base.py`](https://github.com/yuntaozhang999/yuntaozhang999.github.io/blob/master/files/tahoe-fine-tune/base.py)) with a new version that properly configures and returns a learning rate scheduler.
 
-*   Reads hyper-params from `self.hparams` / `self.hparams.training` (e.g., `lr`, `weight_decay`, `lr_scheduler`, `max_steps`, `warmup_ratio`, `min_lr_ratio`).
-*   Uses **`interval="step"`** so it schedules every optimizer step (works with gradient accumulation).
-*   Falls back to constant LR if `lr_scheduler` is `"none"` or `max_steps<=0`.
+The original method just returned a basic optimizer, ignoring all my scheduler-related CLI flags:
 
-👉 **Drop-in function** I ended up using (paste into your model base class):
+```python
+# From the original base.py
+def configure_optimizers(self):
+    optimizer = torch.optim.Adam(self.parameters(), lr=self.lr)
+    return optimizer
+```
+
+I replaced it with the new implementation below (from [`base_20250912.py`](https://github.com/yuntaozhang999/yuntaozhang999.github.io/blob/master/files/tahoe-fine-tune/base_20250912.py)). This version reads the training hyperparameters from the config and sets up the full AdamW optimizer plus a warmup/cosine scheduler.
+
+Key features of the new function:
+
+*   It reads hyper-params like `lr`, `weight_decay`, `lr_scheduler`, `max_steps`, and `warmup_ratio`.
+*   It returns a dictionary containing both the `optimizer` and the `lr_scheduler`, configured to update at each `step`.
+*   It safely falls back to a constant LR if no scheduler is specified.
+
+Here is the new drop-in function:
 
 ```python
 def configure_optimizers(self):
@@ -238,26 +257,23 @@ def configure_optimizers(self):
 
 ## Results & Verification
 
-*   **Weights-only resume:** log shows
-    `Loading manual checkpoint from /home/ustbz/18000.ckpt`
-    `[weights-only] loaded ...`
-    `About to call trainer.fit() with checkpoint_path=None`
-    confirming optimizer is **not** restored. (Most recent run) 
+The following snippet from my final [`train.log`](https://github.com/yuntaozhang999/yuntaozhang999.github.io/blob/master/files/tahoe-fine-tune/train.log) file confirms that all three fixes are working as intended:
 
-*   **LR logging present:** In the “Building trainer with kwargs” line I can see `LearningRateMonitor` and my custom callbacks in the callback list; LR columns (e.g., `lr/group_0`) show up in W&B and in **`metrics.csv`**. (Current `_train.py` & run logs)  
-
-*   **Scheduler active:** LR now **warms up** to `training.lr` and then **decays** via cosine to `lr * min_lr_ratio`. (The CLI declares those knobs; the new `configure_optimizers` actually uses them.) 
-
-Quick local checks I like to run:
-
-```bash
-# confirm no optimizer resume
-grep -n 'checkpoint_path=None' /path/to/train.log
-
-# see LR columns appear in CSV
-find /home/ustbz/tahoe-finetune-yuntao0909 -name 'metrics*.csv'
-tail -n 2 /home/ustbz/tahoe-finetune-yuntao0909/**/metrics*.csv | sed 's/,/\n/g' | grep -E '^lr/|^opt/'
+```log
+Building trainer with kwargs: {...'callbacks': [..., <...LearningRateMonitor...>, <..._LrPerGroupLogger...>, <..._OptParamsOnceLogger...>], ...}
+...
+Loading manual checkpoint from /home/ustbz/19500.ckpt
+[weights-only] loaded 85 tensors; skipped 0 mismatched; 0 missing remain randomly initialized.
+About to call trainer.fit() with checkpoint_path=None
 ```
+
+Here’s how these logs verify each fix:
+
+1.  **Weights-Only Resume:** The last two lines clearly show the script is loading weights from a manual checkpoint and then calling `trainer.fit()` with `ckpt_path=None`, which prevents the optimizer state from being restored.
+
+2.  **LR Logging:** The `Building trainer with kwargs` line confirms that the `LearningRateMonitor`, `_LrPerGroupLogger`, and `_OptParamsOnceLogger` are all present in the trainer's callbacks list, which is why the `metrics.csv` file now contains the detailed LR and optimizer columns.
+
+3.  **Active Scheduler:** With the logging in place and the new `configure_optimizers` method, I can now see the learning rate correctly warming up and then decaying in the W&B plots, confirming the scheduler is active.
 
 **Note on grad accumulation.** With `+training.accumulate_grad_batches=9`, Lightning performs one optimizer step every 9 batches. Because the scheduler uses `interval="step"`, LR updates **per optimizer step** (i.e., after each accumulation cycle), which is typically what you want. 
 
@@ -303,6 +319,8 @@ As noted above, here’s the (abbreviated) command that wires up W&B, LR, schedu
 *   [Updated `base.py` script](https://github.com/yuntaozhang999/yuntaozhang999.github.io/blob/master/files/tahoe-fine-tune/base_20250912.py)
 *   [Original `base.py` script](https://github.com/yuntaozhang999/yuntaozhang999.github.io/blob/master/files/tahoe-fine-tune/base.py)
 *   [`train.log`](https://github.com/yuntaozhang999/yuntaozhang999.github.io/blob/master/files/tahoe-fine-tune/train.log)
+*   [`run_tx_training.sh`](https://github.com/yuntaozhang999/yuntaozhang999.github.io/blob/master/files/tahoe-fine-tune/run_tx_training.sh)
+*   [`metrics.csv`](https://github.com/yuntaozhang999/yuntaozhang999.github.io/blob/master/files/tahoe-fine-tune/metrics.csv)
 
 ---
 
