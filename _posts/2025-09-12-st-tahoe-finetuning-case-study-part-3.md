@@ -1,7 +1,7 @@
 ---
 title: "ST-Tahoe Finetuning Case Study Part 3: Overcoming Finetuning Pitfalls"
 date: 2025-09-12
-permalink: /posts/2025/09/st-tahoe-finetuning-case-study-part-3/
+excerpt: ""
 tags:
   - pytorch
   - lightning
@@ -14,7 +14,7 @@ This is part 3 of a case study on fine-tuning the ST-Tahoe model.
 *   [Part 1: Setting up the Finetuning Environment](/posts/2025/09/st-tahoe-finetuning-case-study-part-1/)
 *   [Part 2: Initial Finetuning and Analysis](/posts/2025/09/st-tahoe-finetuning-case-study-part-2/)
 
-In this post, I'll cover three common pitfalls I encountered while fine-tuning a PyTorch Lightning model and how I fixed them.
+In this post, I'll cover three pitfalls I encountered while fine-tuning the ST-Tahoe model and how I fixed them.
 
 **TL;DR.** I ran into three issues when resuming from a checkpoint to continue finetuning:
 
@@ -22,11 +22,21 @@ In this post, I'll cover three common pitfalls I encountered while fine-tuning a
 2.  **Learning rate wasn’t logged** to either W&B or my local CSV metrics.
 3.  **No LR scheduler was actually wired up**, so LR stayed constant.
 
-Below are the root causes, minimal code changes (with diffs / drop-in funcs), and how I verified the fixes with logs and metrics.
+Below are the root causes, code changes, and how I verified the fixes with logs and metrics.
 
 ---
 
 ## Context
+
+To clarify the file paths mentioned in this post, here’s a simplified view of my directory structure on the GCP instance:
+
+```text
+/home/ustbz/
+├── prepare_instance/        # Wrapper scripts and logs
+├── state/                   # The 'state' model source code
+├── competition_support_set/ # Training data
+└── tahoe-finetune-yuntao0912/ # Experiment output directory
+```
 
 *   I’m training a “state transition” Lightning model using a CLI like this (Hydra overrides):
 
@@ -45,7 +55,7 @@ Below are the root causes, minimal code changes (with diffs / drop-in funcs), an
      +training.min_lr_ratio=0.5 \
      +training.log_lr=true \
      training.gradient_clip_val=1.0 \
-     +training.accumulate_grad_batches=9 \
+     +training.accumulate_grad_batches=8 \
      training.weight_decay=1e-3 \
      use_wandb=true \
      wandb.entity=yuntaozhang999-personal \
@@ -54,9 +64,15 @@ Below are the root causes, minimal code changes (with diffs / drop-in funcs), an
      name=tahoe-finetune-yuntao0909
     ```
 
-    (abbrev.; full line used in my run) 
+    (abbrev.; full line used in my run is in [`run_tx_training.sh`](/files/tahoe-fine-tune/run_tx_training.sh)) 
 
-*   I launch via a tiny wrapper script and stream logs to a file; here is a representative snippet from a successful run (after my fixes): it **only loads weights**, then calls `trainer.fit(..., ckpt_path=None)` and starts training. 
+*   I launch the training from within the `state` project directory via a wrapper script, streaming logs to a file (e.g., `nohup ../prepare_instance/run_tx_training.sh > ../prepare_instance/train.log 2>&1 &`). This is important because `uv` needs to find the `pyproject.toml` to use the correct environment and dependencies. Here is a representative snippet from a successful run (after my fixes): it **only loads weights**, then calls `trainer.fit(..., ckpt_path=None)` and starts training. 
+
+    ```log
+    Loading manual checkpoint from /home/ustbz/19500.ckpt
+    [weights-only] loaded 85 tensors; skipped 0 mismatched; 0 missing remain randomly initialized.
+    About to call trainer.fit() with checkpoint_path=None
+    ``` 
 
 ---
 
