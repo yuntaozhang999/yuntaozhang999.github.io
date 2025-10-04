@@ -25,6 +25,10 @@ Welcome! I am a research scientist based in the San Francisco Bay Area, speciali
 
   With a strong foundation in analytical chemistry and a deep interest in computer science and AI, I have developed a unique interdisciplinary profile. My work combines hands-on expertise in mass spectrometry and biologics with advanced computational approaches. I specialize in **fine-tuning and applying state-of-the-art foundation models**—such as **ST-Tahoe for single-cell perturbation prediction** and **Boltz-2 for structural biology**—to solve complex scientific challenges. My skills span the full MLOps lifecycle, from setting up and managing GPU-powered training environments on **GCP and Domino Data Lab** to employing modern development tools like **Docker and UV** for reproducibility. This enables me to bridge the gap between cutting-edge AI and practical scientific discovery, from high-throughput data processing to generating deep biological insights.
 
+## My Agentic Workflow
+
+I am a daily user of agentic coding assistants, including **Gemini CLI, Claude Code, GitHub Copilot, and Roo Code**. I believe these AI tools are transformative, enabling me to rapidly translate complex ideas into functional, robust tools. My workflow emphasizes clearly defining requirements, providing high-quality examples, and adhering to best practices for AI collaboration. This approach allows me to focus on the core challenge—the "what" and "why"—while the agent helps execute the "how," significantly accelerating the pace of innovation.
+
 ## Impact & Achievements
 
 - **Advanced Model Fine-Tuning:** Systematically fine-tuned the ST-Tahoe foundation model for gene perturbation analysis, diagnosing and resolving complex issues like representation mismatch and optimizer state conflicts to significantly improve performance. This work involves deep analysis of model architecture, loss functions, and training dynamics on enterprise-level platforms.

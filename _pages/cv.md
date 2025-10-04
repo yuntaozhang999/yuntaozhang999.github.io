@@ -76,3 +76,5 @@ Service and Leadership
   * Inorganica Chimica Acta
   * RSC Advances
 * Active member of the American Society for Mass Spectrometry (ASMS) since 2017
+* **Culture Team Member**, Bristol Myers Squibb, Jun. 2025 – Present
+  * Co-organizing the local site's Science Day, managing the poster/flash talk session from abstract screening to presenter coordination to enhance scientific engagement.
