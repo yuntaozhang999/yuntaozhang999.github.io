@@ -1,5 +1,5 @@
 ---
-title: 'A Simpler Way to Remove Excerpts from Jekyll Blog Posts'
+title: 'I Found A Simple Way to Remove Excerpts from Jekyll Blog Posts'
 date: 2025-07-03
 excerpt: ""
 tags:

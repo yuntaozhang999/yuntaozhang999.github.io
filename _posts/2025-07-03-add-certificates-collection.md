@@ -1,5 +1,5 @@
 ---
-title: 'How to Add a New Collection to a Jekyll Academic Pages Website'
+title: 'How I Added a New Collection to a Jekyll Academic Pages Website'
 date: 2025-07-03
 excerpt: ""
 tags:
@@ -67,7 +67,7 @@ The content of this file includes front matter (the settings between the `---` l
 ```markdown
 ---
 title: "Associate Python Developer"
-excerpt: "DataCamp Associate Python Developer Certificate.<br/><a href='/files/2024-associate-python-developer-datacamp.pdf' target='_blank'><img src='/images/2024-associate-python-developer-datacamp.png' width='300' alt='Associate Python Developer Certificate'></a>"
+excerpt: "DataCamp Associate Python Developer Certificate.<br/><a href='/files/2024-datacamp-associate-python-developer.pdf' target='_blank'><img src='/images/2024-datacamp-associate-python-developer.png' width='300' alt='Associate Python Developer Certificate'></a>"
 collection: certificates
 date: 2024-10-21
 ---
@@ -75,6 +75,8 @@ date: 2024-10-21
 **Issued by:** DataCamp  
 **Instructors:** Hugo Bowne-Anderson, Jason Myers, Filip Schouwenaars, Maria Eugenia Inzaugarat, George Boorman  
 **Completed on:** October 21, 2024
+
+**Course Overview:**  
 
 This is the main content for the certificate page...
 ```
@@ -104,14 +106,14 @@ This is the summary page that lists all the items in your collection (e.g., `you
     **Key Points:**
     *   `layout: archive` uses the theme's predefined list layout.
     *   The loop `{% raw %}{% for post in site.certificates reversed %}{% endraw %}` is crucial. It iterates through all documents in the `certificates` collection.
-    *   We use the variable name `post` because the included file, `archive-single.html`, is hardcoded to expect it. This was the source of my original problem!
+    *   We use the variable name `post` because the included file, `archive-single.html`, is hardcoded to expect it.
     *   The `reversed` filter ensures that the newest certificates (by date) appear first.
 
 ### Step 5 (Optional): Customize the Display for Your Collection
 
 The `_includes/archive-single.html` file controls how each item is displayed on the archive page. You can add custom logic to it for your new collection. For example, I wanted to show "Completed on:" instead of the default "Published:".
 
-You can do this by adding an `elseif` block for your collection, checking for `post.collection == 'certificates'`.
+You can do this by adding an `elseif` block for your collection, `post.collection == 'certificates'`.
 
 ```liquid
 {% raw %}

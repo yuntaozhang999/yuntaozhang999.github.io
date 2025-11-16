@@ -9,6 +9,8 @@ tags:
   - English
 ---
 
+[Watch the full interview on YouTube](https://www.youtube.com/watch?v=id4YRO7G0wE)
+
 ## My Personal Views and Reflections
 
 ### 1. On the Speed and Implementation of the AI Revolution

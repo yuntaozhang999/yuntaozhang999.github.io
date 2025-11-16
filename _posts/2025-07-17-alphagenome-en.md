@@ -1,5 +1,5 @@
 ---
-title: 'AlphaGenome Quick Start Colab Notebook Lesson 1'
+title: 'AlphaGenome Quick Start Colab Notebook, Lesson 1'
 date: 2025-07-17
 excerpt: ""
 tags:
