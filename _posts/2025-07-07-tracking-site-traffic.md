@@ -1,5 +1,5 @@
 ---
-title: 'How to Add Google Analytics to a Jekyll Academic Pages Website'
+title: 'How I Added Google Analytics to a Jekyll Academic Pages Website'
 date: 2025-07-07
 excerpt: ""
 tags:

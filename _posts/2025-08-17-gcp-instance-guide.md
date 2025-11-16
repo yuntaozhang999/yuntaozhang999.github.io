@@ -12,7 +12,7 @@ tags:
 
 # A Guide to Training State Models on Google Cloud Platform
 
-This guide walks through the process of setting up a Google Cloud Platform (GCP) virtual machine to train our state models. We'll cover everything from the initial instance configuration to connecting to the machine, transferring files, and running the training script.
+This guide walks through the process of setting up a Google Cloud Platform (GCP) virtual machine to train our STATE models. We'll cover everything from the initial instance configuration to connecting to the machine, transferring files, and running the training script.
 
 ## 1. GCP Instance Configuration
 

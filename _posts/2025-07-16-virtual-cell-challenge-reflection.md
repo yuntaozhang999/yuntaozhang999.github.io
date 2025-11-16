@@ -6,10 +6,12 @@ tags:
   - virtual cell challenge
   - Model Training
 ---
+The original challenge is annouced in Cell as an commentary [Virtual Cell Challenge: Toward a Turing test for the virtual cell](https://www.cell.com/cell/fulltext/S0092-8674(25)00675-0) 
+
 
 > These models must account for additional complexity—such as the cell type, genetic background, and context of a cell—as well as the cellular phenotype being measured and predicted.
 
-#### What does "context of a cell" mean?
+### What does "context of a cell" mean?
 
 - **Cell Type:** Is it a liver cell, a neuron, or an immune cell?
 - **Cell State:** Is the cell dormant, dividing, or differentiating?
@@ -17,7 +19,7 @@ tags:
 - **Biological Environment:** Is the cell in a living organism (in vivo) or in a petri dish (in vitro)? What other cells are around it?
 - **Genetic Background:** The sum of all other genes in a cell or organism, besides the specific gene we are studying.
 
-#### What does "cellular phenotype" mean?
+### What does "cellular phenotype" mean?
 
 - **Morphological features:** Is the cell round or elongated?
 - **Functional features:** How fast does the cell divide? Is it secreting a certain protein?
@@ -26,7 +28,7 @@ tags:
 
 > Perturbation model performance is affected by substantial technical sources of variability in many existing datasets, including experimental noise introduced during the coupling of genetic perturbations with single-cell transcriptomic profiling, as well as the limited reproducibility of perturbation effects across independent experiments.
 
-#### What is "experimental noise introduced during the coupling of genetic perturbations with single-cell transcriptomic profiling"?
+### What is "experimental noise introduced during the coupling of genetic perturbations with single-cell transcriptomic profiling"?
 
 **Noise from the Genetic Perturbation step:**
 
@@ -42,7 +44,7 @@ tags:
 
 *   **Batch Effects:** Experiments are usually performed in batches. Different batches of reagents, operators, and even minor environmental differences (like temperature fluctuations) can cause systematic deviations in the data. This is why the text mentions that the new dataset uses the Flex platform to "reduce batch effects through cell fixation."
 
-#### Why is there "limited reproducibility of perturbation effects across independent experiments"?
+### Why is there "limited reproducibility of perturbation effects across independent experiments"?
 
 **Technical Variability:**
 This stems directly from the **experimental noise** we discussed above. Because the noise patterns (like batch effects, perturbation efficiency) differ between experiments, the final observed "perturbation effect" is naturally difficult to replicate perfectly. This is why the text emphasizes that the dataset generated for the challenge had "optimized experimental parameters to maximize the reproducibility of observed effects."
