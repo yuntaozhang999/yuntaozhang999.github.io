@@ -18,4 +18,4 @@ vendor/
 
 # ignore one post that is not ready yet
 vcc/
-
+.DS_Store
