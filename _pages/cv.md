@@ -50,6 +50,17 @@ Skills
   * **Platforms & MLOps:** Google Cloud Platform (GCP), AWS Bedrock, Domino Data Lab, Docker, `uv`, `pip`, Git, Weights & Biases (W&B)
 
 
+Awards and Fellowships
+======
+* **Poster Award at Science Festival**, *Bristol Myers Squibb*, Oct. 2023
+  * Awarded to two recipients for the best poster presentation.
+* **PCSP Graduate Seminarian of the Year**, *University of the Pacific*, Nov. 2020
+  * Awarded to one recipient for the best research seminar presentation.
+* **John H. Shinkai Endowed Graduate Student Scholarship**, *University of the Pacific*, Jun. 2017, Jun. 2020
+  * Awarded to two recipients for excellence in research and academic accomplishment.
+* **PCSP College of the Pacific Dean's Travel Award**, *University of the Pacific*, Jun. 2019
+  * Awarded to two recipients to support student travel for conference presentation.
+
 Publications
 ======
   <ul>{% for post in site.publications reversed %}
