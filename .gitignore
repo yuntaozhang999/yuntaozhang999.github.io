@@ -17,5 +17,6 @@ vendor/
 .bundle/
 
 # ignore one post that is not ready yet
-vcc/
+_portfolio/21*.md
+_posts/21*.md
 .DS_Store
