@@ -6,7 +6,8 @@ tags:
   - Gemini CLI
   - VS Code
   - macOS
-  - Jekyll 
+  - Jekyll
+  - AI Assisted Debugging
   - Yuntao
 ---
 
@@ -16,7 +17,7 @@ tags:
 
 When using `gemini-cli` in my Jekyll website project, I encountered a bizarre bug: the tool's slash commands (`/`) were completely unresponsive within VS Code's integrated terminal. Pressing `Ctrl + C` would only print `✕ Unknown command: /quit`, and typing a slash `/` would not bring up the interactive command menu.
 
-Here is my troubleshooting journey from total confusion to a final, surprising resolution.
+Here is my troubleshooting journey from total confusion to a final, surprising resolution. This entire troubleshooting journey was undertaken as a collaborative effort with Gemini.
 
 ## The Problem
 
