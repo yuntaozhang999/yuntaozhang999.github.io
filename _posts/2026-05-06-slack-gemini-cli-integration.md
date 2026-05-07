@@ -24,7 +24,11 @@ The biggest game-changer is **mobility**. I am no longer tethered to my workstat
 
 ### The Experience
 
-It's incredibly satisfying to see Gemini picking up tasks and reporting progress while I'm out and about. It feels like having a personal dev-ops team in my pocket. The sheer convenience of being able to say, *"Hey, look into that bug in the parser while I'm away,"* and seeing the solution ready when I return is pure magic. 
+It's incredibly satisfying to see Gemini picking up tasks and reporting progress while I'm out and about. The integration is more than just a bridge; it's a context-aware system:
+
+- **Thread-Based Memory:** The bot uses the Slack thread ID as a `session-id` for Gemini CLI. This means every reply in a Slack thread maintains the conversation context, allowing for iterative debugging and multi-step reasoning.
+- **Smart Resume:** If I start a new message (not in a thread), the bot automatically checks for any active sessions in the last 8 hours. If one exists, it uses the `--resume latest` flag, letting me pick up exactly where I left off without manual configuration.
+- **Whitelisted Control:** For security, I've implemented a project whitelist. I can switch between contexts using a simple `cd project_name; your instruction` syntax, ensuring the agent only operates within my approved research and development folders.
 
 ### How to Set It Up
 
@@ -35,28 +39,26 @@ To implement this integration for your own workspace, follow these steps:
     - Assign it to your desired workspace.
 
 2.  **Enable Socket Mode:**
-    - In the App Settings, navigate to **Socket Mode** and toggle it on. This allows the bot to communicate with Slack without needing a public HTTP endpoint.
+    - In the App Settings, navigate to **Socket Mode** and toggle it on.
     - Generate an **App-Level Token** with the `connections:write` scope. Store this as `SLACK_APP_TOKEN`.
 
 3.  **Configure Event Subscriptions:**
-    - Go to **Event Subscriptions** and enable them.
-    - Under "Subscribe to bot events", add `app_mention`.
+    - Enable subscriptions and add `app_mention` under "Subscribe to bot events".
 
 4.  **OAuth & Permissions:**
-    - Go to **OAuth & Permissions**.
-    - Under "Bot Token Scopes", add `app_mentions:read` and `chat:write`.
-    - Install the app to your workspace to obtain the **Bot User OAuth Token**. Store this as `SLACK_BOT_TOKEN`.
+    - Add `app_mentions:read` and `chat:write` to **Bot Token Scopes**.
+    - Install the app to obtain the **Bot User OAuth Token** (`SLACK_BOT_TOKEN`).
 
 5.  **Environment Setup:**
-    - Export your tokens in your terminal:
+    - Export your tokens:
       ```bash
       export SLACK_BOT_TOKEN="xoxb-your-bot-token"
       export SLACK_APP_TOKEN="xapp-your-app-token"
       ```
 
 6.  **Run the Integration Bot:**
-    - Use a Python script with the `slack-bolt` library to listen for mentions and execute Gemini CLI commands.
-    - Use the `--sandbox` flag for security and `--yolo` for autonomous execution within the sandbox.
+    - Use a Python script with the `slack-bolt` library. My implementation uses `subprocess.Popen` to run Gemini CLI with the `--sandbox` and `--yolo` flags, capturing output in real-time and feeding it back into the Slack thread.
+    - **Pro Tip:** I added a noise filter to remove common CLI warnings (like Ripgrep unavailability) to keep the Slack chat clean and focused on the results.
 
 ### What's Next?
 
