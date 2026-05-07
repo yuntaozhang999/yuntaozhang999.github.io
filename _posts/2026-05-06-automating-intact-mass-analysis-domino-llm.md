@@ -1,7 +1,6 @@
 ---
 title: "Beyond Raw Data: Automating Intact Mass Analysis with Domino and Multi-modal LLMs"
 date: 2026-05-06
-excerpt: "Scaling mass spectrometry workflows by transforming complex Byos outputs into actionable insights using Domino Model Products, spatial visualizations, and GPT-5.1 multi-modal analysis."
 tags:
   - Mass Spectrometry
   - Automation
@@ -42,8 +41,12 @@ The most innovative part of this workflow is the integration of **GPT-5.1** for 
 ### Step 4: Cost Efficiency via Azure OpenAI Caching
 Deploying LLMs at scale can be expensive. To keep costs down, I utilized **Azure OpenAI API's cache discount** features. By structuring the prompt endpoints and metadata consistently, we maximize the cache hit ratio. This strategy significantly reduces the cost per sample, making it feasible to run large-scale plate analyses through the LLM without breaking the budget.
 
-### Step 5: Democratizing the Tool via Domino
-By publishing this script as a **Domino Model Product**, I've moved it from a local script on my machine to a shared resource. Colleagues can now upload their Byos exports to a web interface and receive a fully processed, visualized, and AI-annotated report in minutes.
+### Step 5: Democratizing the Tool via Streamlit & Domino
+By leveraging **Streamlit** for the frontend and publishing it as a **Domino Model Product**, I've transformed a complex script into a user-friendly web application. The UI is designed to be intuitive while offering deep flexibility:
+
+- **Optional Features:** Users have full control over the workflow. Whether it's generating **Plate Heatmaps** (which requires uploading a platemap CSV from our LIMS), performing **AI Annotations**, or using **Spectrum Visual Analysis**, everything is optional based on the specific needs of the experiment.
+- **Parallelized Processing:** For large datasets, the AI annotation step can be parallelized. Users can specify the number of concurrent processes to significantly speed up the reporting phase.
+- **Flexible Data Export:** Once processing is complete, a clear success notification informs the user. They can then choose to download the entire package or select specific components, such as high-resolution plots, images, the processed Excel report, or the detailed processing logs.
 
 This integration of traditional automation, spatial visualization, and cutting-edge multi-modal AI is a glimpse into the future of data-driven bioprocessing.
 

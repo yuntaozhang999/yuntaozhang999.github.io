@@ -1,7 +1,6 @@
 ---
 title: "Slack + Gemini CLI: My Mobile AI Command Center"
 date: 2026-05-06
-excerpt: "Connecting Slack to Gemini CLI to enable remote AI orchestration from anywhere. Recording the successful integration and mobile task management."
 tags:
   - Gemini CLI
   - Slack
