@@ -20,3 +20,6 @@ vendor/
 _portfolio/21*.md
 _posts/21*.md
 .DS_Store
+
+.gemini
+.claude
