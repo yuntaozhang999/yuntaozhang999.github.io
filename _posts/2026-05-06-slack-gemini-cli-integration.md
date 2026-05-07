@@ -1,6 +1,7 @@
 ---
 title: "Slack + Gemini CLI: My Mobile AI Command Center"
 date: 2026-05-06
+excerpt: ""
 tags:
   - Gemini CLI
   - Slack
@@ -8,7 +9,6 @@ tags:
   - Automation
   - Productivity
 ---
-
 I'm thrilled to share a major milestone in my personal AI workflow: **Gemini CLI is now fully integrated with Slack!** 
 
 This integration allows me to interact with my local Gemini agent directly through a Slack bot. By bridging these two powerful tools, I've transformed how I manage my coding and research tasks.

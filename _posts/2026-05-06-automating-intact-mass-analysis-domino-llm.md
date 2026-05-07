@@ -1,6 +1,7 @@
 ---
 title: "Beyond Raw Data: Automating Intact Mass Analysis with Domino and Multi-modal LLMs"
 date: 2026-05-06
+excerpt: ""
 tags:
   - Mass Spectrometry
   - Automation
@@ -9,7 +10,6 @@ tags:
   - GPT-5
   - BioPharma
 ---
-
 In the world of BioPharma R&D, data is abundant, but insights are often buried under layers of complex outputs. One of the most common bottlenecks in our lab was the post-processing of **Intact Mass** data from Byos. While Byos does an excellent job with the initial analysis, the raw Excel exports often require significant manual intervention before they are ready for cross-functional stakeholders.
 
 To solve this, I’ve developed an automation pipeline and published it as a **Domino Model Product**, allowing my colleagues to transform raw mass spec data into comprehensive, AI-annotated reports with a single click.
