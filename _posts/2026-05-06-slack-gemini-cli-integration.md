@@ -26,7 +26,7 @@ The biggest game-changer is **mobility**. I am no longer tethered to my workstat
 
 It's incredibly satisfying to see Gemini picking up tasks and reporting progress while I'm out and about. The integration is more than just a bridge; it's a context-aware system:
 
-- **Thread-Based Memory:** The bot uses the Slack thread ID as a `session-id` for Gemini CLI. This means every reply in a Slack thread maintains the conversation context, allowing for iterative debugging and multi-step reasoning.
+- **Thread-Based Memory:** The bot maps the Slack `thread_ts` (thread timestamp) to the Gemini CLI's `--session-id`. While Gemini CLI normally uses UUIDs, this mapping effectively turns a Slack timestamp into a persistent session identifier. This means every reply in a Slack thread maintains the conversation context, allowing for iterative debugging and multi-step reasoning.
 - **Smart Resume:** If I start a new message (not in a thread), the bot automatically checks for any active sessions in the last 8 hours. If one exists, it uses the `--resume latest` flag, letting me pick up exactly where I left off without manual configuration.
 - **Whitelisted Control:** For security, I've implemented a project whitelist. I can switch between contexts using a simple `cd project_name; your instruction` syntax, ensuring the agent only operates within my approved research and development folders.
 
