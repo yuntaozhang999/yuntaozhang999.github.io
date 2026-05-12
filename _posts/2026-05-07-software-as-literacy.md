@@ -12,11 +12,11 @@ tags:
   - Sequoia Capital
 ---
 
-On my commute today, I caught up on some of the sessions from Sequoia Capital's **AI Ascent 2026**. Two talks in particular—by **Boris Cherny** and **Andrej Karpathy**—offered a profound look at how the nature of software development is fundamentally changing. While they spoke in separate sessions, their perspectives formed a coherent vision of a future where coding shifts from a specialized craft to a universal form of literacy.
+On my commute today, I caught up on some of the sessions from Sequoia Capital's **AI Ascent 2026**. Two interview sessions in particular—featuring **Boris Cherny** and **Andrej Karpathy**—offered a profound look at how the nature of software development is fundamentally changing. While they participated in separate Q&A-style interviews, their perspectives formed a coherent vision of a future where coding shifts from a specialized craft to a universal form of literacy.
 
 ### Boris Cherny: The Printing Press Moment for Software
 
-**Boris Cherny** (co-founder of Anthropic and creator of Claude Code) delivered a talk titled *"Why Coding Is Solved, and What Comes Next."* He shared a powerful analogy: **software development is the new literacy.**
+**Boris Cherny** (co-founder of Anthropic and creator of Claude Code) participated in a session titled *"Why Coding Is Solved, and What Comes Next."* The format was split between an insightful interview with the host and a direct Q&A with the audience. During the discussion, he shared a powerful analogy: **software development is the new literacy.**
 
 #### The "Scribe" Era of Software
 Boris framed our current state of software engineering through a historical lens. Before the invention of the printing press, literacy was a specialized, elite skill held by scribes and clergy. Kings relied on these professionals to handle their records. Today, we are in the **"Scribe Era" of software.** If you want to build an app, you hire a "scribe"—a professional software engineer—who understands syntax and compilers.
@@ -31,7 +31,7 @@ To illustrate how close we are, Boris shared some personal metrics that blew my 
 
 ### Andrej Karpathy: From Vibe Coding to Agentic Engineering
 
-In a separate session titled *"From Vibe Coding to Agentic Engineering,"* **Andrej Karpathy** provided a complementary perspective from the builder's front lines. 
+In a separate, dedicated interview titled *"From Vibe Coding to Agentic Engineering,"* **Andrej Karpathy** spent the entire session in a deep-dive Q&A with the host, providing a complementary perspective from the builder's front lines. 
 
 #### Software 3.0: The Context Window as the Program
 Karpathy extended his famous Software 1.0/2.0 framework to **Software 3.0**. 
