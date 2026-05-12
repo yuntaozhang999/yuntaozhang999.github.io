@@ -23,7 +23,15 @@ The biggest game-changer is **mobility**. I am no longer tethered to my workstat
 
 ### The Experience
 
-It's incredibly satisfying to see Gemini picking up tasks and reporting progress while I'm out and about. The integration is more than just a bridge; it's a context-aware system:
+It's incredibly satisfying to see Gemini picking up tasks and reporting progress while I'm out and about. 
+
+**Important Distinction: Native vs. Custom Implementation**
+
+One crucial thing to understand is that **Gemini CLI does not natively support Slack integration.** Unlike **Claude Code**, which has been designed with more built-in platform connectivity, Gemini CLI remains a pure command-line tool. 
+
+The "integration" I am describing here is a custom-built bridge. I developed a Python middleware (the `bot.py` in my root directory) that listens to Slack events and translates them into Gemini CLI commands. While this requires an extra layer of setup, it allows for a highly tailored experience, such as the thread-to-session mapping described below.
+
+The integration is more than just a bridge; it's a context-aware system:
 
 - **Thread-Based Memory:** The bot maps the Slack `thread_ts` (thread timestamp) to the Gemini CLI's `--session-id`. While Gemini CLI normally uses UUIDs, this mapping effectively turns a Slack timestamp into a persistent session identifier. This means every reply in a Slack thread maintains the conversation context, allowing for iterative debugging and multi-step reasoning.
 - **Smart Resume:** If I start a new message (not in a thread), the bot automatically checks for any active sessions in the last 8 hours. If one exists, it uses the `--resume latest` flag, letting me pick up exactly where I left off without manual configuration.
