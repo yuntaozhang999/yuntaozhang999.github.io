@@ -45,6 +45,11 @@ Karpathy distinguished between **"Vibe Coding"**—the exploratory magic of desc
 #### AI Psychosis and "Progress Anxiety"
 One point Karpathy has reflected on recently (and touched on in the *No Priors* podcast) is **"AI Psychosis"**—the intense, anxious drive to be "in the flow" with AI every day. I felt a powerful resonance with this. There is a specific "progress anxiety" in this era: the fear of falling behind if you aren't constantly upgrading your AI mental models. This "builder energy" was actually the spark for my own experiments with **Voice Coding**.
 
+#### The 10-Year Lag: Digital Speed vs. Physical Friction
+Karpathy has often cautioned that while the AI revolution feels instantaneous in the digital world, its impact on the physical world will be a "slow burn." He famously uses **Waymo** as a case study: despite having fully autonomous cars operational for years, the reality of global, ubiquitous self-driving remains years away due to the immense engineering challenges and real-world friction. He estimates that widespread AGI impact in the physical world might still be a decade away.
+
+However, as this session made clear, the **digital world** is moving far faster than we imagined. We might be in the "decade of agents" for physical robotics, but in the software layer, the "Software 3.0" revolution is already here. Karpathy uses a striking analogy to explain this gap: **"Ghosts vs. Animals."** Current AI models are "digital ghosts"—superhuman in the ethereal realm of code and text—but they lack the millions of years of "preloaded software" that biological animals have to navigate the messy physical world. This highlights a fascinating duality: while we wait for the physical world to catch up, our digital lives are undergoing a total transformation in real-time.
+
 #### The Death of the "Niche App"
 Karpathy shared a humbling lesson from his project, **MenuGen**. As base models became more capable, the specialized app itself became redundant. This suggests a world where "middlemen" apps melt away, leaving only user intent and model capability.
 
