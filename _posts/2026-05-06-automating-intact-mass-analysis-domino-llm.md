@@ -42,7 +42,7 @@ The most innovative part of this workflow is the integration of **GPT-5.1** for 
 Deploying LLMs at scale can be expensive. To keep costs down, I utilized **Azure OpenAI API's cache discount** features. By structuring the prompt endpoints and metadata consistently, we maximize the cache hit ratio. This strategy significantly reduces the cost per sample, making it feasible to run large-scale plate analyses through the LLM without breaking the budget.
 
 ### Step 5: Democratizing the Tool via Streamlit & Domino
-By leveraging **Streamlit** for the frontend and publishing it as a **Domino Model Product**, I've transformed a complex script into a user-friendly web application. The UI is designed to be intuitive while offering deep flexibility:
+By leveraging **Streamlit** for the frontend and publishing it as a **Domino Model Product**, I've transformed a complex script into a user-friendly web application. After the initial internal release, I actively solicited feedback from the group. Based on their insights, I iteratively refined the pipeline to achieve more robust data processing and ensure the tool could adapt to the diverse needs of different experimental scenarios. Today, the UI is designed to be intuitive while offering deep flexibility:
 
 - **Optional Features:** Users have full control over the workflow. Whether it's generating **Plate Heatmaps** (which requires uploading a platemap CSV from our LIMS), performing **AI Annotations**, or using **Spectrum Visual Analysis**, everything is optional based on the specific needs of the experiment.
 - **Parallelized Processing:** For large datasets, the AI annotation step can be parallelized. Users can specify the number of concurrent processes to significantly speed up the reporting phase.
