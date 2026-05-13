@@ -41,6 +41,8 @@ The most innovative part of this workflow is the integration of **GPT-5.1** for 
 ### Step 4: Cost Efficiency via Azure OpenAI Caching
 Deploying LLMs at scale can be expensive. To keep costs down, I utilized **Azure OpenAI API's cache discount** features. By structuring the prompt endpoints and metadata consistently, we maximize the cache hit ratio. This strategy significantly reduces the cost per sample, making it feasible to run large-scale plate analyses through the LLM without breaking the budget.
 
+Beyond API-level optimization, I also implemented **scheduled resource management** for the Domino Model Product. The application is configured to automatically start at **6:00 AM PT** and shut down at **6:00 PM PT**. This ensures that high-performance compute resources are only active when needed, preventing unnecessary costs during off-hours and ensuring the project remains lean and sustainable.
+
 ### Step 5: Democratizing the Tool via Streamlit & Domino
 By leveraging **Streamlit** for the frontend and publishing it as a **Domino Model Product**, I've transformed a complex script into a user-friendly web application. After the initial internal release, I actively solicited feedback from the group. Based on their insights, I iteratively refined the pipeline to achieve more robust data processing and ensure the tool could adapt to the diverse needs of different experimental scenarios. Today, the UI is designed to be intuitive while offering deep flexibility:
 
