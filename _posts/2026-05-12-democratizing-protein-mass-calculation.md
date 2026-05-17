@@ -14,7 +14,7 @@ However, for a long time, this "simple" task was surprisingly difficult to perfo
 
 ## The Accessibility Gap: Physical Hardware vs. The Web
 
-Traditionally, we relied on heavyweight software like **GPMAW** or **ByOS (Protein Metrics)**. While these tools are industry standards, they come with significant "physical" barriers:
+Traditionally, we relied on heavyweight software like **GPMAW** or **Byos (Protein Metrics)**. While these tools are industry standards, they come with significant "physical" barriers:
 
 1.  **Fixed Workstations:** They are typically installed on a few specific computers in the lab.
 2.  **License Constraints:** Access is limited by the number of available dongles or licenses.
