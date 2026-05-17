@@ -224,6 +224,8 @@ echo "ANTHROPIC_MODEL: $ANTHROPIC_MODEL"
   * **AWS SSO cache**: `~/.aws/sso/cache/`
   * **Shell configuration**: `~/.zprofile` (or `~/.zshrc`)
   * **Claude Code installation**: `/opt/homebrew/lib/node_modules/@anthropic-ai/claude-code/`
+  * **Claude Configuration**: `~/.claude/`
+  * **Gemini Configuration**: `~/.gemini/`
 
 -----
 
