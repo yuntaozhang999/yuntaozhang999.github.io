@@ -1,13 +1,17 @@
 <!-- Waline Comment System -->
-<link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@waline/client@v3/dist/waline.css" />
 <script type="module">
-  import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+  import { init } from 'https://cdn.jsdelivr.net/npm/@waline/client@v3/dist/waline.js';
 
-  init({
-    el: '#waline',
-    serverURL: '{{ site.comments.waline.serverURL }}',
-    path: '{{ page.url }}',
-    // You can add more configurations here if needed.
-    // See: https://waline.js.org/reference/client/
-  });
+  console.log('Initializing Waline at path:', '{{ page.url }}');
+  try {
+    init({
+      el: '#waline',
+      serverURL: '{{ site.comments.waline.serverURL }}',
+      path: '{{ page.url }}',
+    });
+    console.log('Waline initialized successfully.');
+  } catch (err) {
+    console.error('Waline initialization failed:', err);
+  }
 </script>
