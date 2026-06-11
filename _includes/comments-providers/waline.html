@@ -9,6 +9,7 @@
       el: '#waline',
       serverURL: '{{ site.comments.waline.serverURL }}',
       path: '{{ page.url }}',
+      dark: 'html[data-theme="dark"]',
     });
     console.log('Waline initialized successfully.');
   } catch (err) {
