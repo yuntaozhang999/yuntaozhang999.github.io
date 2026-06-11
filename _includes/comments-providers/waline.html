@@ -1,0 +1,13 @@
+<!-- Waline Comment System -->
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
+<script type="module">
+  import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+
+  init({
+    el: '#waline',
+    serverURL: '{{ site.comments.waline.serverURL }}',
+    path: '{{ page.url }}',
+    // You can add more configurations here if needed.
+    // See: https://waline.js.org/reference/client/
+  });
+</script>

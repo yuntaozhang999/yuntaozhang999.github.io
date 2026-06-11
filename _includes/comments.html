@@ -79,5 +79,10 @@
     <h4 class="page__comments-title">{{ comments_label }}</h4>
     <section id="comments"></section>
     {% include /comments-providers/scripts.html %}
+  {% when "waline" %}
+    {% if site.comments.waline.serverURL %}
+      <h4 class="page__comments-title">{{ comments_label }}</h4>
+      <section id="waline"></section>
+    {% endif %}
   {% endcase %}
 </div>

@@ -13,6 +13,10 @@
   {% include /comments-providers/staticman.html %}
 {% when "custom" %}
   {% include /comments-providers/custom.html %}
+{% when "waline" %}
+  {% if site.comments.waline.serverURL %}
+    {% include /comments-providers/waline.html %}
+  {% endif %}
 {% endcase %}
 
 {% endif %}
