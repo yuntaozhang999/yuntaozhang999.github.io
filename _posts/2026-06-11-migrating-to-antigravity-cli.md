@@ -1,7 +1,7 @@
 ---
 title: "Migrating to Antigravity CLI: First Impressions and Incredible Speed"
 date: 2026-06-11
-layout: post
+layout: single
 excerpt: ""
 categories:
   - Productivity

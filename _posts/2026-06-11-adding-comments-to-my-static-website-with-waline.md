@@ -1,7 +1,7 @@
 ---
 title: "Adding Comments to My Static Website: Understanding Vercel, Neon Database, and Serverless Functions"
 date: 2026-06-11
-layout: post
+layout: single
 excerpt: ""
 categories:
   - Web Development

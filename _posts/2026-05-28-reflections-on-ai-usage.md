@@ -1,7 +1,7 @@
 ---
 title: "Deep Dive vs. Professional Orchestration: My Reflections on the AI Efficiency Paradox"
 date: 2026-05-28
-layout: post
+layout: single
 excerpt: ""
 categories:
   - AI
