@@ -219,6 +219,9 @@ kramdown:
 
 # These settings control the types of collections used by the template
 collections:
+  notes:
+    output: true
+    permalink: /notes/:path/
   certificates:
     output: true
     permalink: /certificates/:path/
@@ -295,6 +298,15 @@ defaults:
   - scope:
       path: ""
       type: certificates
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comments: true
+  # _notes
+  - scope:
+      path: ""
+      type: notes
     values:
       layout: single
       author_profile: true
