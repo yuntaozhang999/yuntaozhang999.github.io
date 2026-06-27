@@ -1,10 +1,10 @@
 ---
-title: "Leveraging Agents for Refactoring"
+title: "Leveraging Reference Projects for Refactoring"
 date: 2026-06-25
 excerpt: ""
 categories:
-  - AI
   - Software Engineering
+  - Productivity
 ---
 
 Referencing a great project on the side is such an effective way to level up your own. Try this:
