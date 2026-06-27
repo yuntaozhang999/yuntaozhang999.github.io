@@ -7,4 +7,4 @@ categories:
   - Product Experience
 ---
 
-Claude的macOS app的语音模式下，我选了中文，它竟然就没办法识别我说的英文了。and vice versa。太失望了
+When using the voice mode in Claude's macOS app, selecting Chinese makes it unable to recognize English when I speak, and vice versa. It is very disappointing.
