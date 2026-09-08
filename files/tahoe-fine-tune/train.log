@@ -1,0 +1,139 @@
+nohup: ignoring input
+Seed set to 42
+Dataset path does not exist: /home/ustbz/competition_support_set/{competition_train,k562_gwps,rpe1,jurkat,k562,hepg2}.h5
+/home/ustbz/competition_support_set/{competition_train,k562_gwps,rpe1,jurkat,k562,hepg2}.h5
+Processing replogle_h1:   0%|          | 0/6 [00:00<?, ?it/s]
+Processing replogle_h1: 100%|██████████| 6/6 [00:00<00:00, 12.05it/s]
+wandb: Currently logged in as: yuntaozhang999 (yuntaozhang999-personal) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.21.3
+wandb: Run data is saved locally in ./wandb/run-20250911_145336-jo0kx1aj
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run tahoe-finetune-yuntao0911
+wandb: ⭐️ View project at https://wandb.ai/yuntaozhang999-personal/lightning_logs
+wandb: 🚀 View run at https://wandb.ai/yuntaozhang999-personal/lightning_logs/runs/jo0kx1aj
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                 | Type                    | Params | Mode 
+-------------------------------------------------------------------------
+0 | loss_fn              | SamplesLoss             | 0      | train
+1 | pert_encoder         | Sequential              | 14.3 M | train
+2 | basal_encoder        | Sequential              | 33.6 M | train
+3 | transformer_backbone | LlamaBidirectionalModel | 260 M  | train
+4 | project_out          | Sequential              | 33.6 M | train
+5 | final_down_then_up   | Sequential              | 81.7 M | train
+6 | batch_encoder        | Embedding               | 788 K  | train
+7 | relu                 | ReLU                    | 0      | train
+-------------------------------------------------------------------------
+376 M     Trainable params
+47.6 M    Non-trainable params
+424 M     Total params
+1,696.441 Total estimated model params size (MB)
+123       Modules in train mode
+0         Modules in eval mode
+wandb: WARNING Serializing object of type list that is 153752 bytes
+wandb: WARNING Serializing object of type list that is 153752 bytes
+Processed competition_train: 221273 train, 0 val, 0 test
+Processed k562_gwps: 111605 train, 0 val, 0 test
+Processed rpe1: 22317 train, 0 val, 0 test
+Processed jurkat: 21412 train, 0 val, 0 test
+Processed k562: 18465 train, 0 val, 0 test
+Processed hepg2: 0 train, 0 val, 9386 test
+num_workers: 6
+batch size: None
+StateTransitionPerturbationModel(
+  (loss_fn): SamplesLoss()
+  (pert_encoder): Sequential(
+    (0): Linear(in_features=5120, out_features=1488, bias=True)
+    (1): GELU(approximate='none')
+    (2): Dropout(p=0.1, inplace=False)
+    (3): Linear(in_features=1488, out_features=1488, bias=True)
+    (4): GELU(approximate='none')
+    (5): Dropout(p=0.1, inplace=False)
+    (6): Linear(in_features=1488, out_features=1488, bias=True)
+    (7): GELU(approximate='none')
+    (8): Dropout(p=0.1, inplace=False)
+    (9): Linear(in_features=1488, out_features=1488, bias=True)
+  )
+  (basal_encoder): Sequential(
+    (0): Linear(in_features=18080, out_features=1488, bias=True)
+    (1): GELU(approximate='none')
+    (2): Dropout(p=0.1, inplace=False)
+    (3): Linear(in_features=1488, out_features=1488, bias=True)
+    (4): GELU(approximate='none')
+    (5): Dropout(p=0.1, inplace=False)
+    (6): Linear(in_features=1488, out_features=1488, bias=True)
+    (7): GELU(approximate='none')
+    (8): Dropout(p=0.1, inplace=False)
+    (9): Linear(in_features=1488, out_features=1488, bias=True)
+  )
+  (transformer_backbone): LlamaBidirectionalModel(
+    (embed_tokens): Embedding(32000, 1488, padding_idx=0)
+    (layers): ModuleList(
+      (0-5): 6 x LlamaDecoderLayer(
+        (self_attn): LlamaAttention(
+          (q_proj): Linear(in_features=1488, out_features=1488, bias=False)
+          (k_proj): Linear(in_features=1488, out_features=1488, bias=False)
+          (v_proj): Linear(in_features=1488, out_features=1488, bias=False)
+          (o_proj): Linear(in_features=1488, out_features=1488, bias=False)
+        )
+        (mlp): LlamaMLP(
+          (gate_proj): Linear(in_features=1488, out_features=5952, bias=False)
+          (up_proj): Linear(in_features=1488, out_features=5952, bias=False)
+          (down_proj): Linear(in_features=5952, out_features=1488, bias=False)
+          (act_fn): SiLU()
+        )
+        (input_layernorm): LlamaRMSNorm((1488,), eps=1e-06)
+        (post_attention_layernorm): LlamaRMSNorm((1488,), eps=1e-06)
+      )
+    )
+    (norm): LlamaRMSNorm((1488,), eps=1e-06)
+    (rotary_emb): NoRoPE()
+  )
+  (project_out): Sequential(
+    (0): Linear(in_features=1488, out_features=1488, bias=True)
+    (1): GELU(approximate='none')
+    (2): Dropout(p=0.1, inplace=False)
+    (3): Linear(in_features=1488, out_features=1488, bias=True)
+    (4): GELU(approximate='none')
+    (5): Dropout(p=0.1, inplace=False)
+    (6): Linear(in_features=1488, out_features=1488, bias=True)
+    (7): GELU(approximate='none')
+    (8): Dropout(p=0.1, inplace=False)
+    (9): Linear(in_features=1488, out_features=18080, bias=True)
+  )
+  (final_down_then_up): Sequential(
+    (0): Linear(in_features=18080, out_features=2260, bias=True)
+    (1): GELU(approximate='none')
+    (2): Linear(in_features=2260, out_features=18080, bias=True)
+  )
+  (batch_encoder): Embedding(530, 1488)
+  (relu): ReLU()
+)
+Model created. Estimated params size: 1.58 GB
+Building trainer with kwargs: {'accelerator': 'gpu', 'devices': 1, 'max_steps': 40000, 'check_val_every_n_epoch': None, 'val_check_interval': 500, 'logger': [<state.tx.utils.RobustCSVLogger object at 0x7fee705ce550>, <lightning.pytorch.loggers.wandb.WandbLogger object at 0x7fee707864d0>], 'plugins': [], 'callbacks': [<lightning.pytorch.callbacks.model_checkpoint.ModelCheckpoint object at 0x7fee712a0d10>, <lightning.pytorch.callbacks.model_checkpoint.ModelCheckpoint object at 0x7fee64849350>, <state.tx.callbacks.batch_speed_monitor.BatchSpeedMonitorCallback object at 0x7fee705cd610>, <lightning.pytorch.callbacks.lr_monitor.LearningRateMonitor object at 0x7fee707ccb90>, <state._cli._tx._train.run_tx_train.<locals>._LrPerGroupLogger object at 0x7fee70296410>, <state._cli._tx._train.run_tx_train.<locals>._OptParamsOnceLogger object at 0x7fee64849850>], 'gradient_clip_val': 1.0}
+Trainer built successfully
+Model device: cpu
+CUDA memory allocated: 0.00 GB
+CUDA memory reserved: 0.00 GB
+Loading manual checkpoint from /home/ustbz/19500.ckpt
+[weights-only] loaded 85 tensors; skipped 0 mismatched; 0 missing remain randomly initialized.
+About to call trainer.fit() with checkpoint_path=None
+
+Sanity Checking: |          | 0/? [00:00<?, ?it/s]
+Sanity Checking DataLoader 0: 100%|██████████| 2/2 [00:01<00:00,  1.23it/s]                                                               
+
+Training: |          | 0/? [00:00<?, ?it/s]
+Epoch 0: 100%|██████████| 185/185 [05:02<00:00,  0.61it/s, v_num=x1aj]  
+Epoch 1: 100%|██████████| 185/185 [04:59<00:00,  0.62it/s, v_num=x1aj]       
+Epoch 2:  70%|███████   | 130/185 [03:43<01:34,  0.58it/s, v_num=x1aj]
+
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 14/14 [00:15<00:00,  0.92it/s][A
+
+Epoch 2: 100%|██████████| 185/185 [05:42<00:00,  0.54it/s, v_num=x1aj]
+Epoch 3: 100%|██████████| 185/185 [05:05<00:00,  0.61it/s, v_num=x1aj]
+
+Epoch 111:  26%|██▌       | 48/185 [01:29<04:15,  0.54it/s, v_num=x1aj]

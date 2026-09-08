@@ -1,0 +1,18 @@
+<!-- Waline Comment System -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@waline/client@v3/dist/waline.css" />
+<script type="module">
+  import { init } from 'https://cdn.jsdelivr.net/npm/@waline/client@v3/dist/waline.js';
+
+  console.log('Initializing Waline at path:', '{{ page.url }}');
+  try {
+    init({
+      el: '#waline',
+      serverURL: '{{ site.comments.waline.serverURL }}',
+      path: '{{ page.url }}',
+      dark: 'html[data-theme="dark"]',
+    });
+    console.log('Waline initialized successfully.');
+  } catch (err) {
+    console.error('Waline initialization failed:', err);
+  }
+</script>

@@ -1,0 +1,7 @@
+config,differential expression score,perturbation discrimination score,mean absolute error, overall score
+tahoe-finetune-yuntao0826_config,0.1108,0.5016,0.1909,0.19
+tahoe-finetune-yuntao0901_config,0.0005,0.5164,0.0303,0.06
+tahoe-finetune-yuntao0905_config,,,,
+tahoe-finetune-yuntao0906_config,0.128,0.5888,0.0453,5.7
+tahoe-finetune-yuntao0907_config,,,,
+tahoe-finetune-yuntao0908_config,0.1216,0.6300,0.0397,8.5

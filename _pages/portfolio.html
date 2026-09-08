@@ -1,14 +1,87 @@
 ---
 layout: archive
-title: "Portfolio"
+title: "Projects & Demos"
 permalink: /portfolio/
 author_profile: true
 ---
 
 {% include base_path %}
 
+<p class="page__lead">
+  A curated collection of open-source interactive 3D WebGL visualizers, full-stack scientific applications, and automated computational workflows.
+</p>
 
-{% for post in site.portfolio %}
-  {% include archive-single.html %}
+<!-- Section 1: Interactive 3D Visualizers & Web Apps -->
+<h2 id="interactive-demos" style="margin-top: 1.5em; border-bottom: 2px solid var(--global-border-color); padding-bottom: 0.3em;">
+  🌟 Interactive 3D Visualizers & Web Apps
+</h2>
+<p style="color: var(--global-text-color-light); margin-top: -0.5em; margin-bottom: 1.5em;">
+  Client-side interactive tools and 3D neural architecture visualizers running natively in the browser without server dependencies.
+</p>
+
+<div class="interactive-showcase-grid" style="display: flex; flex-direction: column; gap: 2rem; margin-bottom: 3rem;">
+{% assign sorted_portfolio = site.portfolio | sort: "date" | reversed %}
+{% for post in sorted_portfolio %}
+  {% if post.category == "interactive-demos" or post.category == "web-apps" or post.category == "interactive" %}
+    <div class="project-card project-card--featured" style="border: 1px solid var(--global-border-color); border-radius: 10px; padding: 1.5rem; background: rgba(128, 128, 128, 0.05); box-shadow: 0 4px 14px rgba(0,0,0,0.08);">
+      {% if post.header.teaser %}
+        <div class="project-card__image" style="margin-bottom: 1.25rem; overflow: hidden; border-radius: 8px; border: 1px solid var(--global-border-color);">
+          <a href="{{ post.link | default: post.url }}" target="_blank" rel="noopener noreferrer">
+            <img src="{{ post.header.teaser | prepend: '/images/' | prepend: base_path }}" alt="{{ post.title }}" style="width: 100%; height: auto; display: block;">
+          </a>
+        </div>
+      {% endif %}
+
+      <div class="project-card__content">
+        <h3 style="margin-top: 0; margin-bottom: 0.5rem; font-size: 1.35rem;">
+          <a href="{{ post.link | default: post.url }}" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">{{ post.title }}</a>
+        </h3>
+
+        {% if post.tags %}
+          <div class="project-card__tags" style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.85rem;">
+            {% for tag in post.tags %}
+              <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 12px; background: rgba(82, 173, 200, 0.15); color: var(--global-link-color); font-weight: 600;">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        {% if post.excerpt %}
+          <div class="project-card__excerpt" style="margin-bottom: 1.25rem; line-height: 1.6; color: var(--global-text-color);">
+            {{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}
+          </div>
+        {% endif %}
+
+        <div class="project-card__actions" style="display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center;">
+          {% if post.link %}
+            <a href="{{ post.link }}" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: var(--global-link-color, #2f7f93); color: #fff !important; margin-bottom: 0;">🚀 Live Demo</a>
+          {% endif %}
+          {% if post.github %}
+            <a href="{{ post.github }}" target="_blank" rel="noopener noreferrer" class="btn btn--inverse" style="margin-bottom: 0;">💻 GitHub</a>
+          {% endif %}
+          {% if post.blog_post %}
+            <a href="{{ post.blog_post }}" class="btn btn--info" style="margin-bottom: 0;">📝 Technical Blog</a>
+          {% endif %}
+          <a href="{{ post.url }}" class="btn btn--inverse" style="margin-bottom: 0;">🔍 Details</a>
+        </div>
+      </div>
+    </div>
+  {% endif %}
 {% endfor %}
+</div>
+
+<!-- Section 2: Scientific Computing & Automation Toolkits -->
+<h2 id="scientific-toolkits" style="margin-top: 2em; border-bottom: 2px solid var(--global-border-color); padding-bottom: 0.3em;">
+  🛠️ Scientific Computing & Automation Toolkits
+</h2>
+<p style="color: var(--global-text-color-light); margin-top: -0.5em; margin-bottom: 1.5em;">
+  Specialized computational chemistry toolkits, automated LC-MS data workflows, and laboratory informatics tools.
+</p>
+
+<div class="scientific-showcase-list">
+{% for post in sorted_portfolio %}
+  {% unless post.category == "interactive-demos" or post.category == "web-apps" or post.category == "interactive" %}
+    {% include archive-single-portfolio.html %}
+  {% endunless %}
+{% endfor %}
+</div>
 

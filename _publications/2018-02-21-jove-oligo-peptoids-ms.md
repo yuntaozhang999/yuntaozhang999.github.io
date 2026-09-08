@@ -1,0 +1,12 @@
+---
+title: "Synthesis and Mass Spectrometry Analysis of Oligo-peptoids"
+collection: publications
+category: manuscripts
+excerpt: 'This article presents a method for manual synthesis of oligo-peptoids and sequence analysis using tandem mass spectrometry (MS/MS) techniques.'
+date: 2018-02-21
+venue: 'Journal of Visualized Experiments, (132):56652, 2018'
+slidesurl: ''
+paperurl: 'https://doi.org/10.3791/56652'
+citation: 'Jianhua Ren, Yadwinder S Mann, <b>Yuntao Zhang</b>, Michael D Browne. (2018). "Synthesis and Mass Spectrometry Analysis of Oligo-peptoids." <i>J Vis Exp</i>, (132):56652. https://doi.org/10.3791/56652'
+---
+Peptoids are sequence-controlled peptide-mimicking oligomers consisting of N-alkylated glycine units. Among many potential applications, peptoids have been thought of as a type of molecular information storage. Mass spectrometry analysis has been considered the method of choice for sequencing peptoids. Peptoids can be synthesized via solid phase chemistry using a repeating two-step reaction cycle. Here we present a method to manually synthesize oligo-peptoids and to analyze the sequence of the peptoids using tandem mass spectrometry (MS/MS) techniques. The sample peptoid is a nonamer consisting of alternating N-(2-methyloxyethyl)glycine (Nme) and N-(2-phenylethyl)glycine (Npe), as well as an N-(2-aminoethyl)glycine (Nae) at the N-terminus. The sequence formula of the peptoid is Ac-Nae-(Npe-Nme)4-NH2, where Ac is the acetyl group. The synthesis takes place in a commercially available solid-phase reaction vessel. The rink amide resin is used as the solid support to yield the peptoid with an amide group at the C-terminus. The resulting peptoid product is subjected to sequence analysis using a triple-quadrupole mass spectrometer coupled to an electrospray ionization source. The MS/MS measurement produces a spectrum of fragment ions resulting from the dissociation of charged peptoid. The fragment ions are sorted out based on the values of their mass-to-charge ratio (m/z). The m/z values of the fragment ions are compared against the nominal masses of theoretically predicted fragment ions, according to the scheme of peptoid fragmentation. The analysis generates a fragmentation pattern of the charged peptoid. The fragmentation pattern is correlated to the monomer sequence of the neutral peptoid. In this regard, MS analysis reads out the sequence information of the peptoids.

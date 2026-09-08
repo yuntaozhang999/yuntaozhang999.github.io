@@ -15,19 +15,25 @@ main:
     url: /talks/    
 
   - title: "Teaching"
-    url: /teaching/    
+    url: /teaching/
     
-  - title: "Portfolio"
+  - title: "Projects & Demos"
     url: /portfolio/
         
   - title: "Blog Posts"
     url: /year-archive/
     
+  - title: "Notes"
+    url: /notes/
+    
   - title: "CV"
     url: /cv/
-    
+
+  - title: "Certificates"
+    url: /certificates/
+
   # - title: "CV"
   #   url: /cv-json/
     
-  - title: "Guide"
-    url: /markdown/
+  # - title: "Guide"
+  #   url: /markdown/
