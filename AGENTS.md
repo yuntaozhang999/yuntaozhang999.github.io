@@ -1,49 +1,63 @@
 # Agent Guidelines for Academic Pages (yuntaozhang999.github.io)
 
-**本文档是面向在此仓库中作业的 AI Coding Agent（如 Antigravity, Claude Code 等）及开发者的权威行为准则与操作规范。**
+## Scope & Applicable Agents
+
+This document serves as the authoritative operational standard, architectural reference, and behavioral protocol for all AI coding agents, automated developer assistants, and human developers contributing to or maintaining this repository.
+
+Applicable agents include, but are not limited to:
+- **OpenAI Codex / Codex CLI**
+- **Google Antigravity (AGY)**
+- **Anthropic Claude Code**
+- **Google Gemini CLI**
+- **Cursor**
+- **GitHub Copilot**
+- Other autonomous, semi-autonomous, or terminal-based LLM developer tools.
+
+Every AI agent or automated tool operating within this workspace must thoroughly parse, respect, and strictly comply with the policies, workflows, and defense perimeters detailed below.
 
 ---
 
-## 1. 仓库定位与 Upstream 关系
+## 1. Repository Topology & Upstream Synchronization SOP
 
-### 1.1 仓库背景
-* 本仓库由官方模板 [academicpages/academicpages.github.io](https://github.com/academicpages/academicpages.github.io) 衍生，作为 **张云涛（Yuntao Zhang）** 的个人学术主页、科研成果与博客展示系统。
-* **远端拓扑架构**：
-  * **上游模板主干 (`upstream`)**：`https://github.com/academicpages/academicpages.github.io.git`
-  * **个人生产远端 (`origin`)**：`https://github.com/yuntaozhang999/yuntaozhang999.github.io.git`
-  * **本地生产分支 (`master`)**：直接跟踪 `origin/master`。
-* **免 PR 声明**：个人主页的定制化内容与更新**严禁且无需**向 `academicpages.github.io` 提交 Pull Request。
+### 1.1 Repository Architecture & Upstream Relationship
+* **Repository Origin**: This repository is a customized downstream deployment derived from the official [academicpages/academicpages.github.io](https://github.com/academicpages/academicpages.github.io) template. It serves as the personal academic portfolio, scholarly publications archive, and academic blog for **Yuntao Zhang (张云涛)**.
+* **Remote Topology**:
+  * **Upstream Canonical Template (`upstream`)**: `https://github.com/academicpages/academicpages.github.io.git`
+  * **Personal Production Remote (`origin`)**: `https://github.com/yuntaozhang999/yuntaozhang999.github.io.git`
+  * **Local Production Branch (`master`)**: Directly tracks `origin/master`.
+* **Zero Upstream PR Declaration (No Pull Requests to Upstream)**:
+  All personal customizations, profile metadata, publications, patents, blog posts, and site assets **MUST NEVER** be submitted as a Pull Request to `academicpages/academicpages.github.io`. All commits must target the personal remote (`origin/master`).
 
-### 1.2 五步上游同步 SOP (Standard Operating Procedure)
-当需要吸收上游模板的功能更新、样式优化或安全修复时，必须严格执行以下五步隔离同步流程，严禁直接在 `master` 上执行覆盖操作：
+### 1.2 Five-Step Upstream Synchronization SOP (Standard Operating Procedure)
+When incorporating upstream template enhancements, security patches, or style bug fixes, agents and developers must strictly execute this isolated five-step synchronization workflow. **Never perform direct merges into `master` without isolation.**
 
 ```
 [Fetch Upstream] ➔ [Create sync-upstream] ➔ [Merge upstream/master] ➔ [Resolve & Purge] ➔ [Fast-forward & Push]
 ```
 
-1. **Step 1: 检查工作区并拉取上游最新提交**
-   * 确保本地工作区干净：`git status`。
-   * 拉取上游最新状态：`git fetch upstream`（若未配置 upstream，需先执行 `git remote add upstream https://github.com/academicpages/academicpages.github.io.git`）。
-2. **Step 2: 新建临时隔离分支**
-   * 切勿直接在 `master` 分支进行合并测试。
+1. **Step 1: Workspace Hygiene & Fetch Upstream**
+   * Verify that the local working tree is clean: `git status`.
+   * Fetch the latest upstream state: `git fetch upstream` *(if `upstream` remote is not configured, run `git remote add upstream https://github.com/academicpages/academicpages.github.io.git` first)*.
+2. **Step 2: Create an Isolated Temporary Branch**
+   * Never conduct merge conflict resolution directly on `master`.
    ```bash
    git checkout master
    git pull origin master
    git checkout -b sync-upstream
    ```
-3. **Step 3: 合并上游代码并捕获冲突**
+3. **Step 3: Merge Upstream & Detect Conflicts**
    ```bash
    git merge upstream/master
    ```
-   * 若提示 `CONFLICT`，立即运行 `git status` 列出所有冲突文件。
-4. **Step 4: 遵循资产保护原则与清理样例**
-   * **个人核心数据**：保留本地版本（优先采用 `git checkout --ours <file>` 或手工微调合并）。
-   * **框架与样式**：谨慎吸收上游更新，保留本地针对排版与布局的定制修改。
-   * **彻底清理样例文件**：上游更新常会带入默认测试博文、报告或样例图片（如 `_posts/`、`_talks/` 下的示例文件），必须逐一识别并执行 `git rm <sample-file>` 予以清除。
-   * 完成冲突合并提交：`git commit -m "chore: sync with upstream/master and resolve conflicts"`。
-5. **Step 5: 差异核验、快进合并与推送**
-   * 审查分支差异：`git diff master..sync-upstream`。
-   * 快进合并回主分支：
+   * If git reports `CONFLICT`, run `git status` immediately to identify conflicting files.
+4. **Step 4: Enforce Asset Protection & Purge Upstream Sample Files**
+   * **Personal Core Data**: Strictly retain local versions (prefer `git checkout --ours <file>` or manual semantic resolution).
+   * **Framework & Layouts**: Selectively absorb upstream improvements while preserving locally injected hooks, scripts, and layout customizations.
+   * **Thoroughly Purge Upstream Sample Files**: Upstream merges frequently reintroduce default sample blog posts, placeholder talks, demo slides, and dummy images (e.g., inside `_posts/`, `_talks/`, `_publications/`, `images/`). Every sample artifact must be identified and permanently removed using `git rm <sample-file>`.
+   * Commit the resolved merge: `git commit -m "chore: sync with upstream/master and resolve conflicts"`.
+5. **Step 5: Diff Audit, Fast-Forward Merge, & Push**
+   * Audit branch differences: `git diff master..sync-upstream`.
+   * Fast-forward merge back into `master` and push to production:
      ```bash
      git checkout master
      git merge sync-upstream
@@ -51,89 +65,121 @@
      git branch -d sync-upstream
      ```
 
-#### 应急与回滚指南
-* 中途放弃合并：`git merge --abort`。
-* 关键配置文件误损恢复：`git checkout master -- _config.yml _data/navigation.yml`。
-* 清理未跟踪杂质文件：`git clean -fd`。
+#### Emergency & Rollback Protocols
+* **Abort an In-Flight Merge**: `git merge --abort`.
+* **Restore Accidentally Overwritten Configuration**: `git checkout master -- _config.yml _data/navigation.yml`.
+* **Purge Untracked Artifacts**: `git clean -fd`.
 
 ---
 
-## 2. 核心受保护资产清单 (Protected Assets Registry)
+## 2. Protected Assets Registry
 
-在执行合并、重构或日常维护时，以下文件与目录属于**核心受保护资产**，绝对禁止被上游模板或自动化脚本盲目覆盖：
+During merges, automated refactoring, batch operations, or routine updates, the following assets are classified as **Strictly Protected Assets**. They must **NEVER** be overwritten or replaced by upstream defaults or blind automated scripts:
 
-| 资产路径 | 性质与分类 | 合并与修改策略 | 详细说明 |
+| Asset Path | Nature & Classification | Merge / Modification Strategy | Description & Scope |
 | :--- | :--- | :--- | :--- |
-| `_config.yml` | **核心保护** | **保留本地 (Ours)** | 包含网站标题、域名 URL、作者社交链接、分析工具配置等，严禁覆盖。 |
-| `_data/navigation.yml` | **核心保护** | **保留本地 (Ours)** | 导航栏结构配置及专属页面链接，完全个人定制。 |
-| `_pages/` | **核心保护** | **保留本地 (Ours)** | 个人简介 (`about.md`)、简历 (`cv.md`)、404、talkmap 容器等独立页面。 |
-| `_posts/` | **核心保护** | **保留本地 (Ours)** | 个人撰写的博客文章；若上游引入演示博文须立即删除。 |
-| `_publications/` | **核心保护** | **保留本地 (Ours)** | 个人学术论文、专著及发表元数据。 |
-| `_talks/` | **核心保护** | **保留本地 (Ours)** | 个人学术报告、会议演讲与研讨会记录。 |
-| `_teaching/` | **核心保护** | **保留本地 (Ours)** | 课程教学与助教履历。 |
-| `_portfolio/` | **核心保护** | **保留本地 (Ours)** | 科研项目展示与个人成果集。 |
-| `images/` | **核心保护** | **保留本地 (Ours)** | 个人头像、学术插图、博文配图等静态资源。 |
-| `files/` | **核心保护** | **保留本地 (Ours)** | 个人简历 PDF、论文预印本及科研附件。 |
-| `_layouts/` / `_includes/` | 框架核心 | 谨慎合并 (Theirs + 本地定制) | Jekyll 渲染模板与部件，合并时务必保留本地插入的脚本或 hook。 |
-| `_sass/` / `assets/css/` | 样式文件 | 倾向采用上游 (Theirs) | 吸收官方样式修复与新特性，但需检查本地样式微调是否被冲掉。 |
-| `Gemfile` / `Gemfile.lock` | 运行依赖 | 谨慎合并 | Ruby 依赖版本，跟随上游维护环境兼容性。 |
+| `_config.yml` | **Strictly Protected** | **Preserve Local (`--ours`)** | Site title, base URL, bio, social links, Waline server configuration, GA4 measurement ID, and math/syntax settings. |
+| `_data/navigation.yml` | **Strictly Protected** | **Preserve Local (`--ours`)** | Custom top navigation menu structure, order, and page routing. |
+| `_data/` (others) | **Strictly Protected** | **Preserve Local (`--ours`)** | UI text strings (`ui-text.yml`), authors (`authors.yml`), comments configuration, etc. |
+| `_pages/` | **Strictly Protected** | **Preserve Local (`--ours`)** | Standalone pages including `about.md` (biography), `cv.md` (curriculum vitae), `404.md`, `year-archive.md`, and talkmap container pages. |
+| `_posts/` | **Strictly Protected** | **Preserve Local (`--ours`)** | Personal academic blog posts and technical essays. Upstream demo posts must be deleted. |
+| `_publications/` | **Strictly Protected** | **Preserve Local (`--ours`)** | Academic publications, peer-reviewed papers, patents, and publication metadata. |
+| `_certificates/` | **Strictly Protected** | **Preserve Local (`--ours`)** | Professional certificates, honors, awards, and credentials metadata. |
+| `_notes/` | **Strictly Protected** | **Preserve Local (`--ours`)** | Academic notes, study summaries, and reading notes. |
+| `_portfolio/` | **Strictly Protected** | **Preserve Local (`--ours`)** | Research projects, engineering systems, and portfolio showcases. |
+| `_talks/` | **Strictly Protected** | **Preserve Local (`--ours`)** | Invited talks, keynote presentations, conference sessions, and seminar records. |
+| `_teaching/` | **Strictly Protected** | **Preserve Local (`--ours`)** | Teaching assistantships, courses, mentoring, and academic pedagogical records. |
+| `images/` | **Strictly Protected** | **Preserve Local (`--ours`)** | Profile avatar (`images/profile.png`), publication figures, blog illustrations, certificate scans. |
+| `files/` | **Strictly Protected** | **Preserve Local (`--ours`)** | Personal CV PDF (`files/cv.pdf`), research paper preprints, patent attachments, and supplementary materials. |
+| Third-party Integrations | **Strictly Protected** | **Preserve Local (`--ours`)** | Waline comment system configuration (`_config.yml` `comments.waline`), Google Analytics 4 (`analytics.google.tracking_id: G-M2W60KHV04`). |
+| `_layouts/` & `_includes/` | Core Framework | Prudent Merge (`Theirs` + Local Customization) | Jekyll liquid rendering templates. Preserve custom injected scripts (e.g., Waline comment injection, custom footer, MathJax/KaTeX). |
+| `_sass/` & `assets/css/` | Styling | Lean towards Upstream (`Theirs`) | Style sheets and SCSS partials. Absorb upstream fixes while ensuring local custom CSS overrides are retained. |
+| `Gemfile` & `Gemfile.lock` | Runtime Dependencies | Prudent Merge | Ruby dependencies; keep aligned with upstream environment while maintaining Jekyll 3.x/4.x compatibility. |
 
 ---
 
-## 3. 敏感文件与私密草稿管控防线
+## 3. Sensitive Files & Confidential Draft Defense Line
 
-为了防止个人隐私泄露与未成型研究外溢，本仓库实施严密的隔离与防线控制：
+To safeguard personal privacy, prevent credential leakage, and avoid premature disclosure of unreleased research, this repository enforces a strict multi-layer defense perimeter:
 
-1. **私密草稿命名隔离规则 (`21*.md`)**：
-   * 所有以 `21*.md` 命名的文件（例如 `_posts/21*.md`、`_portfolio/21*.md`）均被设计为未来年份占位符或未就绪的私密学术草稿。
-   * 该模式已写入 `.gitignore`。
-   * **Agent 铁律**：严禁使用 `git add -f` 强制添加此类草稿；严禁在公开发表渠道中泄露草稿内容。
-2. **本地运维工具与密钥隔离 (`bot.py`, `.env`)**：
-   * `bot.py` 为本地专用自动化/爬虫/通知机器人脚本，包含或依赖本地环境变量，严格被 `.gitignore` 忽略。
-   * `.env`、`logs/`、`*.log` 包含运行时敏感配置和日志，绝对禁止推送到 GitHub 远端。
-3. **开发环境与代理缓存隔离**：
-   * `.venv/`、`venv/`、`env/`、`node_modules/`、`__pycache__/`。
-   * AI 辅助开发配置与记忆：`.gemini/`、`.claude/`。
-   * 上述目录一律严格本地忽略，严禁进入代码仓库。
+1. **Confidential Draft Isolation Pattern (`21*.md`)**:
+   * All files matching the `21*.md` glob pattern (e.g., `_posts/21*.md`, `_portfolio/21*.md`, `_publications/21*.md`) represent unreleased drafts, unpublished research, or future year placeholders.
+   * This pattern is registered in `.gitignore`.
+   * **Agent Iron Rule**: Agents must **NEVER** use `git add -f` to force-track `21*.md` files. Never leak draft titles, abstracts, or content into public commit messages, issue discussions, or external services.
+2. **Local Automation Tools & Secret Isolation (`bot.py`, `.env`)**:
+   * `bot.py` is a proprietary local automation, notification, and web scraping script containing or depending on private credentials. It is strictly excluded by `.gitignore`.
+   * `.env`, `logs/`, `*.log`, and runtime cache files contain sensitive execution parameters and diagnostic traces. They are strictly forbidden from being staged or committed to GitHub.
+3. **Development Environment & Agent Cache Isolation**:
+   * Virtual environments: `.venv/`, `venv/`, `env/`, `node_modules/`, `__pycache__/`.
+   * AI agent runtime cache and persistent memory: `.gemini/`, `.claude/`, `.copilot/`.
+   * All above directories must remain untracked and strictly confined to the local filesystem.
 
 ---
 
-## 4. Talkmap 与 Python 3.11 规范
+## 4. Talkmap Mechanism & Python 3.11 Environment Requirement
 
-### 4.1 功能与工作原理
-* `talkmap.py` 负责抓取 `_talks/*.md` 中的 `location` 字段，通过 `geopy`（使用 OpenStreetMap 的 Nominatim 引擎）进行地理编码解析，并利用 `getorg` 输出地图数据与 JS/HTML，最终呈现在 `_pages/talkmap.html`（交互式 Leaflet 报告地图）。
+### 4.1 Architecture & Functionality
+* `talkmap.py` parses the `location` frontmatter field across all talk entries in `_talks/*.md`.
+* It utilizes `geopy` to query the OpenStreetMap Nominatim geocoding engine, converting geographic strings into latitude and longitude coordinates.
+* Through `getorg`, it clusters location data, generates Leaflet-compatible interactive map artifacts in `talkmap/`, and updates `_pages/talkmap.html`.
 
-### 4.2 Python 3.11 运行环境要求
-* **强环境约束**：生成 Talkmap 必须使用 **Python 3.11** 独立虚拟环境。高版本 Python（如 Python 3.12+）存在对 `getorg` 废弃模块不兼容的问题。
-* **执行步骤**：
+### 4.2 Python 3.11 Strict Runtime Requirement
+* **Hard Runtime Constraint**: The Talkmap generation pipeline **MUST** be executed within a dedicated **Python 3.11** virtual environment.
+* **Deprecation Notice**: Python 3.12 and newer releases removed legacy modules required by `getorg`, resulting in fatal execution errors (`ModuleNotFoundError` / import incompatibilities).
+* **Execution Workflow**:
   ```bash
-  # 1. 创建并激活 Python 3.11 虚拟环境
+  # 1. Create and activate a dedicated Python 3.11 virtual environment
   python3.11 -m venv .venv
   source .venv/bin/activate
 
-  # 2. 安装必要依赖
+  # 2. Install required dependencies
   pip install python-frontmatter geopy getorg
 
-  # 3. 运行地图生成脚本
+  # 3. Execute the generator script
   python talkmap.py
   ```
-* **限速与礼貌策略**：`talkmap.py` 中必须设置明确的 `user_agent` 与合理的超时重试阈值，切勿高频并发请求，以免被 Nominatim 封禁 IP。
+* **Politeness & Rate-Limiting Policy**: `talkmap.py` must configure an explicit `user_agent` and maintain request throttling to strictly comply with Nominatim's usage policy and prevent IP blocks.
 
 ---
 
-## 5. Agent 代码与文档提交铁律
+## 5. Iron Rules for Agent Commit & Execution
 
-所有接入本仓库作业的 Agent 必须严格遵守以下 Git 提交规范：
+All AI coding agents (Antigravity, OpenAI Codex, Claude Code, Gemini CLI, Cursor, Copilot, etc.) operating in this repository must strictly adhere to the following execution protocols:
 
-1. **绝对禁止全量暂存 (`git add .` / `git add -A`)**：
-   * 提交时必须**显式指定具体修改的文件路径**（例如：`git add AGENTS.md`）。
-   * 杜绝将偶发的临时文件、构建缓存或被忽略草稿误打包提交。
-2. **提交前必须进行 Diff 自检**：
-   * 在执行 `git commit` 前，必须通过 `git diff --staged` 或 `git diff <file>` 仔细逐行比对变更内容，确保改动完全符合用户指示与预期。
-3. **标准化提交信息 (Conventional Commits)**：
-   * 提交消息格式须清晰规范：`<type>: <short summary>`（如 `docs: ...`, `feat: ...`, `fix: ...`, `chore: ...`）。
-4. **禁止危险的 Force Push 与 Hard Reset**：
-   * 严禁对 `origin/master` 执行 `git push --force`。
-   * 严禁在未经用户明确书面授权的情况下执行 `git reset --hard`。
-5. **内容真实性原则 (Content Integrity)**：
-   * 更新或创建学术博文、出版物或履历时，**仅包含用户明确提供或指示的内容**；严禁从外部搜索中擅自臆造、拼凑未经核实的学术信息。
+1. **Absolute Ban on Indiscriminate Staging (`git add .` / `git add -A` prohibited)**:
+   * Commits must always specify concrete, explicit file paths (e.g., `git add AGENTS.md`).
+   * Indiscriminate staging risks packaging accidental temporary files, untracked build artifacts, or confidential drafts.
+2. **Mandatory Pre-Commit Diff Inspection**:
+   * Before running `git commit`, agents must audit their staged changes via `git diff --staged` or `git diff <file>`.
+   * Verify that every modification strictly corresponds to the user's intent with no stray edits, unexpected whitespace changes, or file truncations.
+3. **Conventional Commits Standard**:
+   * Commit messages must follow the Conventional Commits specification: `<type>: <short summary>`.
+   * Accepted types: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `chore`.
+4. **Prohibition of Destructive Git Actions**:
+   * Running `git push --force` or `git push -f` against `origin/master` is **strictly forbidden**.
+   * Running `git reset --hard` is **strictly forbidden** unless explicitly requested and confirmed by the user in writing.
+5. **Content Authenticity & Academic Integrity**:
+   * When creating or updating publications, patents, certificates, talks, blog posts, or CV details, **only incorporate facts and text explicitly provided or confirmed by the user**.
+   * **Never hallucinate, extrapolate, or assemble unverified academic credentials, publication venues, co-author lists, or citation metrics.**
+
+---
+
+## 6. Targeted Guidelines for OpenAI Codex / Codex CLI
+
+Due to OpenAI Codex's high-speed code completion, automated inline rewriting, and bash generation capabilities, Codex agents must observe the following specific constraints:
+
+1. **Pre-Edit Asset Registry Verification**:
+   * Before generating or applying code patches, Codex must cross-reference the target path against the **Protected Assets Registry (Section 2)**.
+   * When modifying `_config.yml` or layout components, Codex must preserve custom configurations (Waline comment server, Google Analytics 4 tracking ID `G-M2W60KHV04`, author metadata) and never overwrite them with boilerplate values.
+2. **Strict Remote Verification & Upstream PR Prohibition**:
+   * When generating shell commands or git automation scripts, Codex must verify remotes.
+   * Codex must ensure all push and PR commands target `origin` (`yuntaozhang999/yuntaozhang999.github.io`). **Codex must never generate Pull Requests or push commands targeting `upstream` (`academicpages/academicpages.github.io`)**.
+3. **Environment & Tooling Compatibility Guardrails**:
+   * When assisting with Python scripts (especially `talkmap.py`), Codex must never recommend or execute Python version upgrades beyond Python 3.11.
+   * Always verify and enforce the Python 3.11 environment constraint (`python3.11 -m venv .venv`).
+4. **Confidential Draft & Secret Fence Enforcement**:
+   * When scanning or auto-completing content in `_posts/`, `_portfolio/`, or `_publications/`, Codex must check filenames against the `21*.md` pattern.
+   * If a file matches `21*.md`, Codex must treat it as strictly confidential, never suggest force-adding it to git, and never reference its contents in public commit messages.
+5. **Atomic & Explicit Staging Protocols**:
+   * Codex must never generate or execute `git add .` or `git add -A`.
+   * Codex must always output explicit, single-file staging commands with accompanying diff inspection steps (`git diff --staged`) prior to committing.
