@@ -2,7 +2,7 @@
 title: "How Gemini Saved My Camry from a Premature Engine Death for $380"
 date: 2026-09-10
 layout: single
-excerpt: "When my 10-year-old Camry suffered a sudden cylinder failure, an honest mechanic and an adversarial AI thinking partner turned a potential $5,000 engine replacement into a $380 fix."
+excerpt: ""
 categories:
   - AI
   - Automotive
@@ -129,7 +129,7 @@ However, thinking through the mechanical sequence led to an acute engineering co
 
 The logic seemed intuitive: an overnight ATF soak and an Italian tune-up blow loose copious amounts of carbon sludge and chemical solvent. If that debris is about to wash into the crankcase, why put fresh, expensive synthetic oil in before the blast? Shouldn't you perform the Italian tune-up on the old oil first to capture the gunk, and then perform the fresh oil change?
 
-Gemini's counter-explanation unmasked a lethal risk: **the threat of a catastrophic Spun Bearing (拉瓦).**
+Gemini's counter-explanation unmasked a lethal risk: **the threat of a catastrophic spun bearing.**
 
 During an overnight piston soak, a substantial volume of transmission fluid inevitably creeps past the piston rings and drips directly into the oil pan. Transmission fluid is engineered for hydraulic clutches and planetary gears; it lacks the high-temperature high-shear (HTHS) film strength required by crankshaft journal bearings. 
 
