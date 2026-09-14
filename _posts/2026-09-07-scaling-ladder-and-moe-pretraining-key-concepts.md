@@ -13,13 +13,9 @@ tags:
   - Distributed Training
 ---
 
-In large-scale distributed deep learning, launching a pre-training run with hundreds of billions of parameters and tens of trillions of tokens is a colossal systems engineering endeavor with razor-thin fault tolerance. If the model destabilizes or collapses mid-flight (e.g., on Day 40 or Day 70) due to numerical divergence—such as exploding loss or gradient spikes—or if critical architectural and data mixture flaws are discovered only after completion, astronomical compute budgets and months of calendar time are irretrievably lost.
+Pre-training a 535B-A23B Mixture-of-Experts (MoE) model across 18T tokens (a ~100-day campaign code-named `[Hero Run] 535B-A23B on 18T tokens`, featuring 535B total parameters and 23B active parameters) requires anticipating four critical failure modes before spending multi-million-dollar compute: scaling law extrapolation, long-horizon logit drift, gradient norm runaway (>4), and token dropping during context expansion.
 
-Recently, the technical community engaged in deep discussions regarding a massive pre-training endeavor code-named **`[Hero Run] 535B-A23B on 18T tokens`**. This run targets a **Mixture-of-Experts (MoE) model with 535B total parameters and 23B active parameters**, running for roughly **100 days** to ingest a total of **18.0T tokens** in a full-scale pre-training campaign (here, "Hero Run" is the engineering designation assigned by the team to this flagship training run).
-
-In such a challenging industrial scenario, how did the training team predict final convergence performance before launch, catch numerical collapse risks ahead of time, and safeguard the model's robust convergence throughout a 100-day marathon?
-
-Based entirely on this technical discussion and its core Q&A, this article synthesizes and deconstructs five essential concepts and the engineering safeguard framework in modern LLM pre-training: **the Scaling Ladder, Token Horizon vs. Context Length, Gradient Norms, Logit z-loss, and Token Dropping with staged long-context extension**.
+Based directly on core engineering discussions from this massive pre-training campaign, this article deconstructs the physical mechanisms and operational safeguards behind five foundational concepts: **the Scaling Ladder, Token Horizon vs. Context Length, Gradient Norms, Logit z-loss, and Token Dropping with staged long-context extension**.
 
 ---
 
@@ -106,50 +102,53 @@ In engineering discussions of LLM pre-training, phrases like "longer training ho
 
 # 4. Core Concept 3: Gradient Norms and Numerical Health
 
-### 1. Mathematical Definition and Physical Intuition
-During backpropagation, the gradients of all trainable parameters are flattened and concatenated into a single global vector. Its magnitude is measured via the Euclidean norm (L2 norm, the square root of the sum of squared gradients):
+### 1. Mathematical Definition and Physical Intuition (The Parameter Speedometer)
+During backpropagation, the gradients of all trainable parameters are flattened and concatenated into a single global vector $g$. Its magnitude is measured via the Euclidean norm (L2 norm, the square root of the sum of squared gradients):
 
 $$
 \|g\|_2 = \sqrt{\sum_i g_i^2}
 $$
 
-Physically, the gradient norm reflects the **intensity, magnitude, or step size of the parameter updates pushed into the model at that specific iteration**.
+- **The ELI5 Geometric Intuition**: The gradient norm measures the **aggregate magnitude—the physical length—of the parameter update vector**. Think of it as the speedometer of model parameter motion:
+  - In a healthy training regime, updates are gentle, calibrated nudges (the gradient norm hovers stably between 0.5 and 1.5), allowing optimizer momentum and second-moment buffers to track clean descent directions.
+  - A gradient norm **steadily climbing beyond 4** signals that parameter updates are turning into **violent, destabilizing jolts**. These oversized steps knock optimizer states off-track, degrade internal representations, and serve as an early harbinger of numerical blowup or catastrophic loss spikes.
 
 ### 2. Training Telemetry and Health Indicators
-- **Stable Healthy State**: Under normal optimization, the gradient norm hovers within a stable, bounded range (typically between 0.5 and 1.5), signifying smooth updates and well-behaved optimization.
-- **Divergence Warning State**: If the gradient norm undergoes uncontrolled, sustained inflation (e.g., escalating past 4 or spiking to 20), it serves as a harbinger of gradient explosion or imminent loss blowup.
-- **Informing Engineering Interventions**: By tracking the Scaling Ladder runs and noticing that the gradient norm crept continuously upward beyond 4 as total token throughput accumulated, the team pinpointed output-layer numerical drift, leading directly to the integration of `logit z-loss`.
-- **Natural Optimization Trajectory**: In runs governed by learning rate warm-up and decay schedules, the gradient norm naturally rises across the first 25% to 40% of the training horizon, before tapering off smoothly as learning rate annealing takes effect. Small-scale experiments confirmed this physical progression in advance, preventing on-call engineers from misinterpreting normal early climbs as divergence and mistakenly halting the hero run.
+- **Stable Healthy State**: Under normal optimization, the gradient norm remains bounded in a steady corridor (~0.5–1.5), confirming smooth parameter updates.
+- **Runaway Warning State**: When telemetry shows the gradient norm escalating past 4 (or spiking into the tens), updates turn chaotic, threatening immediate numerical overflow.
+- **Informing Engineering Interventions**: During the Scaling Ladder runs, engineers noticed that as the token horizon accumulated, the gradient norm steadily inflated past 4. This key diagnostic pinpointed output-layer numerical drift, leading directly to the implementation of `logit z-loss`.
+- **Natural Optimization Trajectory (Preventing False Alarms)**: In runs governed by learning rate warm-up and cosine decay, the gradient norm naturally climbs across the first 25% to 40% of the training horizon before tapering off smoothly as learning rate annealing takes over. Having this empirical baseline from small-scale ladder runs prevents on-call engineers from misinterpreting a normal early rise as divergence and mistakenly halting the cluster.
 
 ---
 
 # 5. Core Concept 4: Logits and the Logit z-loss Stabilization Mechanism
 
-### 1. What is a Logit?
-In language modeling, a **logit (unnormalized log-odds score)** represents the **raw numerical score output by the final layer of the network (the language model head / LM Head)** before Softmax transforms it into a normalized probability distribution:
+### 1. What is a Logit? (The Microphone Volume Intuition)
+In language modeling, a **logit (unnormalized log-odds score)** represents the raw numerical score output by the final projection layer (the LM Head) before Softmax transforms it into a normalized probability distribution:
 
 $$
 h \xrightarrow{W_{\text{head}}} z \xrightarrow{\text{Softmax}} p
 $$
 
-Assuming a vocabulary size of 128,256, the model outputs a real-valued vector $$z \in \mathbb{R}^{128,256}$$ for each token position. Each component $$z_i$$ represents the **logit** assigned to vocabulary item $$i$$.  
-Physically, a higher logit value indicates a stronger unnormalized preference by the model for that token.
+Assuming a vocabulary size of 128,256, the model outputs a real-valued vector $z \in \mathbb{R}^{128,256}$ for each token position. Each component $z_i$ represents the raw score assigned to token $i$.
+
+- **The ELI5 Microphone Intuition**: Think of logits as the **raw, unnormalized microphone volume levels** output by the model. Softmax acts as a mixing console that converts these volume sliders into percentage probabilities across the entire dictionary, ensuring they strictly sum to 100%. A louder microphone volume (higher logit) means the model is screaming its preference for that token.
 
 ### 2. Why Does Long-Horizon Training Cause Logit Drift and Inflation?
-Over an extended training horizon (as more tokens are consumed), the optimization objective encourages the model to become increasingly confident in its token predictions. This pressure can cause the absolute magnitudes of the unnormalized logits to drift upward into extreme ranges (e.g., all values climbing into the hundreds).
-- **Floating-Point Overflow**: While the mathematical Softmax operator is shift-invariant ($$\text{Softmax}(z) = \text{Softmax}(z - c)$$), finite-precision hardware implementations easily suffer numerical overflow during exponentiation when unnormalized logits grow excessively large (e.g., computing $$\exp(100)$$ in lower precision formats triggers float overflow).
-- **Gradient Degradation**: Bloated logits introduce severe numerical instability into backpropagation gradients, causing the global gradient norm to inflate uncontrollably (exceeding 4).
-- **Catastrophic Blowup under Large Batches**: Ablation experiments confirmed that without an explicit regularizer, models trained under specific regimes—particularly large batch sizes—suffer gradient explosion and completely blow up mid-run.
+Over an extended training horizon (as trillions of tokens are ingested), the cross-entropy optimization objective relentlessly rewards the model for being increasingly confident. Without explicit regularization, the model cranks up its volume sliders indefinitely—logits drift into extreme numerical ranges (e.g., values climbing into the hundreds):
+- **Floating-Point Overflow**: While the mathematical Softmax operator is shift-invariant ($\text{Softmax}(z) = \text{Softmax}(z - c)$), finite-precision hardware (FP16/BF16) must exponentiate these numbers during forward and backward passes. Computing $\exp(z_i)$ for excessively large logits quickly overflows FP16/BF16 dynamic ranges (e.g., $\exp(89)$ already overflows FP16 max $\approx 65,504$), generating NaNs and instantly destroying gradients.
+- **Gradient Degradation & Norm Runaway**: Bloated logits introduce severe numerical instability into backpropagation gradients, causing the global gradient norm to inflate uncontrollably beyond 4.
+- **Catastrophic Blowup under Large Batches**: Ablation experiments confirmed that without an explicit regularizer, models trained under specific regimes—particularly large batch sizes—suffer gradient explosion and blow up mid-flight.
 
-### 3. How Does Logit z-loss Prevent Training Collapses?
-To anchor logits within a numerically safe envelope, the team integrated an auxiliary penalty term on the unnormalized scores directly into the training objective—the **Logit z-loss**:
+### 3. How Does Logit z-loss Prevent Training Collapses? (The Automatic Acoustic Limiter)
+To anchor logits within a numerically safe envelope, the team integrated an auxiliary penalty term directly into the training objective—the **Logit z-loss**:
 
 $$
 \mathcal{L}_{\text{total}} = \mathcal{L}_{\text{CE}} + \tau \cdot \left( \log \sum_{i} \exp(z_i) \right)^2
 $$
 
-- **Mechanistic Breakdown**: The logit z-loss applies a quadratic penalty to the LogSumExp of the unnormalized logits, scaled by a hyperparameter $$\tau$$.
-- **Stabilization Effect**: When the model attempts to push logits toward extreme values, this penalty imposes a proportional restoring force. By penalizing the logarithm of the partition function ($$\log \sum \exp(z_i)$$), it restrains unbounded drift, pins the global gradient norm within a healthy envelope, and eradicates mid-training blowups.
+- **The Acoustic Limiter Intuition**: Logit z-loss acts like an **automatic acoustic limiter** on an audio console. It applies a quadratic penalty to $\left(\log \sum \exp(z_i)\right)^2$ (the square of the log-partition function), ensuring the volume never blows out the speaker. If the model attempts to push logits to extreme values, this penalty imposes a steep, proportional restoring force that pulls the logits back into a safe corridor.
+- **Mechanistic Breakdown**: Scaled by a hyperparameter $\tau$ (typically $10^{-4}$), this quadratic penalty on the LogSumExp restrains unbounded drift, keeps the global gradient norm bounded below 4, and eradicates mid-training blowups across multi-trillion token marathons.
 
 ---
 
@@ -200,85 +199,142 @@ This ensures positional encodings and attention logits maintain numerical stabil
 
 # 7. Self-Check and Review (Interactive Quiz)
 
-Test your mastery of these pre-training mechanisms through the following four multiple-choice questions derived directly from the technical discussions:
+Verify your operational understanding of Scaling Ladders, token horizon vs. context length, gradient norms, logit z-loss, and MoE routing dynamics. Select your answers below and click **Submit Answers** for instant feedback and detailed post-mortems.
 
-### Q1. (Conceptual Clarification) Which of the following statements regarding LLM pre-training terminology is correct?
-- A. Token Horizon refers to the maximum sequence length accepted by the model in a single forward pass (e.g., 4k or 65k).
-- B. A logit is the normalized probability value (between 0 and 1) obtained after passing output scores through Softmax.
-- C. Token Dropping refers to the phenomenon in MoE architectures where tokens exceeding an expert's pre-allocated capacity buffer are discarded.
-- D. A continuously climbing Gradient Norm is normal training dynamics that never leads to numerical overflow or model collapse.
+<link rel="stylesheet" href="{{ base_path }}/assets/css/interactive-quiz.css">
+<script src="{{ base_path }}/assets/js/interactive-quiz.js" defer></script>
 
-<details markdown="1">
-<summary>👉 Click to expand answer and detailed breakdown</summary>
+<div class="quiz-container" markdown="0">
+  <div class="quiz-title">⚡ Pre-training Dynamics & Architecture Self-Assessment</div>
+  <div class="quiz-subtitle">Verify your operational understanding of Scaling Ladders, token horizon vs. context length, gradient norms, logit z-loss, and MoE routing dynamics.</div>
 
-**Correct Answer: C**
+  <form id="pretraining-hero-run-quiz" class="interactive-quiz-form" data-answer-key='{"q1":"C","q2":"B","q3":"A","q4":"D"}' data-msg-perfect="🎯 &lt;strong&gt;Score: 4/4 (100%):&lt;/strong&gt; Flawless. You have complete mastery over scaling ladders, logit z-loss acoustic limiting, and staged MoE context extension." onsubmit="return false;">
+    
+    <!-- Question 1 -->
+    <div class="quiz-card" id="card-q1" data-question="q1" data-correct="C">
+      <div class="quiz-q-title">Q1. (Conceptual Clarification & Terminology)<br>
+      Which of the following statements regarding LLM pre-training terminology is correct?</div>
+      
+      <div class="quiz-options">
+        <label class="quiz-option" id="label-q1-A" data-option="A">
+          <input type="radio" name="q1" value="A">
+          <span><strong>A.</strong> Token Horizon refers to the maximum sequence length accepted by the model in a single forward pass (e.g., 4k or 65k).</span>
+        </label>
+        <label class="quiz-option" id="label-q1-B" data-option="B">
+          <input type="radio" name="q1" value="B">
+          <span><strong>B.</strong> A logit is the normalized probability value (between 0 and 1) obtained after passing output scores through Softmax.</span>
+        </label>
+        <label class="quiz-option" id="label-q1-C" data-option="C">
+          <input type="radio" name="q1" value="C">
+          <span><strong>C.</strong> Token Dropping refers to the phenomenon in MoE architectures where tokens exceeding an expert's pre-allocated capacity buffer are discarded.</span>
+        </label>
+        <label class="quiz-option" id="label-q1-D" data-option="D">
+          <input type="radio" name="q1" value="D">
+          <span><strong>D.</strong> A continuously climbing Gradient Norm is normal training dynamics that never leads to numerical overflow or model collapse.</span>
+        </label>
+      </div>
 
-**Detailed Breakdown**:
-- **Option A is incorrect**: The maximum sequence length accepted in a single forward pass is the Context Length (Seqlen). Token Horizon designates the aggregate token volume ingested across the entire training lifecycle.
-- **Option B is incorrect**: Passing scores through Softmax yields a normalized probability distribution (between 0 and 1). A logit is the raw, unnormalized real-valued output generated by the model's final projection layer.
-- **Option C is correct**: Under MoE Expert Parallelism, when tokens dispatched to an expert exceed its pre-allocated capacity buffer (defined by the Capacity Factor), the excess tokens are dropped—a mechanism termed Token Dropping.
-- **Option D is incorrect**: If the gradient norm experiences uncontrolled, sustained inflation (e.g., exceeding 4 and continuing upward), it serves as a definitive precursor to gradient explosion or catastrophic training collapse (loss blowup).
+      <div class="quiz-explanation" id="expl-q1">
+        <strong>Detailed Breakdown:</strong> Under MoE Expert Parallelism, when tokens dispatched to an expert exceed its pre-allocated capacity buffer (defined by the Capacity Factor), excess tokens bypass the expert's computation—a mechanism termed Token Dropping. Option A confuses Context Length (Seqlen) with Token Horizon (cumulative training throughput); Option B confuses unnormalized raw logits with Softmax probabilities; Option D ignores that sustained gradient norm inflation past 4 is a leading indicator of gradient explosion.
+      </div>
+    </div>
 
-</details>
+    <!-- Question 2 -->
+    <div class="quiz-card" id="card-q2" data-question="q2" data-correct="B">
+      <div class="quiz-q-title">Q2. (Engineering Decision-Making & Telemetry Diagnostics)<br>
+      During the hero run at 25% progress, telemetry shows that the gradient norm has steadily risen from 1.0 to 3.2. Based on the team's methodology in the discussion, what is the most appropriate engineering response?</div>
+      
+      <div class="quiz-options">
+        <label class="quiz-option" id="label-q2-A" data-option="A">
+          <input type="radio" name="q2" value="A">
+          <span><strong>A.</strong> Halt the run immediately, as a steadily climbing gradient norm signifies optimizer divergence requiring an emergency learning rate cut.</span>
+        </label>
+        <label class="quiz-option" id="label-q2-B" data-option="B">
+          <input type="radio" name="q2" value="B">
+          <span><strong>B.</strong> Continue observing without halting, provided the trajectory matches the empirical progression seen in prior small-scale ladder runs, since gradient norms naturally climb during the first 25%–40% before tapering off as learning rate decays.</span>
+        </label>
+        <label class="quiz-option" id="label-q2-C" data-option="C">
+          <input type="radio" name="q2" value="C">
+          <span><strong>C.</strong> Immediately jump the context length from 4k directly to 65k to suppress the gradient norm.</span>
+        </label>
+        <label class="quiz-option" id="label-q2-D" data-option="D">
+          <input type="radio" name="q2" value="D">
+          <span><strong>D.</strong> Conclude that silent data corruption (SDC) has occurred on the GPUs and isolate affected nodes.</span>
+        </label>
+      </div>
 
----
+      <div class="quiz-explanation" id="expl-q2">
+        <strong>Detailed Breakdown:</strong> A primary dividend of the Scaling Ladder is establishing an empirical reference trajectory. Under standard learning rate schedules, the gradient norm naturally rises across the initial 25%–40% warm-up and early exploration phase before retreating as annealing takes effect. Matching this baseline reassures engineers to maintain execution without panicking or triggering unwarranted manual pauses.
+      </div>
+    </div>
 
-### Q2. (Engineering Decision-Making) During the hero run at 25% progress, telemetry shows that the gradient norm has steadily risen from 1.0 to 3.2. Based on the team's methodology in the discussion, what is the most appropriate engineering response?
-- A. Halt the run immediately, as a steadily climbing gradient norm signifies that the optimizer is diverging, requiring an immediate reduction in learning rate.
-- B. Continue observing without halting, provided the trajectory matches the empirical progression seen in prior small-scale ladder runs, since gradient norms naturally climb during the first 25%–40% before tapering off as learning rate decays.
-- C. Immediately jump the context length from 4k directly to 65k to suppress the gradient norm.
-- D. Conclude that silent data corruption (SDC) has occurred on the GPUs and isolate affected nodes.
+    <!-- Question 3 -->
+    <div class="quiz-card" id="card-q3" data-question="q3" data-correct="A">
+      <div class="quiz-q-title">Q3. (Mechanistic Analysis & MoE Routing Economics)<br>
+      Why did the team choose a 4k sequence length in early pre-training instead of initiating the run directly at 65k?</div>
+      
+      <div class="quiz-options">
+        <label class="quiz-option" id="label-q3-A" data-option="A">
+          <input type="radio" name="q3" value="A">
+          <span><strong>A.</strong> At 4k sequence length, each batch contains twice as many independent sequences (2x sequences per batch), which balances expert loads across the MoE router and substantially reduces token dropping.</span>
+        </label>
+        <label class="quiz-option" id="label-q3-B" data-option="B">
+          <input type="radio" name="q3" value="B">
+          <span><strong>B.</strong> Models cannot acquire valid world knowledge when trained directly on 65k sequence lengths.</span>
+        </label>
+        <label class="quiz-option" id="label-q3-C" data-option="C">
+          <input type="radio" name="q3" value="C">
+          <span><strong>C.</strong> Computational complexity is strictly linear at 4k, whereas FlashAttention cannot be deployed at 65k.</span>
+        </label>
+        <label class="quiz-option" id="label-q3-D" data-option="D">
+          <input type="radio" name="q3" value="D">
+          <span><strong>D.</strong> The available GPU VRAM was completely insufficient to fit 65k input tokens.</span>
+        </label>
+      </div>
 
-<details markdown="1">
-<summary>👉 Click to expand answer and detailed breakdown</summary>
+      <div class="quiz-explanation" id="expl-q3">
+        <strong>Detailed Breakdown:</strong> Under a fixed batch memory budget, a 4k sequence length accommodates twice as many independent sequences as an 8k length (and far more than 65k). High document diversity disperses router queries across all 384 experts, keeping the token drop rate at ~3%. Starting directly at 65k severely restricts sequence count per batch, causing intra-document lexical clumping to overload identical experts and spike token dropping to ~40%.
+      </div>
+    </div>
 
-**Correct Answer: B**
+    <!-- Question 4 -->
+    <div class="quiz-card" id="card-q4" data-question="q4" data-correct="D">
+      <div class="quiz-q-title">Q4. (Algorithmic Provenance & Stabilization Mechanism)<br>
+      What primary problem was <code>logit z-loss</code> introduced to resolve, and how was it identified?</div>
+      
+      <div class="quiz-options">
+        <label class="quiz-option" id="label-q4-A" data-option="A">
+          <input type="radio" name="q4" value="A">
+          <span><strong>A.</strong> It resolves attention weight underflow, and was discovered only after the full-scale 535B model blew up at 50% completion.</span>
+        </label>
+        <label class="quiz-option" id="label-q4-B" data-option="B">
+          <input type="radio" name="q4" value="B">
+          <span><strong>B.</strong> It resolves backpropagation communication bottlenecks, and was suggested automatically by the compiler during custom kernel optimization.</span>
+        </label>
+        <label class="quiz-option" id="label-q4-C" data-option="C">
+          <input type="radio" name="q4" value="C">
+          <span><strong>C.</strong> It resolves MoE router load imbalance, and was uncovered while comparing perplexities between 8k and 65k contexts.</span>
+        </label>
+        <label class="quiz-option" id="label-q4-D" data-option="D">
+          <input type="radio" name="q4" value="D">
+          <span><strong>D.</strong> It resolves logit drift and uncontrolled gradient norm inflation (>4) during long-horizon training (extended token horizons), and was identified and validated early during small-scale Scaling Ladder runs.</span>
+        </label>
+      </div>
 
-**Detailed Breakdown**:
-- A primary benefit of the Scaling Ladder is providing an empirical reference trajectory for the full-scale hero run.
-- Under standard learning rate schedules, the gradient norm naturally rises during the initial 25% to 40% exploration phase before tapering down as learning rate annealing takes effect.
-- So long as the observed trajectory mirrors the empirical trends mapped out by the smaller-scale ladder experiments, the engineering team has the confidence to maintain execution without panicking or triggering unwarranted manual interruptions.
+      <div class="quiz-explanation" id="expl-q4">
+        <strong>Detailed Breakdown:</strong> Stretching the training horizon during small-scale Scaling Ladder runs revealed that unconstrained logits drift upward over time, pushing the global gradient norm beyond 4 and triggering divergence under large batches. Introducing logit z-loss (penalizing \(\log^2 \sum \exp(z_i)\)) acts as an acoustic limiter, anchoring logits in a safe numerical envelope and ensuring robust convergence.
+      </div>
+    </div>
 
-</details>
+    <!-- Action Buttons and Result Summary -->
+    <div class="quiz-action-row">
+      <button type="button" class="quiz-btn quiz-btn-primary" id="btn-submit-quiz">Submit Answers</button>
+      <button type="button" class="quiz-btn quiz-btn-secondary" id="btn-reset-quiz">Reset Quiz</button>
+    </div>
 
----
-
-### Q3. (Mechanistic Analysis) Why did the team choose a 4k sequence length in early pre-training instead of initiating the run directly at 65k?
-- A. At 4k sequence length, each batch contains twice as many independent sequences (2x sequences per batch), which balances expert loads across the MoE router and substantially reduces token dropping.
-- B. Models cannot acquire valid world knowledge when trained directly on 65k sequence lengths.
-- C. Computational complexity is strictly linear at 4k, whereas FlashAttention cannot be deployed at 65k.
-- D. The available GPU VRAM was completely insufficient to fit 65k input tokens.
-
-<details markdown="1">
-<summary>👉 Click to expand answer and detailed breakdown</summary>
-
-**Correct Answer: A**
-
-**Detailed Breakdown**:
-- Under a fixed batch memory budget, a 4k sequence length accommodates twice as many independent sequences as an 8k sequence length (`twice as many sequences per batch`).
-- Sample diversity across diverse documents naturally disperses routing requests across experts, reducing the token drop rate to approximately **3%** at 4k.
-- Initiating pre-training directly at 65k would drastically reduce the number of independent sequences per batch. Semantic concentration within long documents would cause severe routing hotspots, driving token dropping up to **~40%** and severely degrading representations.
-
-</details>
-
----
-
-### Q4. (Algorithmic Provenance) What primary problem was `logit z-loss` introduced to resolve, and how was it identified?
-- A. It resolves attention weight underflow, and was discovered only after the full-scale 535B model blew up at 50% completion.
-- B. It resolves backpropagation communication bottlenecks, and was suggested automatically by the compiler during custom kernel optimization.
-- C. It resolves MoE router load imbalance, and was uncovered while comparing perplexities between 8k and 65k contexts.
-- D. It resolves logit drift and uncontrolled gradient norm inflation (>4) during long-horizon training (extended token horizons), and was identified and validated early during small-scale Scaling Ladder runs.
-
-<details markdown="1">
-<summary>👉 Click to expand answer and detailed breakdown</summary>
-
-**Correct Answer: D**
-
-**Detailed Breakdown**:
-- By stretching the training horizon (total optimization steps and token throughput) during preliminary Scaling Ladder runs, the team uncovered that unconstrained logits drift upward over time, driving the global gradient norm beyond 4.
-- By introducing logit z-loss (which penalizes the square of $$\log \sum \exp(z_i)$$), the team effectively stabilized the gradients, eliminating the risk of mid-training blowup during the 100-day hero run.
-
-</details>
+    <div id="quiz-result-banner" class="quiz-result-banner" role="status" aria-live="polite"></div>
+  </form>
+</div>
 
 ---
 

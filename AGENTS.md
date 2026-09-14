@@ -82,7 +82,7 @@ During merges, automated refactoring, batch operations, or routine updates, the 
 | `_data/navigation.yml` | **Strictly Protected** | **Preserve Local (`--ours`)** | Custom top navigation menu structure, order, and page routing. |
 | `_data/` (others) | **Strictly Protected** | **Preserve Local (`--ours`)** | UI text strings (`ui-text.yml`), authors (`authors.yml`), comments configuration, etc. |
 | `_pages/` | **Strictly Protected** | **Preserve Local (`--ours`)** | Standalone pages including `about.md` (biography), `cv.md` (curriculum vitae), `404.md`, `year-archive.md`, and talkmap container pages. |
-| `_posts/` | **Strictly Protected** | **Preserve Local (`--ours`)** | Personal academic blog posts and technical essays. Upstream demo posts must be deleted. |
+| `_posts/` | **Strictly Protected** | **Preserve Local (`--ours`)** | Personal academic blog posts and technical essays. Upstream demo posts must be deleted. All blog posts must explicitly specify an empty excerpt (`excerpt: ""`) to maintain a clean archive view. |
 | `_publications/` | **Strictly Protected** | **Preserve Local (`--ours`)** | Academic publications, peer-reviewed papers, patents, and publication metadata. |
 | `_certificates/` | **Strictly Protected** | **Preserve Local (`--ours`)** | Professional certificates, honors, awards, and credentials metadata. |
 | `_notes/` | **Strictly Protected** | **Preserve Local (`--ours`)** | Academic notes, study summaries, and reading notes. |
@@ -161,6 +161,19 @@ All AI coding agents (Antigravity, OpenAI Codex, Claude Code, Gemini CLI, Cursor
 5. **Content Authenticity & Academic Integrity**:
    * When creating or updating publications, patents, certificates, talks, blog posts, or CV details, **only incorporate facts and text explicitly provided or confirmed by the user**.
    * **Never hallucinate, extrapolate, or assemble unverified academic credentials, publication venues, co-author lists, or citation metrics.**
+6. **Blog Post Excerpt Prohibition & Mandatory Empty Excerpt (`excerpt: ""`)**:
+   * **Clean Archive Standard**: The blog archive (`/year-archive/`) enforces a clean, title-and-date-only listing.
+   * **Strict Prohibition of Text Excerpts**: Agents creating or editing posts in `_posts/` must **NEVER** include descriptive summaries, teaser abstracts, or text inside the `excerpt` frontmatter field, and must **NEVER** use `<!--more-->` tags.
+   * **Mandatory Explicit Empty Field**: Every blog post under `_posts/` **MUST** explicitly define `excerpt: ""` in its YAML frontmatter. (In Jekyll, omitting the `excerpt` key causes Jekyll to automatically parse the first paragraph of the post as the excerpt, cluttering the archive. Explicitly setting `excerpt: ""` suppresses this behavior cleanly without altering upstream layouts, as established in site architecture).
+7. **Interactive Quizzes Preservation & Engagement Polish**:
+   * **Mandatory Preservation**: Interactive quizzes are a beloved, deliberate design choice across technical posts. They boost reader engagement, reinforce key takeaways, and serve as an active self-assessment checkpoint. Agents must **NEVER** delete or strip out quiz sections.
+   * **Optimization Focus**: Polish question phrasing, eliminate repetitive or circular explanations, ensure high-signal answer rationales, and keep embedded styling/scripts elegant, maintainable, and unobtrusive.
+8. **Intuitive & Concise Foundational Explanations ("Explain Like I'm Five")**:
+   * **Never Fear Explaining Basics**: Foundational concepts (e.g., Logit, loss functions, Docker mechanisms) are valuable and should never be dismissed or blindly purged. Explaining a fundamental concept simply, clearly, and intuitively enough for a five-year-old to understand is true engineering mastery.
+   * **Concise & Intuitive Delivery**: Agents must replace dry, robotic, textbook-style filler with crisp, vivid, and intuitive explanations that convey core mechanics in 2–3 sentences without condescending jargon.
+9. **Authentic Transcript & Webinar Record Preservation**:
+   * **Verbatim Fidelity**: Spoken webinar transcripts and raw interview recordings (e.g., Manus context engineering sessions) must preserve their authentic oral dialogue and complete conversational context.
+   * **Structural Optimization Only**: Agents must **NOT** summarize away or delete original spoken transcripts. Optimization is restricted to cleaner Markdown headings, clear speaker tags, polished navigation, and optional collapsible `<details>` containers for improved readability.
 
 ---
 
@@ -183,3 +196,5 @@ Due to OpenAI Codex's high-speed code completion, automated inline rewriting, an
 5. **Atomic & Explicit Staging Protocols**:
    * Codex must never generate or execute `git add .` or `git add -A`.
    * Codex must always output explicit, single-file staging commands with accompanying diff inspection steps (`git diff --staged`) prior to committing.
+6. **Blog Post Frontmatter Guardrail**:
+   * When generating frontmatter templates for `_posts/`, Codex must always output `excerpt: ""` and strictly avoid populating it with post abstracts or summaries.
