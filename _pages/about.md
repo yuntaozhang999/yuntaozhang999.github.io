@@ -63,7 +63,7 @@ I am a daily user of agentic coding assistants, including **Gemini CLI, Claude C
 - **Open-Source AI & Architecture Visualization:** Developed and open-sourced **[MoE 3D Architecture Visualizer](https://yuntaozhang999.github.io/moe-3d-visualizer/)**, an interactive WebGL/Three.js tool for exploring modern 500B+ sparse Mixture-of-Experts (MoE) architectures, LatentMoE communication compression, GQA, and dynamic temperature sampling pipelines in the browser without server dependencies ([Live Demo](https://yuntaozhang999.github.io/moe-3d-visualizer/) / [GitHub](https://github.com/yuntaozhang999/moe-3d-visualizer) / [Portfolio Details](/portfolio/2026-09-07-moe-3d-architecture-visualizer/)).
 - **Advanced Model Fine-Tuning:** Systematically fine-tuned the ST-Tahoe foundation model for gene perturbation analysis, diagnosing and resolving complex issues like representation mismatch and optimizer state conflicts to significantly improve performance. This work involves deep analysis of model architecture, loss functions, and training dynamics on enterprise-level platforms.
 - **Biologics Characterization:** Led the implementation of carbene footprinting for high-resolution epitope/paratope mapping, and developed novel LC-MS methods to support bispecific, ADC, and CAR-T programs.
-- **Mentorship & Collaboration:** Trained and mentored scientists in advanced MS and computational techniques, fostering a collaborative and innovative environment.
+- **Mentorship & Collaboration:** Trained and mentored scientists in advanced MS and computational techniques. Recognized with the **CABS 2026 Mentor Impact Award** for exceptional guidance and dedication in the CABS Data Science Summer Internship Program.
 
 ## Publications & Research
 

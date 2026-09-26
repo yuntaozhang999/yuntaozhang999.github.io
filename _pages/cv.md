@@ -47,6 +47,8 @@ Skills
 
 Awards and Fellowships
 ======
+* **Mentor Impact Award**, *Chinese American Biopharmaceutical Society (CABS)*, Sep. 2026
+  * Awarded for exceptional guidance, dedication, and impact on the CABS 2026 Data Science Summer Internship Program.
 * **Poster Award at Science Festival**, *Bristol Myers Squibb*, Oct. 2023
   * Awarded to two recipients for the best poster presentation.
 * **PCSP Graduate Seminarian of the Year**, *University of the Pacific*, Nov. 2020
@@ -87,6 +89,7 @@ Teaching
   
 Service and Leadership
 ======
+* Mentor, CABS 2026 Data Science Summer Internship Program, *Chinese American Biopharmaceutical Society (CABS)*, Sep. 2026
 * Peer Reviewer for:
   * ACS Biomaterials Science & Engineering
   * ACS Omega
