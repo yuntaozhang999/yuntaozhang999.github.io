@@ -2,7 +2,7 @@
 title: "Deconstructing the Model Context Protocol (MCP): From stdio Pipes to Streamable HTTP"
 date: 2026-09-12
 layout: single
-excerpt: "A hands-on deep dive into building an MCP server from scratch: understanding JSON-RPC 2.0 over process pipes, why Streamable HTTP replaces SSE for the cloud, and handling large data without blowing up the context window."
+excerpt: ""
 categories:
   - AI
   - Architecture

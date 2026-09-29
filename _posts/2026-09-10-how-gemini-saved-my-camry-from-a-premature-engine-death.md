@@ -2,7 +2,7 @@
 title: "Diagnosing My Camry's Low Compression: Engineering First Principles, Red-Teaming AI, and an Overnight Soak"
 date: 2026-09-10
 layout: single
-excerpt: "When a dry compression test on Cylinder 3 read 120 psi, panic set in. Here is the real-time account of working through low compression with Gemini, challenging AI overconfidence with a red-team falsification prompt, and preparing for the next diagnostic steps."
+excerpt: ""
 categories:
   - AI
   - Automotive

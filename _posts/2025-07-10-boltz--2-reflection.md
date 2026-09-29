@@ -12,17 +12,14 @@ tags:
 ---
 
 The original PDF can be found [here](https://cdn.prod.website-files.com/68404fd075dba49e58331ad9/6842ee1285b9af247ac5a122_boltz2.pdf), and the official GitHub repository is available [here](https://github.com/jwohlwend/boltz).
- 
- At a glance, it seemed like an incremental update: just take the successful Boltz-1 architecture and add an affinity prediction head. This impression was reinforced by benchmark charts where, for common tasks like protein-ligand prediction, the performance looked nearly identical to its predecessor. If the core structure prediction wasn't significantly better, I reasoned, the model's true value would be limited.
- 
- The paper highlights several key breakthroughs:
- 
+At a glance, it seemed like an incremental update: just take the successful Boltz-1 architecture and add an affinity prediction head. This impression was reinforced by benchmark charts where, for common tasks like protein-ligand prediction, the performance looked nearly identical to its predecessor. If the core structure prediction wasn't significantly better, I reasoned, the model's true value would be limited.
+
+The paper highlights several key breakthroughs:
+
 *   **Pioneering Affinity Prediction:** Boltz-2 is the first model of its kind to predict binding affinity with an accuracy comparable to gold-standard physics-based methods like FEP+, while being over 1,000 times faster. This combination of speed and precision represents a paradigm shift for virtual screening.
 *   **Advanced Architectural Controllability:** The model's core 'Trunk' has been significantly upgraded with new controllability features, allowing researchers to inject prior knowledge or steer predictions without costly retraining.
 *   **Enhanced Physical Plausibility:** Through a novel 'physical steering' technique, Boltz-2 generates structures that are more physically realistic during inference, addressing a common shortcoming of previous AI models.
- 
- 
-Below is a summary of my reflections on the paper in a question-and-answer format.
+
 
 ### 1. Core Architecture
 

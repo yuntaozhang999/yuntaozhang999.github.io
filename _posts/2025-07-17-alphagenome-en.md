@@ -209,6 +209,3 @@ def calculate_gene_metrics(
 
   return metrics
 ```
-
-### Summary of Engineering Takeaways
-By combining explicit sequence padding (`.center(2048, 'N')`), robust virtual environment isolation, UBERON-guided track selection, and rigorous coordinate merging algorithms, AlphaGenome empowers researchers to dissect gene regulation and variant impact with atomic biological precision.

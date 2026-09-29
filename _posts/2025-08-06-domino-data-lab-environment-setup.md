@@ -7,172 +7,172 @@ tags:
   - Docker Container
 
 ---
-**Topic:** Setting up Python 3.11 + CUDA environment in Domino Data Lab 
+**Topic:** Setting up Python 3.11 + CUDA environment in Domino Data Lab
 
 ## Table of Contents
 
-1.  Initial Problem 
-2.  Understanding Domino Environments 
-3.  Environment Creation Process 
-4.  Technical Issues & Solutions 
-5.  Docker & Container Concepts 
-6.  Successful Solution 
-7.  Key Lessons Learned 
+1.  Initial Problem
+2.  Understanding Domino Environments
+3.  Environment Creation Process
+4.  Technical Issues & Solutions
+5.  Docker & Container Concepts
+6.  Successful Solution
+7.  Key Lessons Learned
 
 -----
 
 ## Initial Problem
 
-### User's Requirement: 
+### User's Requirement:
 
-  * Need Python 3.10+ with CUDA support for machine learning work 
-  * Working in Domino Data Lab platform 
-  * Confused about available compute environments 
-  * Initially thought Spark was needed (turned out to be unnecessary) 
+  * Need Python 3.10+ with CUDA support for machine learning work
+  * Working in Domino Data Lab platform
+  * Confused about available compute environments
+  * Initially thought Spark was needed (turned out to be unnecessary)
 
-### Initial Confusion: 
+### Initial Confusion:
 
-  * What is "Domino 6.0 Spark compute environment"? 
-  * Which environment to choose for Python 3.10+ and CUDA? 
-  * Difference between various compute environment types 
+  * What is "Domino 6.0 Spark compute environment"?
+  * Which environment to choose for Python 3.10+ and CUDA?
+  * Difference between various compute environment types
 
 -----
 
 ## Understanding Domino Environments
 
-### Environment Types in Domino 
+### Environment Types in Domino
 
-1.  **Domino Standard Environment (DSE)** - Complete set of libraries and packages 
-2.  **Domino Minimal Environment (DME)** - Lighter with fewer packages 
-3.  **Custom Environments** - User-built environments for specific needs 
+1.  **Domino Standard Environment (DSE)** - Complete set of libraries and packages
+2.  **Domino Minimal Environment (DME)** - Lighter with fewer packages
+3.  **Custom Environments** - User-built environments for specific needs
 
-### Available Environment Categories 
+### Available Environment Categories
 
-  * Standard Data Science environments 
-  * GPU/CUDA environments 
-  * Spark environments (for distributed computing) 
-  * Custom Docker-based environments 
+  * Standard Data Science environments
+  * GPU/CUDA environments
+  * Spark environments (for distributed computing)
+  * Custom Docker-based environments
 
-### Key Insight: Spark is NOT needed 
+### Key Insight: Spark is NOT needed
 
-  * **Spark** = Distributed computing across multiple machines 
-  * **User's need** = Individual ML work with GPU acceleration 
-  * **Solution** = Standard Python + CUDA environment 
+  * **Spark** = Distributed computing across multiple machines
+  * **User's need** = Individual ML work with GPU acceleration
+  * **Solution** = Standard Python + CUDA environment
 
 -----
 
 ## Environment Creation Process
 
-### Initial Approach: Search for Existing 
+### Initial Approach: Search for Existing
 
-  * Looked for environments with both Python 3.10+ and CUDA 
-  * **Problem**: No pre-built environment matched exact requirements 
-  * **Discovery**: Domino allows custom environment creation 
+  * Looked for environments with both Python 3.10+ and CUDA
+  * **Problem**: No pre-built environment matched exact requirements
+  * **Discovery**: Domino allows custom environment creation
 
-### Solution: Duplicate and Modify Existing Environment 
+### Solution: Duplicate and Modify Existing Environment
 
-**Steps Taken:** 
+**Steps Taken:**
 
-1.  Found base environment: `domino-dse5.3-cuda11.8` (had CUDA 11.8 but Python 3.9) 
-2.  Duplicated environment using Domino's interface 
-3.  Renamed to: `domino-dse5.3-cuda11.8-py3.11` 
-4.  Added custom Dockerfile instruction to upgrade Python 
+1.  Found base environment: `domino-dse5.3-cuda11.8` (had CUDA 11.8 but Python 3.9)
+2.  Duplicated environment using Domino's interface
+3.  Renamed to: `domino-dse5.3-cuda11.8-py3.11`
+4.  Added custom Dockerfile instruction to upgrade Python
 
-### Environment Configuration Interface 
+### Environment Configuration Interface
 
-**Domino Environment Editor:** 
+**Domino Environment Editor:**
 
-  * ✓ Environment Base (inherit from existing) 
-  * ✓ Supported Cluster Settings (none/Spark/Ray/Dask/MPI) 
-  * ✓ Dockerfile Instructions (custom modifications) 
-  * ✓ Pluggable Workspace Tools 
-  * ✓ Run Setup Scripts 
-  * ✓ Environment Variables 
-  * ✓ Advanced Settings 
+  * ✓ Environment Base (inherit from existing)
+  * ✓ Supported Cluster Settings (none/Spark/Ray/Dask/MPI)
+  * ✓ Dockerfile Instructions (custom modifications)
+  * ✓ Pluggable Workspace Tools
+  * ✓ Run Setup Scripts
+  * ✓ Environment Variables
+  * ✓ Advanced Settings
 
 -----
 
 ## Technical Issues & Solutions
 
-### Issue 1: SSL Certificate Verification Error 
+### Issue 1: SSL Certificate Verification Error
 
-**Error Message:** 
-`CondaSSLError: Encountered an SSL error. Most likely a certificate verification issue.` 
-`Exception: HTTPSConnectionPool (host='repo.anaconda.com', port=443): Max retries exceeded with url: /pkgs/main/linux-64/current_repodata.json (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self signed certificate in certificate chain (ssl.c:1129)')))` 
+**Error Message:**
+`CondaSSLError: Encountered an SSL error. Most likely a certificate verification issue.`
+`Exception: HTTPSConnectionPool (host='repo.anaconda.com', port=443): Max retries exceeded with url: /pkgs/main/linux-64/current_repodata.json (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self signed certificate in certificate chain (ssl.c:1129)')))`
 
-**Root Cause:** 
+**Root Cause:**
 
-  * Corporate network with proxy servers/firewalls 
-  * Self-signed certificates in certificate chain 
-  * Conda refusing "unsafe" connections for security 
+  * Corporate network with proxy servers/firewalls
+  * Self-signed certificates in certificate chain
+  * Conda refusing "unsafe" connections for security
 
-**Solution Applied:** 
+**Solution Applied:**
 
 ```shell
 RUN conda config --set ssl_verify false && conda install -c conda-forge python=3.11 -y
 ```
 
-**Why This Works:** 
-* Disables SSL verification for conda 
-* Uses `conda-forge` channel (community-maintained, often more reliable) 
-* Safe in controlled Domino environment 
+**Why This Works:**
+* Disables SSL verification for conda
+* Uses `conda-forge` channel (community-maintained, often more reliable)
+* Safe in controlled Domino environment
 
-### Issue 2: Long Build Times 
-**Observed Behavior:** 
-* Build process took 30+ minutes 
-* Multiple dependency resolution attempts 
-* "failed with initial frozen solve. Retrying with flexible solve" 
+### Issue 2: Long Build Times
+**Observed Behavior:**
+* Build process took 30+ minutes
+* Multiple dependency resolution attempts
+* "failed with initial frozen solve. Retrying with flexible solve"
 
-**Explanation:** 
-* Python 3.9 -> 3.11: Major version upgrade 
-* Complex dependencies in scientific computing stack 
-* CUDA compatibility checks required 
-* Network latency downloading packages 
+**Explanation:**
+* Python 3.9 -> 3.11: Major version upgrade
+* Complex dependencies in scientific computing stack
+* CUDA compatibility checks required
+* Network latency downloading packages
 
-**Normal Build Process:** 
-1.  Collecting package metadata (current_repodata.json) 
-2.  Solving environment (frozen solve) ❌ 
-3.  Solving environment (flexible solve) ☑️ 
-4.  Collecting package metadata (repodata.json) 
-5.  Final dependency resolution... (in progress) 
+**Normal Build Process:**
+1.  Collecting package metadata (current_repodata.json)
+2.  Solving environment (frozen solve) ❌
+3.  Solving environment (flexible solve) ☑️
+4.  Collecting package metadata (repodata.json)
+5.  Final dependency resolution... (in progress)
 
-### Issue 3: Jupyter Notebook Startup Failure 
-**Error Message:** 
-`ModuleNotFoundError: No module named 'notebook.notebookapp'` 
+### Issue 3: Jupyter Notebook Startup Failure
+**Error Message:**
+`ModuleNotFoundError: No module named 'notebook.notebookapp'`
 
-**Root Cause:** 
-* Python 3.11 upgrade changed Jupyter architecture 
-* Jupyter Notebook 7.0+ restructured/relocated `notebook.notebookapp` module during architectural changes 
-* Default Domino workspace configuration expects classic Notebook interface 
+**Root Cause:**
+* Python 3.11 upgrade changed Jupyter architecture
+* Jupyter Notebook 7.0+ restructured/relocated `notebook.notebookapp` module during architectural changes
+* Default Domino workspace configuration expects classic Notebook interface
 
-**Solutions Attempted:** 
-1.  **Updated Dockerfile** - Added specific Jupyter packages: 
+**Solutions Attempted:**
+1.  **Updated Dockerfile** - Added specific Jupyter packages:
     ```shell
     RUN pip install jupyterlab notebook nbconvert ipykernel
-    ``` 
-2.  **IDE Selection** - Switched from "Jupyter" to "JupyterLab" in workspace creation 
+    ```
+2.  **IDE Selection** - Switched from "Jupyter" to "JupyterLab" in workspace creation
 
-**Resolution:** 
-* JupyterLab works perfectly with Python 3.11 
-* Classic Jupyter Notebook fails due to module incompatibility 
-* Root issue: Jupyter ecosystem evolution and backward compatibility 
+**Resolution:**
+* JupyterLab works perfectly with Python 3.11
+* Classic Jupyter Notebook fails due to module incompatibility
+* Root issue: Jupyter ecosystem evolution and backward compatibility
 
 -----
 
 ## Docker & Container Concepts
 
-### Key Conceptual Learning 
-**Traditional Software Deployment Problems:** 
-* "Works on my machine" syndrome 
-* Environment configuration complexity 
-* Dependency conflicts between applications 
+### Key Conceptual Learning
+**Traditional Software Deployment Problems:**
+* "Works on my machine" syndrome
+* Environment configuration complexity
+* Dependency conflicts between applications
 
-**Docker's Solution:** 
-* Standardized containers = Software + Dependencies + Environment 
-* Write once, run anywhere philosophy 
-* Isolation without full virtualization overhead 
+**Docker's Solution:**
+* Standardized containers = Software + Dependencies + Environment
+* Write once, run anywhere philosophy
+* Isolation without full virtualization overhead
 
-### Docker vs Python Virtual Environment 
+### Docker vs Python Virtual Environment
 | Feature | Python Virtual Env | Docker Container |
 | :--- | :--- | :--- |
 | **Scope** | Python packages only | Entire OS + applications |
@@ -182,30 +182,24 @@ RUN conda config --set ssl_verify false && conda install -c conda-forge python=3
 | **Use Case** | Development | Development + Production |
 
 
-### Docker Naming Etymology 
-* **Docker** = Dock worker (stevedore) 
-* **Analogy**: Shipping containers revolutionized cargo transport 
-* Software containers standardize application deployment 
-* Docker "workers" manage these "software containers" 
-
-### Domino Environment = Enhanced Docker Container 
-**Domino Environment Contains:** 
-* ✓ Base Linux OS (Ubuntu/CentOS) 
-* ✓ Python Environment (specific version + packages) 
-* ✓ GPU Support (CUDA drivers + cuDNN) 
-* ✓ Development Tools (Jupyter, VS Code, Git) 
-* ✓ Pre-installed ML Libraries (NumPy, Pandas, PyTorch) 
-* ✓ Domino-specific integrations 
-* ✓ Workspace management tools 
+### Domino Environment = Enhanced Docker Container
+**Domino Environment Contains:**
+* ✓ Base Linux OS (Ubuntu/CentOS)
+* ✓ Python Environment (specific version + packages)
+* ✓ GPU Support (CUDA drivers + cuDNN)
+* ✓ Development Tools (Jupyter, VS Code, Git)
+* ✓ Pre-installed ML Libraries (NumPy, Pandas, PyTorch)
+* ✓ Domino-specific integrations
+* ✓ Workspace management tools
 -----
 
 ## SUCCESSFUL SOLUTION: Official Domino Method
 
-### Discovery of Official Documentation 
-After the conda approach failed, we discovered official Domino documentation for installing Python 3.11, which provided a much more efficient solution. 
-* **Source**: Installing Python 3.11 in a Domino Compute Environment (Sep 27, 2024) 
+### Discovery of Official Documentation
+After the conda approach failed, we discovered official Domino documentation for installing Python 3.11, which provided a much more efficient solution.
+* **Source**: Installing Python 3.11 in a Domino Compute Environment (Sep 27, 2024)
 
-### Why the Official Method Works Better 
+### Why the Official Method Works Better
 | Aspect | Conda Approach (Failed) | Official Method (Success) |
 | :--- | :--- | :--- |
 | **Strategy** | Upgrade existing Python in conda env | Install new Python via system packages |
@@ -214,10 +208,13 @@ After the conda approach failed, we discovered official Domino documentation for
 | **Build Time** | 1+ hours (failed) | ~3 minutes |
 | **Success Rate** | Failed | ✓ Successful |
 
+### The Containerization Mental Model: Docker as a Stevedore
 
-### Final Working Dockerfile 
+To understand why custom environments fail, it helps to recall the foundational container analogy: **Docker** is named after a *dock worker* (stevedore) who handles standardized cargo. Just as standardized physical shipping containers revolutionized global trade by eliminating bespoke loading rules, software containers package code, runtimes, and system libraries into an immutable box. In cloud platforms like Domino Data Lab, the container ensures that an environment built with CUDA drivers and Python dependencies runs identically across host machines without 'works on my machine' discrepancies.
+
+### Final Working Dockerfile
 ```dockerfile
-USER root 
+USER root
 
 # Clean problematic repositories and install Python 3.11
 RUN rm -f /etc/apt/sources.list.d/pgdg.list && \
@@ -225,128 +222,55 @@ RUN rm -f /etc/apt/sources.list.d/pgdg.list && \
     apt install software-properties-common -y && \
     add-apt-repository ppa:deadsnakes/ppa && \
     apt update && \
-    apt install python3.11 python3.11-distutils -y 
+    apt install python3.11 python3.11-distutils -y
 
 # Set Python 3.11 as default python and python3 commands
-RUN update-alternatives --install /opt/conda/bin/python python /usr/bin/python3.11 1 
-RUN update-alternatives --install /opt/conda/bin/python3 python3 /usr/bin/python3.11 1 
+RUN update-alternatives --install /opt/conda/bin/python python /usr/bin/python3.11 1
+RUN update-alternatives --install /opt/conda/bin/python3 python3 /usr/bin/python3.11 1
 
 # Install pip for Python 3.11
-RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.11 
+RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.11
 
 # Install PyTorch with CUDA 11.8 support and scientific packages
 RUN pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118 && \
     pip install jupyterlab notebook nbconvert ipykernel && \
-    pip install numpy pandas matplotlib scikit-learn 
+    pip install numpy pandas matplotlib scikit-learn
 
-USER ubuntu 
+USER ubuntu
 ```
 
-### Step-by-Step Command Explanation 
+### Key Implementation Techniques
 
-1.  **User Permission Management** 
+Rather than struggling with conda solver conflicts across hundreds of pre-installed packages, this Dockerfile relies on two essential system-level techniques:
 
-      * `USER root` 
-      * **Purpose**: Switch to root user for system-level package installation. 
-      * **Why needed**: Installing system packages requires administrator privileges. 
-
-2.  **Repository Cleanup and Python Installation** 
-
-      * `RUN rm -f /etc/apt/sources.list.d/pgdg.list && \
-` 
-          * **Purpose**: Remove problematic PostgreSQL repository. 
-      * `apt update && \
-` 
-          * **Purpose**: Refresh package lists after cleaning repositories. 
-      * `apt install software-properties-common -y && \
-` 
-          * **Purpose**: Install repository management tools. 
-      * `add-apt-repository ppa:deadsnakes/ppa && \
-` 
-          * **Purpose**: Add `deadsnakes` Personal Package Archive, which provides the latest Python versions for Ubuntu. 
-      * `apt update && \
-` 
-          * **Purpose**: Refresh package lists to include new repository. 
-      * `apt install python3.11 python3.11-distutils -y` 
-          * **Result**: Clean Python 3.11 installation alongside existing Python 3.9. 
-
-3.  **Python Command Redirection** 
-
-      * `RUN update-alternatives --install /opt/conda/bin/python python /usr/bin/python3.11 1` 
-          * **Purpose**: Make `python` command invoke Python 3.11. 
-      * `RUN update-alternatives --install /opt/conda/bin/python3 python3 /usr/bin/python3.11 1` 
-          * **Purpose**: Make `python3` command also invoke Python 3.11. 
-
-4.  **Package Manager Installation** 
-
-      * `RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.11` 
-          * **Purpose**: Download the official pip installer script and execute it with the new Python 3.11. 
-
-5.  **PyTorch and Scientific Packages** 
-
-      * `RUN pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118 && \
-` 
-          * `--index-url`: Specifies the PyTorch repository with versions compiled for CUDA 11.8. 
-      * `pip install jupyterlab notebook nbconvert ipykernel && \
-` 
-      * `pip install numpy pandas matplotlib scikit-learn` 
-          * Installs the essential scientific computing and Jupyter stack. 
-
-6.  **Security Best Practice** 
-
-      * `USER ubuntu` 
-      * **Purpose**: Switch back to a non-privileged user. 
-      * **Security**: Prevents applications from running with root privileges, which is a standard practice. 
+* **`ppa:deadsnakes/ppa` for Clean Python 3.11 Installation**: Adds Ubuntu's trusted deadsnakes PPA to install `python3.11` and `python3.11-distutils` directly at the OS level without breaking system libraries.
+* **`update-alternatives` for Seamless Path Redirection**: Configures `/opt/conda/bin/python` and `/opt/conda/bin/python3` to point to `/usr/bin/python3.11`. This ensures Domino's workspace launcher and Jupyter kernels execute Python 3.11 while retaining the existing base CUDA 11.8 runtime.
 
 -----
 
-## Build Results: Success! 
+## Build Results: Success!
 
-  * **Total build time**: ~13 minutes 
-  * **Total process time**: 3 minutes coding + 10 minutes Docker build/push 
+  * **Total build time**: ~13 minutes
+  * **Total process time**: 3 minutes coding + 10 minutes Docker build/push
 
-**Successfully Installed:** 
+**Successfully Installed:**
 
-  * Python 3.11.13 
-  * PyTorch 2.7.1+cu118 
-  * All NVIDIA CUDA packages (cublas, cudnn, etc.) 
-  * Complete scientific computing stack 
-  * Jupyter notebook environment 
+  * Python 3.11.13
+  * PyTorch 2.7.1+cu118
+  * All NVIDIA CUDA packages (cublas, cudnn, etc.)
+  * Complete scientific computing stack
+  * Jupyter notebook environment
 
-**Key Success Factors:** 
+**Final Status:**
 
-1.  **System-level approach**: Used `apt` instead of fighting conda dependencies. 
-2.  **Repository management**: Properly cleaned and added Python repositories. 
-3.  **Preserved CUDA**: Kept existing GPU drivers and toolkit intact. 
-4.  **Official methodology**: Followed Domino's recommended approach. 
-5.  **Efficient layering**: Each Docker layer had a clear, focused purpose. 
-
-**Final Status:** 
-
-  * ✔ Environment builds successfully 
-  * ✔ JupyterLab starts without errors 
-  * ✔ Python 3.11 + CUDA + PyTorch working perfectly 
-  * ✔ GPU access confirmed (NVIDIA A10G with 23GB VRAM) 
-  * ❌ Classic Jupyter Notebook fails (module compatibility issue) 
+  * ✔ Environment builds successfully (~13 min total)
+  * ✔ JupyterLab starts without errors
+  * ✔ Python 3.11 + CUDA 11.8 + PyTorch working with full GPU acceleration (NVIDIA A10G)
 
 -----
 
-## Key Lessons Learned
+## Key Takeaways
 
-### Technical Lessons 
-
-1.  **Environment Hierarchy**: Choose the CUDA environment first, then upgrade Python. Installing CUDA later is difficult as it requires system-level privileges not available in a running container. 
-2.  **Corporate Network Challenges**: SSL certificate issues are common. `conda-forge` is often a more reliable channel, and disabling SSL verification can be safe in controlled environments. 
-3.  **Dependency Management**: Major Python version upgrades can take significant time due to complex interdependencies in the scientific computing stack. 
-4.  **Container vs. Virtual Environment**: Containers provide full system-level isolation, whereas virtual environments only isolate Python packages. Containers are essential for reproducible ML and GPU computing. 
-
-### Practical Lessons 
-
-1.  **Platform Understanding**: Realize that Domino environments are sophisticated Docker containers and that custom environment creation is a powerful and necessary feature. 
-2.  **Problem-Solving Approach**: Start with existing solutions and modify them. Understand the root cause before applying a fix, especially in corporate environments. 
-
-### The Ultimate Lesson:
-
-When facing complex technical challenges, **always check if the platform vendor has official guidance** before attempting custom solutions. The official Domino method took ~3 minutes versus over an hour of failed attempts with conda. 
-
------
+1. **Vendor Guidance First**: Always check official vendor documentation before attempting custom package builds. The official system-level recipe took ~3 minutes of configuration versus over an hour of failed conda solver resolution.
+2. **System-Level Over Solver Conflicts**: In pre-baked ML containers, installing Python via system packages (`apt` + `deadsnakes`) and redirecting symlinks avoids the brittle cascade of re-resolving hundreds of pinned scientific packages.
+3. **Preserve the CUDA Foundation**: Choose a base image with the desired CUDA and driver version already validated. Rebuilding CUDA from inside an unprivileged container is impractical, whereas Python runtime versions can easily be overlaid on top.

@@ -40,8 +40,3 @@ Faced with the endless stream of new AI products and “hype” every day, I thi
 ### 7. My Ideal Direction for AI
 
 I am most interested in AI applications in **health, longevity, and life sciences**. I hope to use AI to reveal the essence of life, disease mechanisms, and aging processes, pushing the limits of human health and longevity. Human understanding of our own biology is still very limited. AI is expected to become a powerful tool for breakthroughs in biology. In the next decade, AI + biology is likely to bring unprecedented scientific advances.
-
----
-
-**Summary:**  
-The AI revolution is full of hope, but also full of challenges. We must be wary of short-term hype and extreme risks, while maintaining long-term thinking and rational reflection. Continuous learning, embracing change, focusing on implementation, and pursuing the essence are my core attitudes in facing the AI wave.

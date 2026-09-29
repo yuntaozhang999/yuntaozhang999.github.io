@@ -36,13 +36,7 @@ First, install Node.js (npm comes automatically with Node.js):
 
 ```sh
 brew install node
-````
-
-**What this does:**
-
-  * Installs Node.js JavaScript runtime environment.
-  * Automatically includes npm (Node Package Manager).
-  * Provides the foundation for running JavaScript applications like Claude Code.
+```
 
 ### 2\. Install Claude Code
 
@@ -50,23 +44,13 @@ brew install node
 npm install -g @anthropic-ai/claude-code
 ```
 
-**What this does:**
-
-  * Downloads and installs Claude Code globally (`-g` flag).
-  * Makes the `claude` command available in your terminal.
-  * **Note**: The package name is `@anthropic-ai/claude-code`, but the command is just `claude`.
+> **Note**: The package name is `@anthropic-ai/claude-code`, but the command is just `claude`.
 
 ### 3\. Install AWS CLI
 
 ```sh
 brew install awscli
 ```
-
-**What this does:**
-
-  * Installs AWS Command Line Interface.
-  * Enables authentication with AWS services.
-  * Required for accessing AWS Bedrock where our Claude models are hosted.
 
 ### 4\. Configure AWS Profile
 
@@ -119,11 +103,6 @@ export ANTHROPIC_MODEL='us.anthropic.claude-sonnet-4-20250514-v1:0'
 ```sh
 source ~/.zprofile
 ```
-
-**What this does:**
-
-  * Loads the new environment variables into your current terminal session.
-  * Makes the settings available immediately without restarting your terminal.
 
 -----
 
@@ -226,11 +205,3 @@ echo "ANTHROPIC_MODEL: $ANTHROPIC_MODEL"
   * **Claude Code installation**: `/opt/homebrew/lib/node_modules/@anthropic-ai/claude-code/`
   * **Claude Configuration**: `~/.claude/`
   * **Gemini Configuration**: `~/.gemini/`
-
------
-
-## Summary
-
-This setup creates a secure connection from your Mac to your company's Claude models hosted on AWS Bedrock. The authentication happens through your company's SSO system, and once configured, you can use Claude Code with a simple `claude` command after authenticating with AWS SSO.
-
-**Remember**: You need to run `aws sso login --profile claude-code` whenever your AWS session expires (typically every 8 hours), but all other configurations are permanent.

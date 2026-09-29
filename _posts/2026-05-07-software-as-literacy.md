@@ -57,9 +57,7 @@ Karpathy shared a humbling lesson from his project, **MenuGen**. As base models 
 
 Adding to this discussion, I recently watched a CNBC interview where **Jensen Huang** (Nvidia CEO) offered a brilliant analogy: **AI as white blood cells.** He argued that the best defense against malicious AI is "good AI" that monitors and defends our infrastructure. In this vision, AI becomes a scalable, digital immune system that evolves alongside threats.
 
-### Why This Matters
-
-This shift suggests that the bottleneck for innovation will no longer be the ability to write code, but rather **domain expertise and taste.** Coding is evolving from a craft of syntax into a craft of intent and orchestration. Whether it's Boris's "universal literacy" or Jensen's "digital immune system," it's clear that AI is moving from a specialized tool to a fundamental layer of our reality.
+Ultimately, coding is shifting from a mechanical craft of syntax into a universal literacy of intent, where domain expertise, taste, and architectural orchestration become the true differentiators.
 
 ---
 *Inspired by Sequoia Capital AI Ascent 2026 and recent industry reflections.*

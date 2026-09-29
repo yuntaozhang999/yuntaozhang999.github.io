@@ -203,13 +203,7 @@ The paper suggests a `decoder_weight` of `0.1`, while my configuration had it at
 
 ---
 
-## Conclusion and Reflections
+## Key Takeaways
 
-This deep dive was incredibly insightful. The most important takeaways are:
-
-1.  **Never Take Things for Granted:** A simple issue like a flat `val_loss` can have complex, interconnected causes.
-2.  **The Source Code is the Ultimate Truth:** When confused by configurations, reading the source code provides the definitive answer.
-3.  **Combine Theory with Practice:** Connecting the ideas from the paper with the code implementation is essential for true understanding.
-4.  **Fine-Tune Systematically:** A successful fine-tuning process relies on a systematic approach combining progressive unfreezing, layer-wise learning rates, and sound hyperparameters.
-
-This log documents my learning journey. I hope it can serve as a valuable reference for my future self (and for you) when encountering similar challenges.
+* **Systematic Fine-Tuning Over Brute Force**: A successful adaptation relies on progressive unfreezing, layer-wise learning rate decay (LLRD), and conservative gradient clipping (`1.0` vs. default `10`) to prevent representational collapse.
+* **Objective Loss Weighting**: When balancing primary distribution losses in embedding space against auxiliary gene-space reconstruction, tuning `decoder_weight` appropriately is essential to prevent auxiliary objectives from stalling representation learning.
