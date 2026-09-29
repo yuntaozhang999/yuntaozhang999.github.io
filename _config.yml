@@ -12,7 +12,7 @@ site_theme               : "default" # The available themes options are "default
 title                    : "Yuntao Zhang"
 title_separator          : "-"
 name                     : &name "Yuntao Zhang"
-description              : &description "Scientist @BMS | AI-Driven Innovator"
+description              : &description "Senior Scientist at Bristol Myers Squibb | AI & Mass Spectrometry for Biologics"
 url                      : https://yuntaozhang999.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io" or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "yuntaozhang999/yuntaozhang999.github.io"
@@ -25,7 +25,7 @@ author:
   avatar           : "profile.png"
   name             : "Yuntao Zhang" # Your name, used in the title and as the author name
   pronouns         : "he/him"  
-  bio              : "Scientist @BMS | AI-Driven Innovator"
+  bio              : "Senior Scientist | AI & Mass Spectrometry for Biologics"
   location         : "San Francisco Bay Area, CA, USA" # Location, used in the author profile
   employer         : "Bristol Myers Squibb" # Employer, used in the author profile
   uri              : "https://yuntaozhang999.github.io"
@@ -147,7 +147,7 @@ facebook:
   app_id                 :
   publisher              :
 og_image                 : "/images/profile.png"
-og_description           : "Senior Scientist | AI-Enhanced Mass Spectrometry Specialist"
+og_description           : "Senior Scientist at Bristol Myers Squibb | AI & Mass Spectrometry for Biologics"
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:

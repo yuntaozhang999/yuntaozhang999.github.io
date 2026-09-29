@@ -1,18 +1,13 @@
 # Authors
 
-Name Name:
-  name        : "Name Name"
-  uri         : "https://name.com"
-  email       : "name@name.com"
-  bio         : "This is the first name."
-  avatar      : "bio-photo-2.jpg"
-  twitter     : "name"
-  google_plus : "Name"
-
-Name2 Name2:
-  name        : "Name2 Name2"
-  email       : "name2@name2.com"
-  bio         : "I ordered what?"
-  avatar      : "bio-photo.jpg"
-  twitter     : "name2"
-  google_plus : "Name"
+Yuntao Zhang:
+  name: "Yuntao Zhang"
+  bio: "Senior Scientist | AI & Mass Spectrometry for Biologics"
+  avatar: "profile.png"
+  uri: "https://yuntaozhang999.github.io"
+  employer: "Bristol Myers Squibb"
+  location: "San Francisco Bay Area, CA, USA"
+  github: "yuntaozhang999"
+  linkedin: "yuntao4drugdiscovery"
+  orcid: "https://orcid.org/0000-0001-8815-3105"
+  googlescholar: "https://scholar.google.com/citations?user=yFmxAroAAAAJ"
