@@ -1,14 +1,10 @@
 ---
 title: "General Chemistry (CHEM27) Lab"
 collection: teaching
-type: "Undergraduate course"
+type: "Undergraduate course (Lab Instructor)"
+date: 2019-01-01
 venue: "University of the Pacific, Chemistry Department"
 location: "Stockton, CA, USA"
 ---
 
-**Course:** General Chemistry (CHEM27) Lab  
-**Institution:** University of the Pacific, Chemistry Department  
-**Role:** Undergraduate course instructor
-
-**Description:**  
-More important general principles, theories, and concepts of chemistry are studied including modern applications of quantum mechanics, bonding, chemical kinetics, liquids, solids, properties of solutions, coordination compounds, organic chemistry
+Served as the Laboratory Instructor for General Chemistry (CHEM27) at the University of the Pacific. Led advanced undergraduate laboratories focusing on chemical kinetics, solution equilibria, electrochemistry, coordination compounds, organic chemistry, and biochemistry.

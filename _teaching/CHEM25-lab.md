@@ -1,14 +1,10 @@
 ---
 title: "General Chemistry (CHEM25) Lab"
 collection: teaching
-type: "Undergraduate course"
+type: "Undergraduate course (Lab Instructor)"
+date: 2018-01-01
 venue: "University of the Pacific, Chemistry Department"
 location: "Stockton, CA, USA"
 ---
 
-**Course:** General Chemistry (CHEM25) Lab  
-**Institution:** University of the Pacific, Chemistry Department  
-**Role:** Undergraduate course instructor
-
-**Description:**  
-The important general principles, theories and concepts of chemistry are studied, including fundamentals of chemistry and
+Served as the Laboratory Instructor for General Chemistry (CHEM25) at the University of the Pacific. Directed hands-on laboratory experiments, instructed students in data collection and analytical techniques, and reinforced core concepts in thermochemistry, atomic structure, and chemical equilibrium.

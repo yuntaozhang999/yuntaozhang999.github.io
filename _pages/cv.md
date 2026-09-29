@@ -24,6 +24,10 @@ Education
 Work Experience
 ======
 * **Scientist – Senior Scientist**, Bristol Myers Squibb, CA, USA, Oct. 2021 – Present
+  * Leading mass spectrometry characterization and high-resolution Carbene Footprinting for epitope/paratope mapping to support biologics, ADCs, and cell therapy pipelines.
+  * Co-inventor of anti-LRRC15 antibodies and antibody-drug conjugates (ADCs) (granted US patent / WIPO international patent applications).
+  * Spearheaded deep learning workflows and foundation model fine-tuning (e.g. ST-Tahoe single-cell perturbation) and automated LC-MS data analysis pipelines.
+  * Mentored data science and bioinformatics interns (Recipient of the CABS Mentor Impact Award).
 * **Research Assistant**, University of the Pacific, CA, USA, Aug. 2016 – Aug. 2021
   * Investigated structural and energetic properties of peptoids/peptides using advanced MS and computational modeling.
   * Developed computational workflows for peptide/peptoid characterization; contributed to 3 peer-reviewed publications.
@@ -32,7 +36,7 @@ Work Experience
 Skills
 ======
 * Analytical Techniques
-  * Carbene foootprinting for epitope/paratope mapping, Peptide Mapping, Glycan Profiling, Native MS, Intact/Subunit Mass Analysis
+  * Carbene footprinting for epitope/paratope mapping, Peptide Mapping, Glycan Profiling, Native MS, Intact/Subunit Mass Analysis
 * Instrumentation
   * Orbitrap Fusion Lumos, Exactive Plus EMR, ZenoTOF 7600, TripleQuad 7500, timsTOF Pro2, 6530B QTOF, 6230B TOF
   * Acquity M Class, 1260/1290 Infinity II, Ultimate 3000, NanoElute2
@@ -48,15 +52,15 @@ Skills
 Awards and Fellowships
 ======
 * **Mentor Impact Award**, *Chinese American Biopharmaceutical Society (CABS)*, Sep. 2026
-  * Awarded in recognition of outstanding mentorship, guidance, and dedication to supporting the growth and success of interns in the CABS Data Science Summer Internship Program.
+  * Recognized for mentoring interns in machine learning and bioinformatics pipelines within the CABS Summer Internship Program.
 * **Poster Award at Science Festival**, *Bristol Myers Squibb*, Oct. 2023
-  * Awarded to two recipients for the best poster presentation.
+  * Selected for best poster presentation.
 * **PCSP Graduate Seminarian of the Year**, *University of the Pacific*, Nov. 2020
-  * Awarded to one recipient for the best research seminar presentation.
-* **John H. Shinkai Endowed Graduate Student Scholarship**, *University of the Pacific*, Jun. 2017, Jun. 2020
-  * Awarded to two recipients for excellence in research and academic accomplishment.
+  * Selected for outstanding research seminar presentation.
+* **John H. Shinkai Endowed Graduate Student Scholarship**, *University of the Pacific*, Jun. 2017 & Jun. 2020
+  * Awarded for excellence in research and academic accomplishment.
 * **PCSP College of the Pacific Dean's Travel Award**, *University of the Pacific*, Jun. 2019
-  * Awarded to two recipients to support student travel for conference presentation.
+  * Competitive travel grant for conference presentation.
 
 Publications
 ======
